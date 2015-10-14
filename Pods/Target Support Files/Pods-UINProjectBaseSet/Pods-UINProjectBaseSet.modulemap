@@ -1,0 +1,6 @@
+framework module Pods_UINProjectBaseSet {
+  umbrella header "Pods-UINProjectBaseSet-umbrella.h"
+
+  export *
+  module * { export * }
+}
