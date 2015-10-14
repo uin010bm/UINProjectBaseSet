@@ -13,7 +13,7 @@ import BlocksKit
 
 extension UIScrollView {
     
-    // MARK: public functions
+    // MARK: - public functions
     /**
     Set event hundling will fire when over setting rect.
     
@@ -21,7 +21,7 @@ extension UIScrollView {
     :param: animated   set animation bool
     :param: completion set completion block
     */
-    public func pbs_scrollRectToVisible(rect: CGRect, animated: Bool, completion:()->Void) {
+    public func handleScrollRectToVisible(rect: CGRect, animated: Bool, completion:()->Void) {
         self.scrollRectToVisible(rect, animated: animated)
         let maxDuration:Double = 0.5
         var currentDuration:Double = 0.0

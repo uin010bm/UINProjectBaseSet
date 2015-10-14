@@ -10,11 +10,14 @@ import Foundation
 
 public extension NSDate {
     
-    // MARK: propertys
+    // MARK: - private propertys
     /// Property to get date Int.
     private var components: NSDateComponents {
         return NSCalendar.currentCalendar().components([.Year, .Month, .Day, .Weekday, .Hour, .Minute, .Second], fromDate: self)
     }
+    
+    
+    // MARK: - public propertys
     /// Get yer
     public var year: Int {
         return components.year
@@ -46,22 +49,22 @@ public extension NSDate {
     
     
     
-    // MARK: static functions
+    // MARK: - public class functions
     /// Get NSDate object with milli seconds.
-    public class func date(milliSec:Int64) -> NSDate {
+    public class func getDateWithMilliSeconds(milliSec:Int64) -> NSDate {
         let ti = NSTimeInterval(milliSec / 1000)
         return NSDate(timeIntervalSince1970:ti)
     }
     
     /// Get Now Int.
-    public class func pbs_now() -> Int64 {
+    public class func getNowIntTime() -> Int64 {
         let time:Int64 = Int64(NSDate().timeIntervalSince1970) * 1000
         return time
     }
     
     
     
-    // MARK: public functions
+    // MARK: - public functions
     /**
     Get formatted date string with format string.
     
@@ -69,7 +72,7 @@ public extension NSDate {
     
     :returns: formatted string
     */
-    public func stringWithformat(string:String) -> String {
+    public func getStringWithFormatString(string:String) -> String {
         let formatter:NSDateFormatter = NSDateFormatter()
         formatter.dateFormat = string
         return formatter.stringFromDate(self)
@@ -81,7 +84,7 @@ public extension NSDate {
     
     :returns: diff time interval.
     */
-    public func diffTimeInterval() -> NSTimeInterval {
+    public func getDiffTimeIntervalFromNow() -> NSTimeInterval {
         let now = NSDate()
         return now.timeIntervalSinceDate(self)
     }
@@ -94,7 +97,7 @@ public extension NSDate {
     
     :returns: converted NSDate
     */
-    public func trunk(timezone:NSTimeZone) -> NSDate {
+    public func getNowDateWithTimezone(timezone:NSTimeZone) -> NSDate {
         let cal = NSCalendar.currentCalendar()
         let c = cal.components([NSCalendarUnit.Year, NSCalendarUnit.TimeZone, NSCalendarUnit.Day, NSCalendarUnit.Month], fromDate: self)
         let components = NSDateComponents()

@@ -11,6 +11,7 @@ import UIKit
 
 extension UIFont {
     
+    // MARK: - public class functions
     /**
     Get mgenplus-1c-regular font with size.
     

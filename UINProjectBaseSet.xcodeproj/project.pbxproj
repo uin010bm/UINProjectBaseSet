@@ -608,6 +608,409 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6DD4C0571BCE2DDA005838F6 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Staging;
+		};
+		6DD4C0581BCE2DDA005838F6 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDC01414E82DB6EE8B63D66F /* Pods-UINProjectBaseSet.debug.xcconfig */;
+			buildSettings = {
+				API_HOST = "stg-api";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_IDENTIFER_SUFFIX = ProjectBundleNameStaging;
+				BUNDLE_NAME_SUFFIX = ProjectNameStaging;
+				INFOPLIST_FILE = UINProjectBaseSet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Staging;
+		};
+		6DD4C0591BCE2DDA005838F6 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = UINProjectBaseSetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UINProjectBaseSet.app/UINProjectBaseSet";
+			};
+			name = Staging;
+		};
+		6DD4C05A1BCE2DDA005838F6 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = UINProjectBaseSetUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = UINProjectBaseSet;
+				USES_XCTRUNNER = YES;
+			};
+			name = Staging;
+		};
+		6DD4C05B1BCE2E20005838F6 /* Dev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Dev;
+		};
+		6DD4C05C1BCE2E20005838F6 /* Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDC01414E82DB6EE8B63D66F /* Pods-UINProjectBaseSet.debug.xcconfig */;
+			buildSettings = {
+				API_HOST = "dev-api";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_IDENTIFER_SUFFIX = ProjectBundleNameDev;
+				BUNDLE_NAME_SUFFIX = ProjectNameDev;
+				INFOPLIST_FILE = UINProjectBaseSet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Dev;
+		};
+		6DD4C05D1BCE2E20005838F6 /* Dev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = UINProjectBaseSetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UINProjectBaseSet.app/UINProjectBaseSet";
+			};
+			name = Dev;
+		};
+		6DD4C05E1BCE2E20005838F6 /* Dev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = UINProjectBaseSetUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = UINProjectBaseSet;
+				USES_XCTRUNNER = YES;
+			};
+			name = Dev;
+		};
+		6DD4C05F1BCE2E30005838F6 /* InHouse-Dev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_NS_ASSERTIONS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+			};
+			name = "InHouse-Dev";
+		};
+		6DD4C0601BCE2E30005838F6 /* InHouse-Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F320DB3A9CDEC7478815E3FC /* Pods-UINProjectBaseSet.release.xcconfig */;
+			buildSettings = {
+				API_HOST = "dev-api";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_IDENTIFER_SUFFIX = ProjectBundleNameDev;
+				BUNDLE_NAME_SUFFIX = ProjectNameDev;
+				INFOPLIST_FILE = UINProjectBaseSet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = "InHouse-Dev";
+		};
+		6DD4C0611BCE2E30005838F6 /* InHouse-Dev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = UINProjectBaseSetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UINProjectBaseSet.app/UINProjectBaseSet";
+			};
+			name = "InHouse-Dev";
+		};
+		6DD4C0621BCE2E30005838F6 /* InHouse-Dev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = UINProjectBaseSetUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = UINProjectBaseSet;
+				USES_XCTRUNNER = YES;
+			};
+			name = "InHouse-Dev";
+		};
+		6DD4C0631BCE2E3B005838F6 /* InHouse-Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "InHouse-Staging";
+		};
+		6DD4C0641BCE2E3B005838F6 /* InHouse-Staging */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F320DB3A9CDEC7478815E3FC /* Pods-UINProjectBaseSet.release.xcconfig */;
+			buildSettings = {
+				API_HOST = "stg-api";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_IDENTIFER_SUFFIX = ProjectBundleNameStaging;
+				BUNDLE_NAME_SUFFIX = ProjectNameStaging;
+				INFOPLIST_FILE = UINProjectBaseSet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = "InHouse-Staging";
+		};
+		6DD4C0651BCE2E3B005838F6 /* InHouse-Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = UINProjectBaseSetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UINProjectBaseSet.app/UINProjectBaseSet";
+			};
+			name = "InHouse-Staging";
+		};
+		6DD4C0661BCE2E3B005838F6 /* InHouse-Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = UINProjectBaseSetUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = UINProjectBaseSet;
+				USES_XCTRUNNER = YES;
+			};
+			name = "InHouse-Staging";
+		};
+		6DD4C0671BCE2E45005838F6 /* InHouse-Product */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "InHouse-Product";
+		};
+		6DD4C0681BCE2E45005838F6 /* InHouse-Product */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F320DB3A9CDEC7478815E3FC /* Pods-UINProjectBaseSet.release.xcconfig */;
+			buildSettings = {
+				API_HOST = api;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_IDENTIFER_SUFFIX = ProjectBundleName;
+				BUNDLE_NAME_SUFFIX = ProjectName;
+				INFOPLIST_FILE = UINProjectBaseSet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = "InHouse-Product";
+		};
+		6DD4C0691BCE2E45005838F6 /* InHouse-Product */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = UINProjectBaseSetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UINProjectBaseSet.app/UINProjectBaseSet";
+			};
+			name = "InHouse-Product";
+		};
+		6DD4C06A1BCE2E45005838F6 /* InHouse-Product */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = UINProjectBaseSetUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = UINProjectBaseSet;
+				USES_XCTRUNNER = YES;
+			};
+			name = "InHouse-Product";
+		};
 		6DE35C541BCCC44700F13E97 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -653,7 +1056,7 @@
 			};
 			name = Debug;
 		};
-		6DE35C551BCCC44700F13E97 /* Release */ = {
+		6DE35C551BCCC44700F13E97 /* Product */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -689,13 +1092,16 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Product;
 		};
 		6DE35C571BCCC44700F13E97 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FDC01414E82DB6EE8B63D66F /* Pods-UINProjectBaseSet.debug.xcconfig */;
 			buildSettings = {
+				API_HOST = "debug-api";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_IDENTIFER_SUFFIX = ProjectBundleNameDebug;
+				BUNDLE_NAME_SUFFIX = ProjectNameDebug;
 				INFOPLIST_FILE = UINProjectBaseSet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSet;
@@ -703,17 +1109,20 @@
 			};
 			name = Debug;
 		};
-		6DE35C581BCCC44700F13E97 /* Release */ = {
+		6DE35C581BCCC44700F13E97 /* Product */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F320DB3A9CDEC7478815E3FC /* Pods-UINProjectBaseSet.release.xcconfig */;
 			buildSettings = {
+				API_HOST = api;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_IDENTIFER_SUFFIX = ProjectBundleName;
+				BUNDLE_NAME_SUFFIX = ProjectName;
 				INFOPLIST_FILE = UINProjectBaseSet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uin010.UINProjectBaseSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = Release;
+			name = Product;
 		};
 		6DE35C5A1BCCC44700F13E97 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -727,7 +1136,7 @@
 			};
 			name = Debug;
 		};
-		6DE35C5B1BCCC44700F13E97 /* Release */ = {
+		6DE35C5B1BCCC44700F13E97 /* Product */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -737,7 +1146,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UINProjectBaseSet.app/UINProjectBaseSet";
 			};
-			name = Release;
+			name = Product;
 		};
 		6DE35C5D1BCCC44700F13E97 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -751,7 +1160,7 @@
 			};
 			name = Debug;
 		};
-		6DE35C5E1BCCC44700F13E97 /* Release */ = {
+		6DE35C5E1BCCC44700F13E97 /* Product */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = UINProjectBaseSetUITests/Info.plist;
@@ -761,7 +1170,7 @@
 				TEST_TARGET_NAME = UINProjectBaseSet;
 				USES_XCTRUNNER = YES;
 			};
-			name = Release;
+			name = Product;
 		};
 /* End XCBuildConfiguration section */
 
@@ -770,37 +1179,57 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6DE35C541BCCC44700F13E97 /* Debug */,
-				6DE35C551BCCC44700F13E97 /* Release */,
+				6DD4C05B1BCE2E20005838F6 /* Dev */,
+				6DD4C0571BCE2DDA005838F6 /* Staging */,
+				6DE35C551BCCC44700F13E97 /* Product */,
+				6DD4C05F1BCE2E30005838F6 /* InHouse-Dev */,
+				6DD4C0631BCE2E3B005838F6 /* InHouse-Staging */,
+				6DD4C0671BCE2E45005838F6 /* InHouse-Product */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Product;
 		};
 		6DE35C561BCCC44700F13E97 /* Build configuration list for PBXNativeTarget "UINProjectBaseSet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6DE35C571BCCC44700F13E97 /* Debug */,
-				6DE35C581BCCC44700F13E97 /* Release */,
+				6DD4C05C1BCE2E20005838F6 /* Dev */,
+				6DD4C0581BCE2DDA005838F6 /* Staging */,
+				6DE35C581BCCC44700F13E97 /* Product */,
+				6DD4C0601BCE2E30005838F6 /* InHouse-Dev */,
+				6DD4C0641BCE2E3B005838F6 /* InHouse-Staging */,
+				6DD4C0681BCE2E45005838F6 /* InHouse-Product */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Product;
 		};
 		6DE35C591BCCC44700F13E97 /* Build configuration list for PBXNativeTarget "UINProjectBaseSetTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6DE35C5A1BCCC44700F13E97 /* Debug */,
-				6DE35C5B1BCCC44700F13E97 /* Release */,
+				6DD4C05D1BCE2E20005838F6 /* Dev */,
+				6DD4C0591BCE2DDA005838F6 /* Staging */,
+				6DE35C5B1BCCC44700F13E97 /* Product */,
+				6DD4C0611BCE2E30005838F6 /* InHouse-Dev */,
+				6DD4C0651BCE2E3B005838F6 /* InHouse-Staging */,
+				6DD4C0691BCE2E45005838F6 /* InHouse-Product */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Product;
 		};
 		6DE35C5C1BCCC44700F13E97 /* Build configuration list for PBXNativeTarget "UINProjectBaseSetUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6DE35C5D1BCCC44700F13E97 /* Debug */,
-				6DE35C5E1BCCC44700F13E97 /* Release */,
+				6DD4C05E1BCE2E20005838F6 /* Dev */,
+				6DD4C05A1BCE2DDA005838F6 /* Staging */,
+				6DE35C5E1BCCC44700F13E97 /* Product */,
+				6DD4C0621BCE2E30005838F6 /* InHouse-Dev */,
+				6DD4C0661BCE2E3B005838F6 /* InHouse-Staging */,
+				6DD4C06A1BCE2E45005838F6 /* InHouse-Product */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Product;
 		};
 /* End XCConfigurationList section */
 	};

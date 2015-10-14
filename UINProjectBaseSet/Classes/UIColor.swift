@@ -9,30 +9,32 @@
 import UIKit
 
 
-// MARK: public enum
-/**
-Enumulation to application color type.
-*/
-public enum ColorType: String {
-    case Navigation = "#050505"
-    case Primary = "#22bfc0"
-    case SecondaryText = "#d2d2d2"
-    case Black = "#000000"
-    case Caution = "#e40b26"
-    case OnAir = "#f94c60"
-    case ListBackground = "#383030"
-    case ListHighlightedBackground = "#413838"
-    case Border = "#898989"
-    case TimeShift = "#088E8F"
-    case Menu = "#1A1A1A"
-    case SelectedMenuLabel = "#00CFD1"
-    case Happy = "#ffc929"
-    case Visualizer = "#0097A7"
-}
-
 public extension UIColor {
     
-    // MARK: convenience init
+    // MARK: - public enum
+    /**
+    Enumulation to application color type.
+    */
+    public enum ColorType: String {
+        case Navigation = "#050505"
+        case Primary = "#22bfc0"
+        case SecondaryText = "#d2d2d2"
+        case Black = "#000000"
+        case Caution = "#e40b26"
+        case OnAir = "#f94c60"
+        case ListBackground = "#383030"
+        case ListHighlightedBackground = "#413838"
+        case Border = "#898989"
+        case TimeShift = "#088E8F"
+        case Menu = "#1A1A1A"
+        case SelectedMenuLabel = "#00CFD1"
+        case Happy = "#ffc929"
+        case Visualizer = "#0097A7"
+    }
+    
+    
+    
+    // MARK: - convenience init
     /**
     Init with application colorType.
     
@@ -93,7 +95,7 @@ public extension UIColor {
     
     
     
-    // MARK: static functions
+    // MARK: - public class functions
     /**
     Get white UIColor with ratio and alpha.
     
@@ -102,8 +104,8 @@ public extension UIColor {
     
     :returns: white UIColor
     */
-    public class func pbs_grayScale(white white:CGFloat, alpha:CGFloat) -> UIColor {
-        if iOSVersion() < 8.0 {
+    public class func getGrayScaleColor(white white:CGFloat, alpha:CGFloat) -> UIColor {
+        if getiOSVersion() < 8.0 {
             return UIColor(red: white, green: white, blue: white, alpha: alpha)
         } else {
             return UIColor(white: white, alpha: alpha)
@@ -112,14 +114,14 @@ public extension UIColor {
     
     
     
-    // MARK: public functions
+    // MARK: - public functions
     /**
     Get colord context image.
     
     :returns: empty image.
     */
-    public func pbs_image() -> UIImage {
-        return self.pbs_image(CGSizeMake(1, 1))
+    public func getColoredImage() -> UIImage {
+        return self.getColoredImageWithSize(CGSizeMake(1, 1))
     }
     
     
@@ -130,7 +132,7 @@ public extension UIColor {
     
     :returns: colored context image
     */
-    public func pbs_image(size:CGSize) -> UIImage {
+    public func getColoredImageWithSize(size:CGSize) -> UIImage {
         let rect = CGRectMake(0, 0, size.width, size.height)
         UIGraphicsBeginImageContext(rect.size)
         if let context:CGContextRef = UIGraphicsGetCurrentContext() {
@@ -149,8 +151,8 @@ public extension UIColor {
     
     :returns: darken UIColor
     */
-    public func pbs_darkenColor() -> UIColor {
-        return self.pbs_darkenColor(0.6)
+    public func getDarkenColor() -> UIColor {
+        return self.getDarkenColorWithRatio(0.6)
     }
     
     
@@ -161,7 +163,7 @@ public extension UIColor {
     
     :returns: darken UIColor
     */
-    public func pbs_darkenColor(ratio:CGFloat) -> UIColor {
+    public func getDarkenColorWithRatio(ratio:CGFloat) -> UIColor {
         var hue:CGFloat  = 0
         var saturation:CGFloat = 0
         var brightness:CGFloat = 0

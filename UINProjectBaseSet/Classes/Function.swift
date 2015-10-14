@@ -16,7 +16,7 @@ Get device ios version.
 
 :returns: version numver
 */
-public func iOSVersion() -> Double {
+public func getiOSVersion() -> Double {
     return (UIDevice.currentDevice().systemVersion as NSString).doubleValue
 }
 

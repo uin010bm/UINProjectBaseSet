@@ -10,22 +10,22 @@ import Foundation
 
 public extension NSObject {
     
-    // MARK: static functions
+    // MARK: - public class functions
     /// Get class name from classObject.
-    public class func classNameWithoutNamespace() -> String {
+    public class func getClassNameWithoutNamespace() -> String {
         let fullClassName = NSStringFromClass(self)
         let range = fullClassName.rangeOfString(".")
         return fullClassName.substringFromIndex(range!.endIndex)
     }
     
     
-    // MARK: pubric functions
+    // MARK: - public functions
     /**
     Get class name from instance.
     
     :returns: class name string
     */
-    public func classNameWithoutNamespace() -> String {
+    public func getClassNameWithoutNamespace() -> String {
         let fullClassName = NSStringFromClass(self.classForCoder)
         let range = fullClassName.rangeOfString(".")
         return fullClassName.substringFromIndex(range!.endIndex)

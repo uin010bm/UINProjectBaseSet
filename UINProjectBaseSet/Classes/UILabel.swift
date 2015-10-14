@@ -12,7 +12,7 @@ import UIKit
 
 extension UILabel {
     
-    // MARK: private functions
+    // MARK: - private functions
     /**
     Get NSParagraphStyle from self.
     
@@ -21,7 +21,7 @@ extension UILabel {
     
     :returns: NSParagraphStyle based self
     */
-    private func pbs_paragraphStyleWithLabelStyle(alignment: NSTextAlignment? = nil, lineBreakMode: NSLineBreakMode? = nil) -> NSParagraphStyle {
+    private func getParagraphStyleWithLabelStyle(alignment: NSTextAlignment? = nil, lineBreakMode: NSLineBreakMode? = nil) -> NSParagraphStyle {
         let style = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
         style.alignment = alignment ?? self.textAlignment
         style.lineBreakMode = lineBreakMode ?? self.lineBreakMode
@@ -41,11 +41,11 @@ extension UILabel {
     
     :returns: attributes Array
     */
-    private func pbs_attributeWithLabelStyle(font: UIFont? = nil, textColor: UIColor? = nil, baselineOffset: CGFloat? = nil, alignment: NSTextAlignment? = nil, lineBreakMode: NSLineBreakMode? = nil, lineHeight: CGFloat = 1.0) -> [String: AnyObject] {
+    private func getAttributeWithLabelStyle(font: UIFont? = nil, textColor: UIColor? = nil, baselineOffset: CGFloat? = nil, alignment: NSTextAlignment? = nil, lineBreakMode: NSLineBreakMode? = nil, lineHeight: CGFloat = 1.0) -> [String: AnyObject] {
         let attributes = [
             NSFontAttributeName: font ?? self.font!,
             NSForegroundColorAttributeName: textColor ?? self.textColor!,
-            NSParagraphStyleAttributeName: self.pbs_paragraphStyleWithLabelStyle(alignment, lineBreakMode: lineBreakMode),
+            NSParagraphStyleAttributeName: self.getParagraphStyleWithLabelStyle(alignment, lineBreakMode: lineBreakMode),
             NSBaselineOffsetAttributeName: baselineOffset ?? 0,
             NSKernAttributeName: lineHeight
         ]
@@ -70,7 +70,7 @@ extension UILabel {
 
     
     
-    // MARK: public functions
+    // MARK: - public functions
     /**
     Set attribute settings to self.
     
@@ -83,7 +83,7 @@ extension UILabel {
     :param: lineHeight     set line height by CGFloat
     */
     public func setAttributedTextWithLabelStyle(text:String?, font:UIFont? = nil, textColor: UIColor? = nil, baselineOffset: CGFloat? = nil, alignment: NSTextAlignment? = nil, lineBreakMode: NSLineBreakMode? = nil, lineHeight: CGFloat = 1.0) {
-        let attributes = self.pbs_attributeWithLabelStyle(font, textColor: textColor, baselineOffset: baselineOffset, alignment: alignment, lineBreakMode: lineBreakMode, lineHeight: lineHeight)
+        let attributes = self.getAttributeWithLabelStyle(font, textColor: textColor, baselineOffset: baselineOffset, alignment: alignment, lineBreakMode: lineBreakMode, lineHeight: lineHeight)
         self.attributedText =  NSAttributedString(string: text ?? "", attributes: attributes)
     }
 }

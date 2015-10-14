@@ -5,3 +5,8 @@
   Created by 田中　佑 on 2015/10/13.
   Copyright © 2015年 yu_tanaka. All rights reserved.
 */
+
+
+"UIMain.start.button" = "始め！";
+"UIMain.end.button" = "終わり！";
+"UIMain.error.message" = "ネットワークエラーが発生しました\nしばらくしてから再度お試しください";

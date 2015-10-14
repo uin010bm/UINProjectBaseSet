@@ -11,7 +11,7 @@ import UIKit
 
 extension UITableView {
     
-    // MARK: public propertys
+    // MARK: - public propertys
     /// if last cell showed in screen, return true
     public var isLastRowVisible: Bool {
         if let indexPath = (indexPathsForVisibleRows as [NSIndexPath]!).last {
@@ -23,7 +23,7 @@ extension UITableView {
     
     
     
-    // MARK: public functions
+    // MARK: - public functions
     /**
     Set scroll position to bottom.
     
@@ -45,7 +45,7 @@ extension UITableView {
     :param: section  set target section number
     :param: animated set animation bool
     */
-    func scrollToTop(section: Int = 0, animated: Bool = true) {
+    public func scrollToTop(section: Int = 0, animated: Bool = true) {
         let num = numberOfRowsInSection(section)
         if num > 0 {
             let indexPath = NSIndexPath(forRow: 0, inSection: section)
@@ -60,7 +60,7 @@ extension UITableView {
     :param: type set cell class name from xib
     */
     public func registerNibFromClass<T: UITableViewCell>(type: T.Type) {
-        let className = T.classNameWithoutNamespace()
+        let className = T.getClassNameWithoutNamespace()
         let nib = UINib(nibName: className, bundle: nil)
         registerNib(nib, forCellReuseIdentifier: className)
     }
@@ -72,7 +72,7 @@ extension UITableView {
     :param: type set cell class name
     */
     public func registerClassFromClass<T: UITableViewCell>(type: T.Type) {
-        let className = T.classNameWithoutNamespace()
+        let className = T.getClassNameWithoutNamespace()
         registerClass(T.self, forCellReuseIdentifier: className)
     }
     
@@ -87,6 +87,6 @@ extension UITableView {
     */
     public func dequeueReusableCell<T: UITableViewCell>(type: T.Type,
         forIndexPath indexPath: NSIndexPath) -> T {
-            return dequeueReusableCellWithIdentifier(T.classNameWithoutNamespace(), forIndexPath: indexPath) as! T
+            return dequeueReusableCellWithIdentifier(T.getClassNameWithoutNamespace(), forIndexPath: indexPath) as! T
     }
 }

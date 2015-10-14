@@ -26,7 +26,7 @@ public enum ImageResizeAspect {
 
 public extension UIImage {
     
-    // MARK: static functions
+    // MARK: - public class functions
     /**
     Get gradient context image.
     
@@ -38,7 +38,7 @@ public extension UIImage {
     
     :returns: gradiate context UIIamge
     */
-    public class func pbs_gradationImage(size size:CGSize, startPoint:CGPoint, endPoint:CGPoint, colors:[UIColor], locations givenLocations:[CGFloat]? = nil) -> UIImage {
+    public class func getGradationImageWith(size size:CGSize, startPoint:CGPoint, endPoint:CGPoint, colors:[UIColor], locations givenLocations:[CGFloat]? = nil) -> UIImage {
         UIGraphicsBeginImageContext(size);
         
         if let context:CGContextRef = UIGraphicsGetCurrentContext(), colorspace:CGColorSpaceRef = CGColorSpaceCreateDeviceRGB() {
@@ -94,7 +94,7 @@ public extension UIImage {
     
     :returns: gradiation context UIImage
     */
-    public class func pbs_gradationImage(size size:CGSize, startFrom:GradationStart, colors:[UIColor], locations:[CGFloat]? = nil) -> UIImage {
+    public class func getGradationImageWith(size size:CGSize, startFrom:GradationStart, colors:[UIColor], locations:[CGFloat]? = nil) -> UIImage {
         var startPoint:CGPoint
         var endPoint:CGPoint
         let maxlength = max(size.width, size.height)
@@ -115,7 +115,6 @@ public extension UIImage {
             startPoint = CGPointMake(0, 0)
             endPoint = CGPointMake(size.width, 0)
         case .TopLeft:
-            // TODO: implement other types
             if (size.width < size.height) {
                 startPoint = CGPointMake(-adjust, adjust)
                 endPoint   = CGPointMake(size.width + adjust, size.height - adjust)
@@ -133,7 +132,7 @@ public extension UIImage {
             startPoint = CGPointMake(size.width, size.height)
             endPoint = CGPointMake(0, 0)
         }
-        return self.pbs_gradationImage(size: size, startPoint: startPoint, endPoint: endPoint, colors: colors, locations:locations)
+        return self.getGradationImageWith(size: size, startPoint: startPoint, endPoint: endPoint, colors: colors, locations:locations)
     }
     
     
@@ -145,9 +144,9 @@ public extension UIImage {
     
     :returns: masked UIImage
     */
-    public class func pbs_gradationMask(size size:CGSize, startFrom:GradationStart) -> UIImage {
+    public class func getGradationMaskedImageWith(size size:CGSize, startFrom:GradationStart) -> UIImage {
         let colors = [UIColor.blackColor(), UIColor.clearColor()]
-        return self.pbs_gradationImage(size: size, startFrom: startFrom, colors: colors)
+        return self.getGradationImageWith(size: size, startFrom: startFrom, colors: colors)
     }
     
     
@@ -159,7 +158,7 @@ public extension UIImage {
     
     :returns: incleded text UIImage
     */
-    public class func pbs_imageWithText(text:NSString, size:CGSize) -> UIImage {
+    public class func getImageWithText(text:NSString, size:CGSize) -> UIImage {
         let fontSize:CGFloat = 18.0
         UIGraphicsBeginImageContext(size)
         
@@ -188,7 +187,7 @@ public extension UIImage {
     
     :returns: UIImage based view
     */
-    public class func pbs_imageFromView(view:UIView, opaque:Bool = true) -> UIImage {
+    public class func getImageFromView(view:UIView, opaque:Bool = true) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(view.frame.size, opaque, 0)
         
         if let context = UIGraphicsGetCurrentContext() {
@@ -203,7 +202,7 @@ public extension UIImage {
     
     
     
-    // MARK: private functions
+    // MARK: - private functions
     /**
     Get center rect for resizing.
     
@@ -211,7 +210,7 @@ public extension UIImage {
     
     :returns: center CGRect
     */
-    private func centerRectForResized(size:CGSize) -> CGRect {
+    private func getCenterRectForResize(size:CGSize) -> CGRect {
         let selfCenter = CGPointMake(self.size.width * 0.5, self.size.height * 0.5)
         let resizedCenter = CGPointMake(size.width * 0.5, size.height * 0.5)
         return CGRectMake(selfCenter.x - resizedCenter.x, selfCenter.y - resizedCenter.y, size.width, size.height)
@@ -219,7 +218,7 @@ public extension UIImage {
     
     
     
-    // MARK: public functions
+    // MARK: - public functions
     /**
     Get resized Image.
     
@@ -229,7 +228,7 @@ public extension UIImage {
     
     :returns: resized UIImage
     */
-    public func resizedImage(size size:CGSize, opaque:Bool = true, aspect:ImageResizeAspect = .AspectFill) -> UIImage {
+    public func getResizedImageWith(size size:CGSize, opaque:Bool = true, aspect:ImageResizeAspect = .AspectFill) -> UIImage {
         // resize
         let scaledSize:CGSize
         switch aspect {
@@ -237,7 +236,7 @@ public extension UIImage {
             scaledSize = size
         case .AspectFit: fallthrough
         case .AspectFill:
-            let scale:CGFloat = self.scaleForSize(size, aspect:aspect)
+            let scale:CGFloat = self.getScaleWith(size, aspect:aspect)
             scaledSize = CGSizeMake(self.size.width * scale, self.size.height * scale)
         }
         
@@ -253,9 +252,9 @@ public extension UIImage {
         case .ScaleToFill:
             return resizedImage
         case .AspectFit:
-            return resizedImage.croppedImage(size:scaledSize, position:.Center)
+            return resizedImage.getCroppedImageWith(size:scaledSize, position:.Center)
         case .AspectFill:
-            return resizedImage.croppedImage(size:size, position:.Center)
+            return resizedImage.getCroppedImageWith(size:size, position:.Center)
         }
     }
     
@@ -268,9 +267,9 @@ public extension UIImage {
     
     :returns: cropped UIImage
     */
-    public func croppedImage(size size:CGSize, position:ImageResizePosition = .Center) -> UIImage {
+    public func getCroppedImageWith(size size:CGSize, position:ImageResizePosition = .Center) -> UIImage {
         let scale:CGFloat = UIScreen.mainScreen().scale
-        let cropRect = self.centerRectForResized(CGSizeMake(size.width, size.height))
+        let cropRect = self.getCenterRectForResize(CGSizeMake(size.width, size.height))
         let cropRectWithScaleFactor = CGRectMake(cropRect.origin.x * scale, cropRect.origin.y * scale, cropRect.size.width * scale, cropRect.size.height * scale)
         let cropRef = CGImageCreateWithImageInRect(self.CGImage, cropRectWithScaleFactor)
         let cropImage = UIImage(CGImage:cropRef!, scale:scale, orientation:UIImageOrientation.Up)
@@ -286,7 +285,7 @@ public extension UIImage {
     
     :returns: scale num by CGFloat
     */
-    public func scaleForSize(maxSize:CGSize, aspect:ImageResizeAspect = .AspectFit) -> CGFloat {
+    public func getScaleWith(maxSize:CGSize, aspect:ImageResizeAspect = .AspectFit) -> CGFloat {
         switch aspect {
         case .ScaleToFill: fallthrough
         case .AspectFill:
@@ -313,11 +312,11 @@ public extension UIImage {
     :returns: blured UIImage
     */
     public func pbs_blurredImageVircialSide() -> UIImage {
-        let topMask:UIImage = UIImage.pbs_gradationMask(size: CGSizeMake(50, 50), startFrom: GradationStart.Top)
+        let topMask:UIImage = UIImage.getGradationMaskedImageWith(size: CGSizeMake(50, 50), startFrom: GradationStart.Top)
         var image = self
         image = self.applyBlurWithRadius(30, tintColor: UIColor.clearColor(), saturationDeltaFactor: 10.0, maskImage: topMask, atFrame: CGRectMake(0, 0, self.size.width, topMask.size.height))
         
-        let bottomMask:UIImage = UIImage.pbs_gradationMask(size: CGSizeMake(50, 50), startFrom: GradationStart.Bottom)
+        let bottomMask:UIImage = UIImage.getGradationMaskedImageWith(size: CGSizeMake(50, 50), startFrom: GradationStart.Bottom)
         image = image.applyBlurWithRadius(30, tintColor: UIColor.clearColor(), saturationDeltaFactor: 10.0, maskImage: bottomMask, atFrame: CGRectMake(0, self.size.height - bottomMask.size.height, self.size.width, bottomMask.size.height))
         
         return image
@@ -331,12 +330,12 @@ public extension UIImage {
     
     :returns: blured UIImage
     */
-    public func pbs_blurredImageVircialSide(size size:CGSize) -> UIImage {
-        let topMask:UIImage = UIImage.pbs_gradationMask(size: size, startFrom: GradationStart.Top)
+    public func getVerticalBlurredImageWithSize(size size:CGSize) -> UIImage {
+        let topMask:UIImage = UIImage.getGradationMaskedImageWith(size: size, startFrom: GradationStart.Top)
         var image = self
         image = self.applyBlurWithRadius(30, tintColor: UIColor.clearColor(), saturationDeltaFactor: 10.0, maskImage: topMask, atFrame: CGRectMake(0, 0, self.size.width, topMask.size.height))
         
-        let bottomMask:UIImage = UIImage.pbs_gradationMask(size: size, startFrom: GradationStart.Bottom)
+        let bottomMask:UIImage = UIImage.getGradationMaskedImageWith(size: size, startFrom: GradationStart.Bottom)
         image = image.applyBlurWithRadius(30, tintColor: UIColor.clearColor(), saturationDeltaFactor: 10.0, maskImage: bottomMask, atFrame: CGRectMake(0, self.size.height - bottomMask.size.height, self.size.width, bottomMask.size.height))
         
         return image
@@ -348,7 +347,7 @@ public extension UIImage {
     
     :returns: resizable UIImage
     */
-    public func pbs_resizableImage() -> UIImage {
+    public func getResizableImage() -> UIImage {
         let v = self.size.height * 0.5
         let p = self.size.width * 0.5
         return self.resizableImageWithCapInsets(UIEdgeInsets(top: v, left: p, bottom: v, right: p))

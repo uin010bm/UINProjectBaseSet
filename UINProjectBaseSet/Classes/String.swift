@@ -11,7 +11,7 @@ import UIKit
 
 public extension String {
     
-    // MARK: static functions
+    // MARK: - static functions
     /**
     Check string to use password.
     
@@ -19,7 +19,7 @@ public extension String {
     
     :returns: if string can use to password, return true
     */
-    static func isValidPassword(password: String?) -> Bool {
+    static func checkValidPassword(password: String?) -> Bool {
         let PasswordValidLength = 6
         return (password != nil && (password!).characters.count >= PasswordValidLength) ? true:false
     }
@@ -32,7 +32,7 @@ public extension String {
     
     :returns: if string can use to password, return true
     */
-    static func isValidEmail(email:String) -> Bool {
+    static func checkValidEmail(email:String) -> Bool {
         let PBRegEXPattern = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$"
         let regEx: NSRegularExpression?
         do {
@@ -49,13 +49,13 @@ public extension String {
     
     
     
-    // MARK: public functions
+    // MARK: - public functions
     /**
     Get encoded string for url.
     
     :returns: encoded url string
     */
-    public func urlEncoded() -> String {
+    public func convertUrlEncoded() -> String {
         return self.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLUserAllowedCharacterSet())!
     }
     
@@ -65,7 +65,7 @@ public extension String {
     
     :returns: decoded url string
     */
-    public func urlDecoded() -> String {
+    public func convertUrlDecoded() -> String {
         return self.stringByRemovingPercentEncoding!
     }
     
@@ -77,7 +77,7 @@ public extension String {
     
     :returns: beginning string.
     */
-    public func substringTo(endIndex:Int) -> String {
+    public func getSubstringToIndex(endIndex:Int) -> String {
         if self.characters.count < endIndex {
             return self
         }
@@ -95,7 +95,7 @@ public extension String {
     
     :returns: adjusted rect size
     */
-    public func pbs_sizeWithFont(font:UIFont, lineBreakMode:NSLineBreakMode, lineHeight:CGFloat = 1.0, constrainedToSize size:CGSize) -> CGSize {
+    public func getSize(font:UIFont, lineBreakMode:NSLineBreakMode, lineHeight:CGFloat = 1.0, constrainedToSize size:CGSize) -> CGSize {
         let style = NSMutableParagraphStyle()
         style.lineBreakMode = lineBreakMode
         style.lineSpacing = (lineHeight - 1.0) * font.pointSize
@@ -117,9 +117,9 @@ public extension String {
     
     :returns: string with ellipsis
     */
-    public func pbs_ellipsis(count: Int) -> String {
+    public func getConvertEndToEllipsisAtCount(count: Int) -> String {
         if self.characters.count > count {
-            return self.substringTo(count) + "..."
+            return self.getSubstringToIndex(count) + "..."
         }
         return self
     }
@@ -132,7 +132,7 @@ public extension String {
     
     :returns: file path string
     */
-    public func stringByAppendingPathComponent(path: String) -> String {
+    public func getPathAppendedComponentWithPath(path: String) -> String {
         return (self as NSString).stringByAppendingPathComponent(path)
     }
 }

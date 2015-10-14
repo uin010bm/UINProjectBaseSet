@@ -11,7 +11,7 @@ import Foundation
 public extension NSUserDefaults {
     
     
-    // MARK: pubric functions
+    // MARK: - public functions
     /**
     Get UserDefaults value with string key.
     
@@ -19,7 +19,7 @@ public extension NSUserDefaults {
     
     :returns: nil or got object
     */
-    public func pbs_objectForKey(key:String) -> AnyObject? {
+    public func getObjectForKey(key:String) -> AnyObject? {
         if let obj = self.objectForKey(key) as? NSData {
             return NSKeyedUnarchiver.unarchiveObjectWithData(obj)
         }
@@ -33,7 +33,7 @@ public extension NSUserDefaults {
     :param: obj set object to leave
     :param: key set key string
     */
-    public func pbs_setObject<T:NSCoding>(obj:T, key:String) {
+    public func setObjectWithKey<T:NSCoding>(obj:T, key:String) {
         let data = NSKeyedArchiver.archivedDataWithRootObject(obj)
         self.setObject(data, forKey: key)
     }
