@@ -53,23 +53,6 @@ extension UILabel {
     }
     
     
-    /**
-    Set attributed text to Label.
-    
-    :param: string set string to text
-    */
-    private func setAttributedText(string string:String) {
-        if 0 < string.characters.count {
-            if let attributes = self.attributedText?.attributesAtIndex(0, effectiveRange:nil) {
-                self.attributedText = NSAttributedString(string:string, attributes: attributes)
-            }
-        } else {
-            self.attributedText = NSAttributedString(string:" ")
-        }
-    }
-
-    
-    
     // MARK: - public functions
     /**
     Set attribute settings to self.

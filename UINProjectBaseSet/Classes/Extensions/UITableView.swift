@@ -71,7 +71,7 @@ extension UITableView {
     
     :param: type set cell class name
     */
-    public func registerClassFromClass<T: UITableViewCell>(type: T.Type) {
+    public func registerCellClassFromClass<T: UITableViewCell>(type: T.Type) {
         let className = T.getClassNameWithoutNamespace()
         registerClass(T.self, forCellReuseIdentifier: className)
     }

@@ -17,19 +17,11 @@ public extension UIColor {
     */
     public enum ColorType: String {
         case Navigation = "#050505"
-        case Primary = "#22bfc0"
-        case SecondaryText = "#d2d2d2"
         case Black = "#000000"
+        case White = "#FFFFFF"
+        case LightGray = "#F6F6F6"
         case Caution = "#e40b26"
-        case OnAir = "#f94c60"
-        case ListBackground = "#383030"
-        case ListHighlightedBackground = "#413838"
         case Border = "#898989"
-        case TimeShift = "#088E8F"
-        case Menu = "#1A1A1A"
-        case SelectedMenuLabel = "#00CFD1"
-        case Happy = "#ffc929"
-        case Visualizer = "#0097A7"
     }
     
     
@@ -95,25 +87,6 @@ public extension UIColor {
     
     
     
-    // MARK: - public class functions
-    /**
-    Get white UIColor with ratio and alpha.
-    
-    :param: white set white ratio
-    :param: alpha set alpha ratio
-    
-    :returns: white UIColor
-    */
-    public class func getGrayScaleColor(white white:CGFloat, alpha:CGFloat) -> UIColor {
-        if getiOSVersion() < 8.0 {
-            return UIColor(red: white, green: white, blue: white, alpha: alpha)
-        } else {
-            return UIColor(white: white, alpha: alpha)
-        }
-    }
-    
-    
-    
     // MARK: - public functions
     /**
     Get colord context image.
@@ -169,10 +142,8 @@ public extension UIColor {
         var brightness:CGFloat = 0
         var alpha:CGFloat = 0
         
-        if self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
-            return UIColor(hue: hue, saturation: saturation, brightness: (brightness * ratio), alpha: alpha)
-        }
-        return self
+        let _ = self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        return UIColor(hue: hue, saturation: saturation, brightness: (brightness * ratio), alpha: alpha)
     }
 
 }

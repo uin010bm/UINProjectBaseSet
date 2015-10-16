@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-UINProjectBaseSetTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-UINProjectBaseSetUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UIImage+BlurredFrame.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>7540DC618BEF8013855D27DD25EF00E1</key>
+		<key>688A9F0FA1F1190D428891DA9EB2E48B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D5B358E7059B26B5AC022F71BA7139A1</key>
+		<key>9EB500816FD541007350C844FCA6A65B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E266DB125D2F81058E78AB736DB846BB</key>
+		<key>B46224D4BFBFFDAD2E3E95646C52B810</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E069A3FF0F5114C0EAB28D2B635EB36D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F0CFD2189ADD11C4A17BCDD6B2B49AF7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -97,7 +97,7 @@ public extension NSDate {
     
     :returns: converted NSDate
     */
-    public func getNowDateWithTimezone(timezone:NSTimeZone) -> NSDate {
+    public func getConvertedDateWithTimezone(timezone:NSTimeZone) -> NSDate {
         let cal = NSCalendar.currentCalendar()
         let c = cal.components([NSCalendarUnit.Year, NSCalendarUnit.TimeZone, NSCalendarUnit.Day, NSCalendarUnit.Month], fromDate: self)
         let components = NSDateComponents()
@@ -108,13 +108,4 @@ public extension NSDate {
         return cal.dateFromComponents(components)!
     }
     
-    
-    /**
-    Set components property's timezone.
-    
-    :param: timeZone setNSTimeZone
-    */
-    public func setComonentsTimeZone(timeZone: NSTimeZone) {
-        self.components.timeZone = timeZone
-    }
 }

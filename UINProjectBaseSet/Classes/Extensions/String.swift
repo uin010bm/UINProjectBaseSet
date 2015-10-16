@@ -19,7 +19,7 @@ public extension String {
     
     :returns: if string can use to password, return true
     */
-    static func checkValidPassword(password: String?) -> Bool {
+    public static func checkValidPassword(password: String?) -> Bool {
         let PasswordValidLength = 6
         return (password != nil && (password!).characters.count >= PasswordValidLength) ? true:false
     }
@@ -32,16 +32,11 @@ public extension String {
     
     :returns: if string can use to password, return true
     */
-    static func checkValidEmail(email:String) -> Bool {
+    public static func checkValidEmail(email:String) -> Bool {
         let PBRegEXPattern = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$"
-        let regEx: NSRegularExpression?
-        do {
-            regEx = try NSRegularExpression(pattern:PBRegEXPattern,
+        let regEx = try! NSRegularExpression(pattern:PBRegEXPattern,
                 options: NSRegularExpressionOptions.CaseInsensitive)
-        } catch _ {
-            regEx = nil
-        }
-        let regExMatches = regEx?.numberOfMatchesInString(email,
+        let regExMatches = regEx.numberOfMatchesInString(email,
             options: NSMatchingOptions.ReportProgress,
             range: NSMakeRange(0,email.characters.count))
         return (regExMatches == 0) ? false : true

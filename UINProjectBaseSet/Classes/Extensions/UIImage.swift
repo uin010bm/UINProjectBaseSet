@@ -10,21 +10,24 @@ import UIKit
 import CoreGraphics
 import UIImage_BlurredFrame
 
-public enum GradationStart {
-    case Top, Bottom, Right, Left, TopLeft, TopRight, BottomLeft, BottomRight
-}
-
-public enum ImageResizePosition {
-    case Center
-}
-
-public enum ImageResizeAspect {
-    case ScaleToFill
-    case AspectFit
-    case AspectFill
-}
 
 public extension UIImage {
+    
+    // MARK: - public enum
+    public enum GradationStart {
+        case Top, Bottom, Right, Left, TopLeft, TopRight, BottomLeft, BottomRight
+    }
+    
+    public enum ImageResizePosition {
+        case Center
+    }
+    
+    public enum ImageResizeAspect {
+        case ScaleToFill
+        case AspectFit
+        case AspectFill
+    }
+    
     
     // MARK: - public class functions
     /**
@@ -301,7 +304,7 @@ public extension UIImage {
     
     :returns: blured UIImage
     */
-    public func pbs_blurredImage() -> UIImage {
+    public func getBlurredImage() -> UIImage {
         return self.applyTintEffectWithColor(UIColor(white: 0.5, alpha: 1.0), atFrame: CGRectMake(0, 0, self.size.width, self.size.height))
     }
     
@@ -311,7 +314,7 @@ public extension UIImage {
     
     :returns: blured UIImage
     */
-    public func pbs_blurredImageVircialSide() -> UIImage {
+    public func getBlurredImageVircialSide() -> UIImage {
         let topMask:UIImage = UIImage.getGradationMaskedImageWith(size: CGSizeMake(50, 50), startFrom: GradationStart.Top)
         var image = self
         image = self.applyBlurWithRadius(30, tintColor: UIColor.clearColor(), saturationDeltaFactor: 10.0, maskImage: topMask, atFrame: CGRectMake(0, 0, self.size.width, topMask.size.height))

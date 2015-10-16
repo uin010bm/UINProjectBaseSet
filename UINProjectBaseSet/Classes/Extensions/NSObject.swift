@@ -14,8 +14,11 @@ public extension NSObject {
     /// Get class name from classObject.
     public class func getClassNameWithoutNamespace() -> String {
         let fullClassName = NSStringFromClass(self)
-        let range = fullClassName.rangeOfString(".")
-        return fullClassName.substringFromIndex(range!.endIndex)
+        if let range = fullClassName.rangeOfString(".") {
+            return fullClassName.substringFromIndex(range.endIndex)
+        } else {
+            return fullClassName
+        }
     }
     
     
@@ -27,7 +30,10 @@ public extension NSObject {
     */
     public func getClassNameWithoutNamespace() -> String {
         let fullClassName = NSStringFromClass(self.classForCoder)
-        let range = fullClassName.rangeOfString(".")
-        return fullClassName.substringFromIndex(range!.endIndex)
+        if let range = fullClassName.rangeOfString(".") {
+            return fullClassName.substringFromIndex(range.endIndex)
+        } else {
+            return fullClassName
+        }
     }
 }

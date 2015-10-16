@@ -34,7 +34,7 @@ public func Log(message: String,
     file: String = __FILE__,
     line: Int = __LINE__) {
         _ = [message,file,function,line]
-        #if DEBUG || STG
+        #if DEBUG
             print("Log \"\(message)\" (File: \(file), Function: \(function), Line: \(line))")
         #endif
 }

@@ -1,5 +1,5 @@
 
-platform :ios, ‘8.0’
+platform :ios, '8.0'
 use_frameworks!
 
 source 'https://github.com/CocoaPods/Specs.git'
@@ -12,11 +12,11 @@ end
 
 
 target 'UINProjectBaseSetTests' do
-
+    pod 'BlocksKit'
 end
 
 
 target 'UINProjectBaseSetUITests' do
-
+    pod 'BlocksKit'
 end
 

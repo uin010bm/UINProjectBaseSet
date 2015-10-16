@@ -30,18 +30,23 @@ extension UIView {
     
     
     // MARK: - public struct
-    public struct BorderPosition : OptionSetType {
-        private var value: UInt = 0
+    public struct BorderPositions : OptionSetType {
+        
         init(_ value: UInt) { self.value = value }
-        public init(rawValue value: UInt) { self.value = value }
-        static var allZeros: BorderPosition { return self.init(0) }
-        static func fromMask(raw: UInt) -> BorderPosition { return self.init(raw) }
         init(nilLiteral: ()) { self.value = 0 }
+        public init(rawValue value: UInt) { self.value = value }
+        
+        static var allZeros: BorderPositions { return self.init(0) }
+        static var Top: BorderPositions   { return self.init(1 << 0) }
+        static var Left: BorderPositions  { return self.init(1 << 1) }
+        static var Bottom: BorderPositions   { return self.init(1 << 2) }
+        static var Right: BorderPositions   { return self.init(1 << 3) }
+        
+        private var value: UInt = 0
+        
         public var rawValue: UInt { return self.value }
-        static var Top: BorderPosition   { return self.init(1 << 0) }
-        static var Left: BorderPosition  { return self.init(1 << 1) }
-        static var Bottom: BorderPosition   { return self.init(1 << 2) }
-        static var Right: BorderPosition   { return self.init(1 << 3) }
+        
+        static func fromMask(raw: UInt) -> BorderPositions { return self.init(raw) }
     }
     
     
@@ -62,14 +67,14 @@ extension UIView {
     
     
     
-    // MARK: - private functions
+    // MARK: - public functions
     /**
     Get inner shadow based self view.
     
     :returns: shadow image view
     */
-    private func getInnerShadow() -> UIImageView {
-        let shadow = UIImage.getGradationImageWith(size: CGSizeMake(1.0, self.frame.size.height * 0.5), startFrom: GradationStart.Bottom, colors: [UIColor.getGrayScaleColor(white: 0.0, alpha: 0.5), UIColor.getGrayScaleColor(white:0.0, alpha:0.0)])
+    public func getInnerShadow() -> UIImageView {
+        let shadow = UIImage.getGradationImageWith(size: CGSizeMake(1.0, self.frame.size.height * 0.5), startFrom: UIImage.GradationStart.Bottom, colors: [UIColor(white: 0.0, alpha: 0.5), UIColor(white:0.0, alpha:0.0)])
         let shadowView = UIImageView(image: shadow)
         shadowView.userInteractionEnabled = false
         shadowView.frame.size.width = self.frame.size.width
@@ -77,11 +82,8 @@ extension UIView {
         shadowView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleTopMargin]
         return shadowView
     }
-    
-    
 
     
-    // MARK: - public functions
     /**
     Convert shape to ViewShape type.
     
@@ -121,29 +123,29 @@ extension UIView {
     :param: width    set border width
     :param: color    set border color by UIColor
     */
-    public func addBorder(position:BorderPosition, width:CGFloat, color:UIColor) {
-        if position.intersect(BorderPosition.Top) != [] {
+    public func addBorder(position:BorderPositions, width:CGFloat, color:UIColor) {
+        if position.intersect(BorderPositions.Top) != [] {
             let line = UIView(frame:CGRectMake(0, 0, self.frame.size.width, width))
             line.backgroundColor = color
             line.autoresizingMask = UIViewAutoresizing.FlexibleBottomMargin
             self.addSubview(line)
         }
         
-        if position.intersect(BorderPosition.Left) != [] {
+        if position.intersect(BorderPositions.Left) != [] {
             let line = UIView(frame:CGRectMake(0, 0, width, self.frame.size.height))
             line.backgroundColor = color
             line.autoresizingMask = UIViewAutoresizing.FlexibleRightMargin
             self.addSubview(line)
         }
         
-        if position.intersect(BorderPosition.Bottom) != [] {
+        if position.intersect(BorderPositions.Bottom) != [] {
             let line = UIView(frame:CGRectMake(0, self.frame.size.height - width, self.frame.size.width, width))
             line.backgroundColor = color
             line.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin
             self.addSubview(line)
         }
         
-        if position.intersect(BorderPosition.Right) != [] {
+        if position.intersect(BorderPositions.Right) != [] {
             let line = UIView(frame:CGRectMake(self.frame.size.width - width, 0, width, self.frame.size.height))
             line.backgroundColor = color
             line.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin
@@ -210,7 +212,7 @@ extension UIView {
     
     :param: groupDuration set interval by CFTimeInterval
     */
-    public func popAnimation(groupDuration: CFTimeInterval = 3.5) {
+    public func startPopAnimation(groupDuration: CFTimeInterval = 3.5) {
         let animationGroup = CAAnimationGroup()
         animationGroup.duration = groupDuration
         animationGroup.repeatCount = Float.infinity

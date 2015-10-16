@@ -22,7 +22,31 @@ public class ApplicationManager : NSObject {
         return Static.instance
     }
     
-    // MARK: public propertys
+    
+    
+    // MARK: - private propertys
+    /**
+    Check mic permission.
+    
+    :returns: permission status.
+    */
+    private func getMicrophonePermission() -> AVAuthorizationStatus {
+        return AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeAudio)
+    }
+    
+    
+    /**
+    Check camera permission.
+    
+    :returns: permission status.
+    */
+    private func getCameraPermission() -> AVAuthorizationStatus {
+        return AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
+    }
+    
+    
+    
+    // MARK: - public propertys
     /// if device orrientation is landscape, return true.
     public var isLandscape: Bool { return UIApplication.sharedApplication().statusBarOrientation.isLandscape }
     /// if device orrientation is portrait, return true.
@@ -127,26 +151,6 @@ public class ApplicationManager : NSObject {
     
     
     /**
-    Check mic permission.
-    
-    :returns: permission status.
-    */
-    public func getMicrophonePermission() -> AVAuthorizationStatus {
-        return AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeAudio)
-    }
-    
-    
-    /**
-    Check camera permission.
-    
-    :returns: permission status.
-    */
-    public func getCameraPermission() -> AVAuthorizationStatus {
-        return AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
-    }
-    
-    
-    /**
     Open itunes install page.
     */
     public func openAppStore() {
@@ -155,6 +159,23 @@ public class ApplicationManager : NSObject {
                 UIApplication.sharedApplication().openURL(appStoreURL)
             }
         }
+    }
+    
+    
+    /**
+    Set app orientation to landscapeLeft
+    */
+    public func setApplicationToOrientation(orientation: UIInterfaceOrientation) {
+        let value = orientation.rawValue
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+    }
+    
+    
+    public func setPushNotification() {
+        let application = UIApplication.sharedApplication()
+        let settings: UIUserNotificationSettings = UIUserNotificationSettings( forTypes: [.Alert, .Badge, .Sound], categories: nil )
+        application.registerUserNotificationSettings( settings)
+        application.registerForRemoteNotifications()
     }
     
 }
