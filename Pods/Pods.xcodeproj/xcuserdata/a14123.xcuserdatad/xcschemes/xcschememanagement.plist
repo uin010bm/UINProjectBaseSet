@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>BlocksKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UIImage+BlurredFrame.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,17 +42,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>688A9F0FA1F1190D428891DA9EB2E48B</key>
+		<key>30B822EED098B66454B9BC6EEB9335BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EB500816FD541007350C844FCA6A65B</key>
+		<key>59A29B538FEADBA5E4A58AD5D939AD10</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B46224D4BFBFFDAD2E3E95646C52B810</key>
+		<key>8F3DC33CFCB4C562C463641A8A3460B6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A6199D44A37DA4B48A1D4F37A0FE6224</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CD8924ACE5ED851AC97FBD4F65C66F3C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

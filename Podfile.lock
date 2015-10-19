@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (3.0.0)
   - BlocksKit (2.2.5):
     - BlocksKit/All (= 2.2.5)
   - BlocksKit/All (2.2.5):
@@ -14,14 +15,19 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - SwiftyJSON (2.3.0)
   - UIImage+BlurredFrame (0.0.4)
 
 DEPENDENCIES:
+  - Alamofire
   - BlocksKit
+  - SwiftyJSON
   - UIImage+BlurredFrame
 
 SPEC CHECKSUMS:
+  Alamofire: b61782387f81bcc538a0284cf2bb5d7995cd0a80
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
   UIImage+BlurredFrame: ad2f7195c6947ea3117c7d202f75a51958d5061a
 
 COCOAPODS: 0.38.2

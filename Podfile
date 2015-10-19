@@ -8,11 +8,15 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'UINProjectBaseSet' do
     pod 'UIImage+BlurredFrame'
     pod 'BlocksKit'
+    pod 'Alamofire'
+    pod 'SwiftyJSON'
 end
 
 
 target 'UINProjectBaseSetTests' do
     pod 'BlocksKit'
+    pod 'Alamofire'
+    pod 'SwiftyJSON'
 end
 
 

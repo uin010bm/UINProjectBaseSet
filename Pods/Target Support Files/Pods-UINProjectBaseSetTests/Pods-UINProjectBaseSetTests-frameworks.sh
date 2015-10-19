@@ -52,23 +52,37 @@ code_sign_if_enabled() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework 'Pods-UINProjectBaseSetTests/Alamofire.framework'
   install_framework 'Pods-UINProjectBaseSetTests/BlocksKit.framework'
+  install_framework 'Pods-UINProjectBaseSetTests/SwiftyJSON.framework'
 fi
 if [[ "$CONFIGURATION" == "Dev" ]]; then
+  install_framework 'Pods-UINProjectBaseSetTests/Alamofire.framework'
   install_framework 'Pods-UINProjectBaseSetTests/BlocksKit.framework'
+  install_framework 'Pods-UINProjectBaseSetTests/SwiftyJSON.framework'
 fi
 if [[ "$CONFIGURATION" == "Staging" ]]; then
+  install_framework 'Pods-UINProjectBaseSetTests/Alamofire.framework'
   install_framework 'Pods-UINProjectBaseSetTests/BlocksKit.framework'
+  install_framework 'Pods-UINProjectBaseSetTests/SwiftyJSON.framework'
 fi
 if [[ "$CONFIGURATION" == "Product" ]]; then
+  install_framework 'Pods-UINProjectBaseSetTests/Alamofire.framework'
   install_framework 'Pods-UINProjectBaseSetTests/BlocksKit.framework'
+  install_framework 'Pods-UINProjectBaseSetTests/SwiftyJSON.framework'
 fi
 if [[ "$CONFIGURATION" == "InHouse-Dev" ]]; then
+  install_framework 'Pods-UINProjectBaseSetTests/Alamofire.framework'
   install_framework 'Pods-UINProjectBaseSetTests/BlocksKit.framework'
+  install_framework 'Pods-UINProjectBaseSetTests/SwiftyJSON.framework'
 fi
 if [[ "$CONFIGURATION" == "InHouse-Staging" ]]; then
+  install_framework 'Pods-UINProjectBaseSetTests/Alamofire.framework'
   install_framework 'Pods-UINProjectBaseSetTests/BlocksKit.framework'
+  install_framework 'Pods-UINProjectBaseSetTests/SwiftyJSON.framework'
 fi
 if [[ "$CONFIGURATION" == "InHouse-Product" ]]; then
+  install_framework 'Pods-UINProjectBaseSetTests/Alamofire.framework'
   install_framework 'Pods-UINProjectBaseSetTests/BlocksKit.framework'
+  install_framework 'Pods-UINProjectBaseSetTests/SwiftyJSON.framework'
 fi

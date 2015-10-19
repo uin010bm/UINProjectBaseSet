@@ -52,30 +52,44 @@ code_sign_if_enabled() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework 'Pods-UINProjectBaseSet/Alamofire.framework'
   install_framework 'Pods-UINProjectBaseSet/BlocksKit.framework'
+  install_framework 'Pods-UINProjectBaseSet/SwiftyJSON.framework'
   install_framework 'Pods-UINProjectBaseSet/UIImage_BlurredFrame.framework'
 fi
 if [[ "$CONFIGURATION" == "Dev" ]]; then
+  install_framework 'Pods-UINProjectBaseSet/Alamofire.framework'
   install_framework 'Pods-UINProjectBaseSet/BlocksKit.framework'
+  install_framework 'Pods-UINProjectBaseSet/SwiftyJSON.framework'
   install_framework 'Pods-UINProjectBaseSet/UIImage_BlurredFrame.framework'
 fi
 if [[ "$CONFIGURATION" == "Staging" ]]; then
+  install_framework 'Pods-UINProjectBaseSet/Alamofire.framework'
   install_framework 'Pods-UINProjectBaseSet/BlocksKit.framework'
+  install_framework 'Pods-UINProjectBaseSet/SwiftyJSON.framework'
   install_framework 'Pods-UINProjectBaseSet/UIImage_BlurredFrame.framework'
 fi
 if [[ "$CONFIGURATION" == "Product" ]]; then
+  install_framework 'Pods-UINProjectBaseSet/Alamofire.framework'
   install_framework 'Pods-UINProjectBaseSet/BlocksKit.framework'
+  install_framework 'Pods-UINProjectBaseSet/SwiftyJSON.framework'
   install_framework 'Pods-UINProjectBaseSet/UIImage_BlurredFrame.framework'
 fi
 if [[ "$CONFIGURATION" == "InHouse-Dev" ]]; then
+  install_framework 'Pods-UINProjectBaseSet/Alamofire.framework'
   install_framework 'Pods-UINProjectBaseSet/BlocksKit.framework'
+  install_framework 'Pods-UINProjectBaseSet/SwiftyJSON.framework'
   install_framework 'Pods-UINProjectBaseSet/UIImage_BlurredFrame.framework'
 fi
 if [[ "$CONFIGURATION" == "InHouse-Staging" ]]; then
+  install_framework 'Pods-UINProjectBaseSet/Alamofire.framework'
   install_framework 'Pods-UINProjectBaseSet/BlocksKit.framework'
+  install_framework 'Pods-UINProjectBaseSet/SwiftyJSON.framework'
   install_framework 'Pods-UINProjectBaseSet/UIImage_BlurredFrame.framework'
 fi
 if [[ "$CONFIGURATION" == "InHouse-Product" ]]; then
+  install_framework 'Pods-UINProjectBaseSet/Alamofire.framework'
   install_framework 'Pods-UINProjectBaseSet/BlocksKit.framework'
+  install_framework 'Pods-UINProjectBaseSet/SwiftyJSON.framework'
   install_framework 'Pods-UINProjectBaseSet/UIImage_BlurredFrame.framework'
 fi
