@@ -10,19 +10,34 @@ import Foundation
 import UIKit
 
 
-
+/// UIViewを拡張するためのExtension
 extension UIView {
     
+    
     // MARK: - public enum
+    
+    ///  Viewの形状変化のためのenum type
+    ///
+    ///  - Circle:        円形
+    ///  - RoundedCorner: 角丸
     public enum ViewShape {
         case Circle, RoundedCorner
     }
     
+    ///  Viewにフィルタを指定するためのenum type
+    ///
+    ///  - DarkEdgeVirtical: 縦方向の黒グラデーション
+    ///  - BlurredVirtical: 縦方向のブラー
     public enum ViewFilter : Int {
         case DarkEdgeVirtical = 1
         case BlurredVirtical  = 2
     }
     
+    ///  Viewにドロップシャドウを指定するための enum type
+    ///
+    ///  - Rect:    Viewと同様のRectを投影する(radius対応)
+    ///  - Circle:  丸い形状を投影
+    ///  - Dynamic: そのまま投影
     public enum DropShadowType {
         case Rect, Circle, Dynamic
     }
@@ -30,6 +45,8 @@ extension UIView {
     
     
     // MARK: - public struct
+    
+    /// ボーダーを指定するためのBit演算struct
     public struct BorderPositions : OptionSetType {
         
         init(_ value: UInt) { self.value = value }
@@ -52,6 +69,15 @@ extension UIView {
     
     
     // MARK: - public class functions
+    
+    ///  Float指定によるstart/end/current値から現在の進捗比率を返却
+    ///
+    ///  - parameter start:         start値を設定
+    ///  - parameter end:           end値を設定
+    ///  - parameter current:       現在値を設定
+    ///  - parameter allowOverflow: end値以上を許容するか
+    ///
+    ///  - returns: 現在の進捗比率
     public class func getProgress(start start:CGFloat, end:CGFloat, current:CGFloat, allowOverflow:Bool = true) -> CGFloat {
         var progress:CGFloat = (current - start) / (end - start)
         if !allowOverflow {
@@ -60,6 +86,14 @@ extension UIView {
         return progress
     }
     
+    
+    ///  Float指定によるstart/end値と現在の進捗比率から、現在値を計算して返却
+    ///
+    ///  - parameter start:    start値
+    ///  - parameter end:      end値
+    ///  - parameter progress: 現在の進捗比率
+    ///
+    ///  - returns: 現在値
     public class func getProgressValue(start start:CGFloat, end:CGFloat, progress:CGFloat) -> CGFloat {
         return (end - start) * progress + start
     }
@@ -68,11 +102,10 @@ extension UIView {
     
     
     // MARK: - public functions
-    /**
-    Get inner shadow based self view.
     
-    :returns: shadow image view
-    */
+    ///  selfViewからシャドウViewを作成し、返却する
+    ///
+    ///  - returns: シャドウView
     public func getInnerShadow() -> UIImageView {
         let shadow = UIImage.getGradationImageWith(size: CGSizeMake(1.0, self.frame.size.height * 0.5), startFrom: UIImage.GradationStart.Bottom, colors: [UIColor(white: 0.0, alpha: 0.5), UIColor(white:0.0, alpha:0.0)])
         let shadowView = UIImageView(image: shadow)
@@ -84,11 +117,9 @@ extension UIView {
     }
 
     
-    /**
-    Convert shape to ViewShape type.
-    
-    :param: shape set ViewShape enum
-    */
+    ///  Viewの形状を変化させる
+    ///
+    ///  - parameter shape: 形状をenum指定
     public func convertShape(shape:ViewShape) {
         switch shape {
         case .Circle:
@@ -102,11 +133,9 @@ extension UIView {
     }
     
     
-    /**
-    Get image context from view.
-    
-    :returns: created UIImage based view
-    */
+    ///  viewからimageコンテキストを取得
+    ///
+    ///  - returns: UIImage instance
     public func getImageContextFromView() -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, UIScreen.mainScreen().scale)
         self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
@@ -116,13 +145,11 @@ extension UIView {
     }
     
     
-    /**
-    Add border to self biew.
-    
-    :param: position set BorderPosition enum
-    :param: width    set border width
-    :param: color    set border color by UIColor
-    */
+    ///  Viewにボーダーを追加する
+    ///
+    ///  - parameter position: ボーダー追加する位置をBorderPositionsStructにて指定
+    ///  - parameter width:    ボーダーサイズを指定
+    ///  - parameter color:    ボーダーカラーを指定
     public func addBorder(position:BorderPositions, width:CGFloat, color:UIColor) {
         if position.intersect(BorderPositions.Top) != [] {
             let line = UIView(frame:CGRectMake(0, 0, self.frame.size.width, width))
@@ -155,13 +182,12 @@ extension UIView {
     
     
     
-    // MARK: Animations
-    /**
-    Do alpha fadein animation.
+    // MARK: - animations
     
-    :param: duration   set interval by Double
-    :param: completion set block will fire after animation
-    */
+    ///  Viewをフェードインさせる
+    ///
+    ///  - parameter duration:   アニメーションのインターバルを指定
+    ///  - parameter completion: アニメーション完了時に実行するblockを指定
     public func fadeIn(duration:Double = 0.3, completion:(() -> Void)? = nil) {
         if self.hidden {
             self.alpha = 0.0
@@ -175,12 +201,10 @@ extension UIView {
     }
     
     
-    /**
-    Do alpha fadeout animation.
-    
-    :param: duration   set interval by Double
-    :param: completion set block will fire after animation
-    */
+    ///  Viewをフェードアウトさせる
+    ///
+    ///  - parameter duration:   アニメーションのインターバルを指定
+    ///  - parameter completion: アニメーション完了時に実行するblockを指定
     public func fadeOut(duration:Double = 0.3, completion:(() -> Void)? = nil) {
         UIView.animateWithDuration(duration, animations: { () -> Void in
             self.alpha = 0.0
@@ -192,9 +216,7 @@ extension UIView {
     }
     
     
-    /**
-    Do onetime scale animation.
-    */
+    /// Viewを90%の縮小状態から通常に戻すアニメーション
     public func heartBeat() {
         let orgTransform = self.transform
         
@@ -207,11 +229,9 @@ extension UIView {
     }
     
     
-    /**
-    Do pop animation.
-    
-    :param: groupDuration set interval by CFTimeInterval
-    */
+    ///  Viewをポップさせる
+    ///
+    ///  - parameter groupDuration: ポップ開始から終了までのアニメーション間隔を指定する
     public func startPopAnimation(groupDuration: CFTimeInterval = 3.5) {
         let animationGroup = CAAnimationGroup()
         animationGroup.duration = groupDuration
@@ -230,19 +250,15 @@ extension UIView {
     }
     
     
-    /**
-    Stop pop animation.
-    */
+    ///  Viewのポップアニメーションを止める
     public func stopPopAnimation() {
         self.layer.removeAnimationForKey("popAnimation")
     }
     
     
-    /**
-    Do bouce animation.
-    
-    :param: expandScale set max scale by CGFloat
-    */
+    ///  Viewをバウンスさせる
+    ///
+    ///  - parameter expandScale: 拡大の最大比率を指定
     func bounceAnimation(expandScale: CGFloat = 1.1) {
         UIView.animateWithDuration(0.1, delay: 0,
             options: .CurveEaseInOut,
@@ -259,13 +275,11 @@ extension UIView {
     }
 
     
-    /**
-    Add drop shadow to self view.
-    
-    :param: type         set DropShadowType enum
-    :param: color        set shadow color
-    :param: shadowOffset set offset
-    */
+    ///  Viewにシャドウを追加する
+    ///
+    ///  - parameter type:         シャドウのタイプをenum指定
+    ///  - parameter color:        シャドウのカラーを指定
+    ///  - parameter shadowOffset: シャドウのオフセットを指定
     public func addDropShadow(type:DropShadowType = .Dynamic, color: UIColor = UIColor.blackColor(), shadowOffset:CGSize = CGSizeZero) {
         
         self.layer.shadowOpacity = 0.3
@@ -292,9 +306,7 @@ extension UIView {
     }
     
     
-    /**
-    Add drop shadow for icon.
-    */
+    ///  アイコンViewにシャドウを追加する
     public func addDropShadowForIcon() {
         self.layer.shadowOpacity = 0.3
         self.layer.shadowRadius = 0.5

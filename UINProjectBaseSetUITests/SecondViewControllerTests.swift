@@ -24,7 +24,8 @@ class SecondViewControllerTests: XCTestCase {
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
         
         let app = XCUIApplication()
-        let button = app.otherElements.containingType(.NavigationBar, identifier:"UINProjectBaseSet.View").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Button).matchingIdentifier("Button").elementBoundByIndex(1)
+        let element = app.otherElements.containingType(.NavigationBar, identifier:"UINProjectBaseSet.FirstView").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1)
+        let button = element.childrenMatchingType(.Button).matchingIdentifier("Button").elementBoundByIndex(1)
         button.tap()
     }
     

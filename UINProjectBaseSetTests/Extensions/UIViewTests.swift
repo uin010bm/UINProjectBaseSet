@@ -133,20 +133,28 @@ class UIViewTests: XCTestCase {
     func testFadeIn() {
         // Should Test with UITesting.
         
+        let expectation = self.expectationWithDescription("Test wail")
+        
         let view = UIView(frame: CGRectMake(0, 0, 100, 100))
         view.hidden = true
         view.fadeIn(0.1, completion: {
             XCTAssertEqual(view.alpha, 1.0, "Fade in animation is failed.")
+            expectation.fulfill()
         })
+        self.waitForExpectationsWithTimeout(0.5, handler: nil)
     }
     
     func testFadeOut() {
         // Should Test with UITesting.
         
+        let expectation = self.expectationWithDescription("Test wail")
+        
         let view = UIView(frame: CGRectMake(0, 0, 100, 100))
         view.fadeIn(0.1, completion: {
             XCTAssertEqual(view.alpha, 1.0, "Fade in animation is failed.")
+            expectation.fulfill()
         })
+        self.waitForExpectationsWithTimeout(0.5, handler: nil)
     }
     
     func testHeartBeat() {

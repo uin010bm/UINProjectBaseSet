@@ -14,13 +14,12 @@ import BlocksKit
 extension UIScrollView {
     
     // MARK: - public functions
-    /**
-    Set event hundling will fire when over setting rect.
     
-    :param: rect       set target rect by CGRect
-    :param: animated   set animation bool
-    :param: completion set completion block
-    */
+    /// 指定Rect位置までスクロールさせる
+    ///
+    ///  - parameter rect:       表示するRectを指定
+    ///  - parameter animated:   アニメーションスクロールか否か
+    ///  - parameter completion: スクロール完了後のblockを指定
     public func handleScrollRectToVisible(rect: CGRect, animated: Bool, completion:()->Void) {
         self.scrollRectToVisible(rect, animated: animated)
         let maxDuration:Double = 0.5

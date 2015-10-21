@@ -8,13 +8,25 @@
 
 import UIKit
 
+///  SampleCustomView Protocol
 @objc protocol SampleCustomViewDelegate {
+    
+    /// SampleCustomViewからボタンのタップを受け付ける
+    ///
+    ///  - parameter view: 移譲元
     optional func tappedButton(view: SampleCustomView)
+    
+    /// SampleCustomViewからPush遷移を受け付ける
+    ///
+    ///  - parameter view: 移譲元
     optional func tappedPushButton(view: SampleCustomView)
 }
 
-@IBDesignable class SampleCustomView: PBSBaseView {
+
+/// Xibを利用したViewのサンプルクラス
+@IBDesignable class SampleCustomView: PBSBaseXibView {
     
+    /// SampleCuntomViewの移譲先を格納
     weak var delegate: SampleCustomViewDelegate?
 
     @IBOutlet weak var button: UIButton!

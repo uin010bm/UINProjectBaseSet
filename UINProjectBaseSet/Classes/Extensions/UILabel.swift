@@ -10,17 +10,17 @@ import Foundation
 import UIKit
 
 
+/// UILabelを拡張するためのExtension
 extension UILabel {
     
     // MARK: - private functions
-    /**
-    Get NSParagraphStyle from self.
     
-    :param: alignement    set NSTextAlignment
-    :param: lineBreakMode set NSLineBreakMode
-    
-    :returns: NSParagraphStyle based self
-    */
+    ///  指定したAttributeもしくは現状のLabelからNSParagraphStyleを取得する
+    ///
+    ///  - parameter alignment:     textAlignmentを指定
+    ///  - parameter lineBreakMode: 改行モードを指定
+    ///
+    ///  - returns: NSParagraphStyleを返却
     private func getParagraphStyleWithLabelStyle(alignment: NSTextAlignment? = nil, lineBreakMode: NSLineBreakMode? = nil) -> NSParagraphStyle {
         let style = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
         style.alignment = alignment ?? self.textAlignment
@@ -29,18 +29,16 @@ extension UILabel {
     }
     
     
-    /**
-    Get attribute setting array.
-    
-    :param: font           set UIFont
-    :param: textColor      set text color
-    :param: baselineOffset set offset
-    :param: alignment      set NSTextAlignment
-    :param: lineBreakMode  set NSLineBreakMode
-    :param: lineHeight     set line height number by CGFloat
-    
-    :returns: attributes Array
-    */
+    ///  Labelの設定に必要な設定値を含んだDictionaryを取得
+    ///
+    ///  - parameter font:           Font情報を設定
+    ///  - parameter textColor:      textカラーを設定
+    ///  - parameter baselineOffset: 行のoffsetを設定
+    ///  - parameter alignment:      行揃えを指定
+    ///  - parameter lineBreakMode:  改行を指定
+    ///  - parameter lineHeight:     行の高さを指定
+    ///
+    ///  - returns: 設定値を含むDictionaty (for NSAttributedString)
     private func getAttributeWithLabelStyle(font: UIFont? = nil, textColor: UIColor? = nil, baselineOffset: CGFloat? = nil, alignment: NSTextAlignment? = nil, lineBreakMode: NSLineBreakMode? = nil, lineHeight: CGFloat = 1.0) -> [String: AnyObject] {
         let attributes = [
             NSFontAttributeName: font ?? self.font!,
@@ -54,17 +52,16 @@ extension UILabel {
     
     
     // MARK: - public functions
-    /**
-    Set attribute settings to self.
     
-    :param: text           set string to label text
-    :param: font           set UIFont
-    :param: textColor      set text color by UIColor
-    :param: baselineOffset set baseline offset by CGFloat
-    :param: alignment      set align direction by NSTextAlignment
-    :param: lineBreakMode  set line break mode by NSLineBreakMode
-    :param: lineHeight     set line height by CGFloat
-    */
+    ///  引数からLabelStyleを適用する
+    ///
+    ///  - parameter text:           文言を指定
+    ///  - parameter font:           フォントを指定
+    ///  - parameter textColor:      textカラーを指定
+    ///  - parameter baselineOffset: 行のoffsetを指定
+    ///  - parameter alignment:      行揃えを指定
+    ///  - parameter lineBreakMode:  改行を指定
+    ///  - parameter lineHeight:     行の高さを指定
     public func setAttributedTextWithLabelStyle(text:String?, font:UIFont? = nil, textColor: UIColor? = nil, baselineOffset: CGFloat? = nil, alignment: NSTextAlignment? = nil, lineBreakMode: NSLineBreakMode? = nil, lineHeight: CGFloat = 1.0) {
         let attributes = self.getAttributeWithLabelStyle(font, textColor: textColor, baselineOffset: baselineOffset, alignment: alignment, lineBreakMode: lineBreakMode, lineHeight: lineHeight)
         self.attributedText =  NSAttributedString(string: text ?? "", attributes: attributes)

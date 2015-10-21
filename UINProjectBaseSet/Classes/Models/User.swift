@@ -12,43 +12,62 @@ import Alamofire
 
 
 
-// MARK: - User struct
-internal struct User: ResponseObjectSerializable {
+/// ユーザ情報を格納するためのstructオブジェクト
+public struct User: ResponseObjectSerializable {
     
-    let name: String
+    // MARK: - public property
     
-    /**
-    Initialize from ResponsObjectSerializable Protocol
-    */
-    init?(response: NSHTTPURLResponse, representation: AnyObject) {
-        self.name = representation.valueForKeyPath("name") as! String
+    /// ユーザ名
+    public let json: JSON
+    public var name: String {
+        return json["name"].string!
     }
     
     
-    /**
-    Initialize from JSON
-    */
-    init?(json: JSON) {
-        self.name = json["name"].string!
+    // MARK: - initializer
+    
+    /// Alamofire の Response に対応したイニシャライザ。ResponsObjectSerializable Protocol準拠
+    ///
+    ///  - parameter response:       apiレスポンス
+    ///  - parameter representation: convert済みのAnyObject
+    ///
+    ///  - returns: instance
+    public init?(response: NSHTTPURLResponse, representation: AnyObject) {
+        self.json = JSON(representation)
+    }
+    
+    
+    /// JSON用イニシャライザ
+    ///
+    ///  - parameter json: JSON object
+    ///
+    ///  - returns: instance
+    public init?(json: JSON) {
+        self.json = json
     }
 
 }
 
 
 
-// MARK: - UserService
-internal class UserService {
+/// 単独ユーザ情報をApiから取得するためのService
+public class UserService {
     
     
-    // Get User struct from Api.
-    internal class func getUserFromApi(name: String, completion: (Response<User, NSError>) -> Void) {
+    // MARK: - public class functions
+    
+    /// Apiから単独ユーザ情報を取得する
+    ///
+    ///  - parameter name:       ターゲットとなるユーザ名
+    ///  - parameter completion: 完了時ブロック構文。引数にUserジェネリクスのResponseを渡す。
+    public class func getUserFromApi(name: String, completion: (Response<User, NSError>) -> Void) {
         
-        let url = ""
+        let url = ApiClient.sharedInstance.apiHostString + "/user"
         let param:[String: AnyObject] = [
             "name" : name
         ]
         
-        ApiClient.sharedInstance.alamoFireManager?.request(.GET, url, parameters: param, encoding: .JSON, headers: nil).responseObject({ (response: Response<User, NSError>) in
+        ApiClient.sharedInstance.alamoFireManager?.request(.GET, url, parameters: param, encoding: .URLEncodedInURL, headers: nil).responseObject({ (response: Response<User, NSError>) in
             completion(response)
         })
     }
@@ -56,37 +75,23 @@ internal class UserService {
 
 
 
-// MARK: - UserService
-internal class UserListModel {
-    
-    internal var list = [User]()
+/// ユーザリストを管理するためのモデル
+public class UserListModel {
     
     
-    /**
-    Get User Array from Api.
+    // MARK: - public property
     
-    :param: completion set block can get User Array or NSError from attribute.
-    */
-    internal func getUserListFromApi(completion: ([User]?, NSError?) -> Void) {
-        
-        let url = ""
-        let param:[String: AnyObject] = [:]
-        
-        ApiClient.sharedInstance.alamoFireManager?.request(.GET, url, parameters: param, encoding: .JSON, headers: nil).responseObject({ [weak self] (response: Response<JSON, NSError>) in
-            self?.setupModel(response, completion: { (list: [User]?, error: NSError?) in
-                completion(list, error)
-            })
-        })
-    }
+    /// ユーザリスト格納用Array
+    public var list = [User]()
     
     
-    /**
-    Setup list from jsons which got from api.
+    // MARK: - private functions
     
-    :param: response   set response from api
-    :param: completion set block can get User Array or NSError from attribute.
-    */
-    internal func setupModel(response: Response<JSON, NSError>, completion: ([User]?, NSError?) -> Void) {
+    ///  ApiのレスポンスからUserArrayを生成するための関数
+    ///
+    ///  - parameter response:   JSONジェネリクスのResponseオブジェクト
+    ///  - parameter completion: 完了時ブロック構文。引数にUserArray または errorを渡す。
+    private func setupUserListFromJSON(response: Response<JSON, NSError>, completion: ([User]?, NSError?) -> Void) {
         
         if response.result.isFailure {
             completion(nil, response.result.error)
@@ -101,4 +106,24 @@ internal class UserListModel {
             completion(self.list, nil)
         }
     }
+    
+    
+    
+    // MARK: - public functions
+    
+    ///  Apiからユーザリストを取得する
+    ///
+    ///  - parameter completion: 完了時ブロック構文。引数にUserArray または errorを渡す。
+    public func getUserListFromApi(completion: ([User]?, NSError?) -> Void) {
+        
+        let url = ""
+        let param:[String: AnyObject] = [:]
+        
+        ApiClient.sharedInstance.alamoFireManager?.request(.GET, url, parameters: param, encoding: .JSON, headers: nil).responseObject({ [weak self] (response: Response<JSON, NSError>) in
+            self?.setupUserListFromJSON(response, completion: { (list: [User]?, error: NSError?) in
+                completion(list, error)
+            })
+        })
+    }
+
 }

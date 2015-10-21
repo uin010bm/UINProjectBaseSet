@@ -12,34 +12,33 @@ import SwiftyJSON
 
 
 
+/// AlamofireのレスポンスをGenericsの型に変換するためのprotocol
 public protocol ResponseObjectSerializable {
     init?(response: NSHTTPURLResponse, representation: AnyObject)
 }
 
 
 
-class ApiClient {
+/// Apiとのコネクトを統括するためのクラス
+public class ApiClient {
     
-    /**
-    ErrorTypes for network error hundling.
     
-    - TimeOut:   server timeout error.
-    - BadParams: badparams error.
-    - Unknown:   unknown error.
-    */
-    enum ApiError: String {
+    // MARK: - public enum
+    
+    /// Apiエラーハンドリングのためのenum type
+    ///
+    ///  - TimeOut:   サーバタイムアウトエラー
+    ///  - BadParams: BadParamエラー
+    ///  - Unknown:   不明なエラー
+    public enum ApiError: String {
         case TimeOut = "ErrorApiTimeOut"
         case BadParams = "ErrorApiBadParams"
         case Unknown = "ErrorApiUnknown"
     }
     
     
-    /// manager setted configration.
-    internal var alamoFireManager : Alamofire.Manager?
-    
-    
-    /// singleton instance.
-    internal class var sharedInstance : ApiClient {
+    // MARK: - singleton
+    public class var sharedInstance : ApiClient {
         struct Static {
             static let instance : ApiClient = ApiClient()
         }
@@ -47,12 +46,26 @@ class ApiClient {
     }
     
     
-    /**
-    Initializer will set configration.
     
-    :returns:
-    */
-    init() {
+    // MARK: - public property
+    
+    /// Alamofireのmanager格納用変数
+    public var alamoFireManager: Alamofire.Manager?
+    
+    /// ApiのbaseHostを取得する
+    public var apiHostString: String {
+        let baseURLString = NSBundle.mainBundle().objectForInfoDictionaryKey("BaseApiHost") as! String
+        return baseURLString
+    }
+
+    
+    
+    // MARK: - initializer
+    
+    /// Alamofireのconfigrationを設定するinitializer
+    ///
+    ///  - returns: instance
+    public init() {
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
         configuration.timeoutIntervalForRequest = 4 // seconds
         configuration.timeoutIntervalForResource = 4
@@ -60,71 +73,24 @@ class ApiClient {
     }
     
     
-    /**
-    For hundling network error types.
     
-    :param: error set NSError
+    // MARK: - public functions
     
-    :returns: ApiError enum
-    */
-    internal func handleError(error: NSError) -> ApiError {
+    /// NSErrorからApiErrorのtypeを判別する関数
+    ///
+    ///  - parameter error: NSError
+    ///
+    ///  - returns: ApiError enum
+    public func handleError(error: NSError) -> ApiError {
         
         switch error.code {
-        case 400:
+        case 1011:
             return ApiError.TimeOut
+        case 403:
+            return ApiError.BadParams
         default:
             return ApiError.Unknown
         }
     }
     
-}
-
-
-
-// MARK: - Alamofire's Request extension
-extension Request {
-    
-    /**
-    This function make value from Generics Type.
-    
-    :param: completionHandler set block and attribute response converted to type of Generics
-    
-    :returns: Request obj
-    */
-    public func responseObject<T: ResponseObjectSerializable>(completionHandler: Response<T, NSError> -> Void) -> Self {
-        let responseSerializer = ResponseSerializer<T, NSError> { request, response, data, error in
-            guard error == nil else { return .Failure(error!) }
-            
-            let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
-            let result = JSONResponseSerializer.serializeResponse(request, response, data, error)
-            
-            switch result {
-            case .Success(let value):
-                if let
-                    response = response,
-                    responseObject = T(response: response, representation: value)
-                {
-                    return .Success(responseObject)
-                } else {
-                    let failureReason = "JSON could not be serialized into response object: \(value)"
-                    let error = Error.errorWithCode(.JSONSerializationFailed, failureReason: failureReason)
-                    return .Failure(error)
-                }
-            case .Failure(let error):
-                return .Failure(error)
-            }
-        }
-        
-        return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
-    }
-}
-
-
-
-// MARK: - SwiftyJSON's JSON extension
-extension JSON: ResponseObjectSerializable {
-    
-    public init?(response: NSHTTPURLResponse, representation: AnyObject) {
-        self.init(representation as! Dictionary)
-    }
 }

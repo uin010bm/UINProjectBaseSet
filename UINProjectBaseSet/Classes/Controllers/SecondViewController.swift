@@ -8,8 +8,12 @@
 
 import UIKit
 
+
+/// 2つめに表示されるViewController
 class SecondViewController: UIViewController {
 
+    
+    // MARK: - outlets propertys
     @IBOutlet var customView: SampleCustomView!
     
     
@@ -18,16 +22,18 @@ class SecondViewController: UIViewController {
     
     
     
-    // MARK: -
+    // MARK: - initializer
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        Log("ViewController init!")
+        Log("SecondViewController init!")
     }
     
     deinit {
-        Log("ViewController deinit!!!")
+        Log("SecondViewController deinit!!!")
     }
     
+    
+    // MARK: - viewController delegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,11 +55,14 @@ class SecondViewController: UIViewController {
     
     
     // MARK: - private functions
+    
+    ///  Viewの初期設定をする
     private func setupView() {
-        
         self.addSampleView()
     }
     
+    
+    ///  SampleViewをappendする
     private func addSampleView() {
         
         self.scrollView = UIScrollView()
@@ -70,6 +79,7 @@ class SecondViewController: UIViewController {
         
     }
     
+    ///  Logイベント
     private func firedEvent() {
         Log("event is fired.")
     }
@@ -79,12 +89,19 @@ class SecondViewController: UIViewController {
 // MARK: - delegate : SampleCustomViewDelegate
 extension SecondViewController: SampleCustomViewDelegate {
     
+    
+    /// SampleCustomViewからボタンのタップを受け付ける
+    ///
+    ///  - parameter view: 移譲元
     internal func tappedButton(view: SampleCustomView) {
         self.scrollView.handleScrollRectToVisible(CGRectMake(0, 1900, 1, 100), animated: true, completion: { [weak self] in
             self?.firedEvent()
         })
     }
     
+    /// SampleCustomViewからPush遷移を受け付ける
+    ///
+    ///  - parameter view: 移譲元
     internal func tappedPushButton(view: SampleCustomView) {
         self.performSegueWithIdentifier("pushToSecond", sender: self)
     }

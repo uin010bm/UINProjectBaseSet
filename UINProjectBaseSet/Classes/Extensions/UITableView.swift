@@ -9,13 +9,20 @@
 import Foundation
 import UIKit
 
+
+/// UITableViewを拡張するためのExtension
 extension UITableView {
     
     // MARK: - public propertys
-    /// if last cell showed in screen, return true
+    
+    /// 最後のcellが表示されていれば true
     public var isLastRowVisible: Bool {
-        if let indexPath = (indexPathsForVisibleRows as [NSIndexPath]!).last {
-            return indexPath.row == numberOfRowsInSection(0) - 1
+        if let paths = indexPathsForVisibleRows as [NSIndexPath]! {
+            if let indexPath = paths.last {
+                return indexPath.row == numberOfRowsInSection(0) - 1
+            } else {
+                return false
+            }
         } else {
             return false
         }
@@ -24,12 +31,11 @@ extension UITableView {
     
     
     // MARK: - public functions
-    /**
-    Set scroll position to bottom.
     
-    :param: section  set last section number
-    :param: animated set animation bool
-    */
+    ///  最下部へスクロール
+    ///
+    ///  - parameter section:  最下部のセクションを指定
+    ///  - parameter animated: アニメーションスクロールにするか
     public func scrollToBottom(section: Int = 0, animated: Bool = true) {
         let num = numberOfRowsInSection(section)
         if num > 0 {
@@ -39,12 +45,10 @@ extension UITableView {
     }
     
     
-    /**
-    Set scroll position to top.
-    
-    :param: section  set target section number
-    :param: animated set animation bool
-    */
+    ///  最上部へスクロール
+    ///
+    ///  - parameter section:  最上部のセクションを指定 (optional)
+    ///  - parameter animated: アニメーションスクロールにするか
     public func scrollToTop(section: Int = 0, animated: Bool = true) {
         let num = numberOfRowsInSection(section)
         if num > 0 {
@@ -54,11 +58,9 @@ extension UITableView {
     }
     
     
-    /**
-    Set nib to table.
-    
-    :param: type set cell class name from xib
-    */
+    ///  CellをNibClassから設定する
+    ///
+    ///  - parameter type: CellClassを指定
     public func registerNibFromClass<T: UITableViewCell>(type: T.Type) {
         let className = T.getClassNameWithoutNamespace()
         let nib = UINib(nibName: className, bundle: nil)
@@ -66,25 +68,21 @@ extension UITableView {
     }
     
     
-    /**
-    Set cell class to table.
-    
-    :param: type set cell class name
-    */
+    ///  CellをClassから設定する
+    ///
+    ///  - parameter type: CellClassを指定
     public func registerCellClassFromClass<T: UITableViewCell>(type: T.Type) {
         let className = T.getClassNameWithoutNamespace()
         registerClass(T.self, forCellReuseIdentifier: className)
     }
     
     
-    /**
-    Set reusable cell to table with indexpath and class or xib name.
-    
-    :param: type      set cell class or xib class
-    :param: indexPath set indexPath
-    
-    :returns: dequeueReusableCell
-    */
+    ///  再利用可能なCellを登録する
+    ///
+    ///  - parameter type:      CellClassを指定
+    ///  - parameter indexPath: cellのindexを指定
+    ///
+    ///  - returns: Cell instance
     public func dequeueReusableCell<T: UITableViewCell>(type: T.Type,
         forIndexPath indexPath: NSIndexPath) -> T {
             return dequeueReusableCellWithIdentifier(T.getClassNameWithoutNamespace(), forIndexPath: indexPath) as! T

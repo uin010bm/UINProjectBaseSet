@@ -12,27 +12,24 @@ import UIKit
 extension UIFont {
     
     // MARK: - public class functions
-    /**
-    Get HiraKakuProN-W3 font with size.
-    
-    :param: fontSize set font size
-    
-    :returns: HiraKakuProN-W3 UIFont
-    */
-    public class func hiraKakuProNW3(fontSize: CGFloat) -> UIFont {
+
+    ///  HiraKakuProN-W3 フォントを取得する
+    ///
+    ///  - parameter fontSize: フォントサイズの指定
+    ///
+    ///  - returns: UIFont instance
+    public class func getHiraKakuProNW3(fontSize: CGFloat) -> UIFont {
         let font = UIFont(name: "HiraKakuProN-W3", size: fontSize)!
         return font
     }
     
     
-    /**
-    Get HiraKakuProN-W6 font with size.
-    
-    :param: fontSize set font size
-    
-    :returns: HiraKakuProN-W6 UIFont
-    */
-    public class func hiraKakuProNW6(fontSize: CGFloat) -> UIFont {
+    ///  HiraKakuProN-W6 フォントを取得する
+    ///
+    ///  - parameter fontSize: フォントサイズの指定
+    ///
+    ///  - returns: UIFont instance
+    public class func getHiraKakuProNW6(fontSize: CGFloat) -> UIFont {
         let font = UIFont(name: "HiraKakuProN-W6", size: fontSize)!
         return font
     }

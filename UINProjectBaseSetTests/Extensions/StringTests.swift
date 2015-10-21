@@ -74,8 +74,8 @@ class StringTests: XCTestCase {
         
         let str1 = "あ"
         let str2 = "あああああああああああああああああああああああああああ"
-        let size1 = str1.getSize(UIFont.hiraKakuProNW6(10), lineBreakMode: NSLineBreakMode.ByCharWrapping, lineHeight: 1.0, constrainedToSize: CGSize(width: 10, height: 10000))
-        let size2 = str2.getSize(UIFont.hiraKakuProNW6(10), lineBreakMode: NSLineBreakMode.ByCharWrapping, lineHeight: 2.0, constrainedToSize: CGSize(width: 10, height: 10000))
+        let size1 = str1.getSize(UIFont.getHiraKakuProNW6(10), lineBreakMode: NSLineBreakMode.ByCharWrapping, lineHeight: 1.0, constrainedToSize: CGSize(width: 10, height: 10000))
+        let size2 = str2.getSize(UIFont.getHiraKakuProNW6(10), lineBreakMode: NSLineBreakMode.ByCharWrapping, lineHeight: 2.0, constrainedToSize: CGSize(width: 10, height: 10000))
         
         XCTAssertEqual(size1.height, 10, "Minimum size is wrong - \(size1.height) :: testGetSize")
         XCTAssertGreaterThan(size2.height, 10, "Rect size is wrong - \(size2.height) :: testGetSize")

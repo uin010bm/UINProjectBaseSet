@@ -1,8 +1,14 @@
 
+inhibit_all_warnings!
 platform :ios, '8.0'
 use_frameworks!
 
 source 'https://github.com/CocoaPods/Specs.git'
+
+def testing_pods
+    pod 'OHHTTPStubs'
+    pod 'OHHTTPStubs/Swift'
+end
 
 
 target 'UINProjectBaseSet' do
@@ -10,17 +16,16 @@ target 'UINProjectBaseSet' do
     pod 'BlocksKit'
     pod 'Alamofire'
     pod 'SwiftyJSON'
+    testing_pods
 end
 
 
 target 'UINProjectBaseSetTests' do
-    pod 'BlocksKit'
-    pod 'Alamofire'
-    pod 'SwiftyJSON'
+    testing_pods
 end
 
 
 target 'UINProjectBaseSetUITests' do
-    pod 'BlocksKit'
+    testing_pods
 end
 

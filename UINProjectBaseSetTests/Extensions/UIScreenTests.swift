@@ -25,8 +25,13 @@ class UIScreenTests: XCTestCase {
     func testHandleScrollRectToVisible() {
         // Test delegate to UITest
         
+        let expectation = self.expectationWithDescription("Test wail")
+        
         let scrollView = UIScrollView(frame: CGRectMake(0, 0, 100, 1000))
         scrollView.handleScrollRectToVisible(CGRectMake(0, 900, 1, 100), animated: true, completion: {
+            expectation.fulfill()
         })
+        
+        self.waitForExpectationsWithTimeout(0.5, handler: nil)
     }
 }

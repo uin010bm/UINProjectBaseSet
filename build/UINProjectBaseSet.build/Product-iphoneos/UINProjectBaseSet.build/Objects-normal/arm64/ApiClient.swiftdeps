@@ -1,0 +1,277 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "ResponseObjectSerializable"
+- "ApiClient"
+provides-nominal:
+- "P17UINProjectBaseSet26ResponseObjectSerializable"
+- "C17UINProjectBaseSet9ApiClient"
+- "OC17UINProjectBaseSet9ApiClient8ApiError"
+provides-member:
+- ["P17UINProjectBaseSet26ResponseObjectSerializable", ""]
+- ["C17UINProjectBaseSet9ApiClient", ""]
+- ["OC17UINProjectBaseSet9ApiClient8ApiError", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "ResponseObjectSerializable"
+- "ApiClient"
+- "StringLiteralType"
+- !private "~="
+- "=="
+- !private "NSURLSessionConfiguration"
+- "NSHTTPURLResponse"
+- "String"
+- "AnyObject"
+- "Alamofire"
+- "NSError"
+depends-member:
+- !private ["PSs9AnyObject", "Alamofire"]
+- !private ["PSs9AnyObject", "ApiClient"]
+- !private ["PSs9AnyObject", "ApiError"]
+- !private ["PSs9AnyObject", "NSURLSessionConfiguration"]
+- !private ["PSs9AnyObject", "alamoFireManager"]
+- !private ["PSs9AnyObject", "code"]
+- !private ["PSs9AnyObject", "defaultSessionConfiguration"]
+- !private ["PSs9AnyObject", "init"]
+- !private ["PSs9AnyObject", "timeoutIntervalForRequest"]
+- !private ["PSs9AnyObject", "timeoutIntervalForResource"]
+- ["PSs9AnyObject", ""]
+- ["C17UINProjectBaseSet9ApiClient", "Alamofire"]
+- ["C17UINProjectBaseSet9ApiClient", "ApiClient"]
+- ["C17UINProjectBaseSet9ApiClient", "ApiError"]
+- ["C17UINProjectBaseSet9ApiClient", "NSError"]
+- !private ["C17UINProjectBaseSet9ApiClient", "NSURLSessionConfiguration"]
+- ["C17UINProjectBaseSet9ApiClient", "String"]
+- !private ["C17UINProjectBaseSet9ApiClient", "alamoFireManager"]
+- ["C17UINProjectBaseSet9ApiClient", "deinit"]
+- ["C17UINProjectBaseSet9ApiClient", "handleError"]
+- ["C17UINProjectBaseSet9ApiClient", "init"]
+- ["C17UINProjectBaseSet9ApiClient", "sharedInstance"]
+- ["OC17UINProjectBaseSet9ApiClient8ApiError", "BadParams"]
+- ["OC17UINProjectBaseSet9ApiClient8ApiError", "RawValue"]
+- ["OC17UINProjectBaseSet9ApiClient8ApiError", "TimeOut"]
+- ["OC17UINProjectBaseSet9ApiClient8ApiError", "Unknown"]
+- ["OC17UINProjectBaseSet9ApiClient8ApiError", "deinit"]
+- ["OC17UINProjectBaseSet9ApiClient8ApiError", "hashValue"]
+- ["OC17UINProjectBaseSet9ApiClient8ApiError", "init"]
+- ["OC17UINProjectBaseSet9ApiClient8ApiError", "rawValue"]
+- !private ["PSs22BidirectionalIndexType", "Distance"]
+- !private ["PSs22BidirectionalIndexType", "IntegerLiteralType"]
+- !private ["PSs22BidirectionalIndexType", "hashValue"]
+- !private ["PSs21BitwiseOperationsType", "Distance"]
+- !private ["PSs21BitwiseOperationsType", "IntegerLiteralType"]
+- !private ["PSs21BitwiseOperationsType", "hashValue"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["PSs25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs11BooleanType", "_getBuiltinLogicValue"]
+- !private ["PSs11CVarArgType", "Distance"]
+- !private ["PSs11CVarArgType", "IntegerLiteralType"]
+- !private ["PSs11CVarArgType", "code"]
+- !private ["PSs11CVarArgType", "defaultSessionConfiguration"]
+- !private ["PSs11CVarArgType", "hashValue"]
+- !private ["PSs11CVarArgType", "timeoutIntervalForRequest"]
+- !private ["PSs11CVarArgType", "timeoutIntervalForResource"]
+- !private ["PSs10Comparable", "Distance"]
+- !private ["PSs10Comparable", "IntegerLiteralType"]
+- !private ["PSs10Comparable", "hashValue"]
+- !private ["PSs23CustomStringConvertible", "Distance"]
+- !private ["PSs23CustomStringConvertible", "IntegerLiteralType"]
+- !private ["PSs23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs23CustomStringConvertible", "code"]
+- !private ["PSs23CustomStringConvertible", "defaultSessionConfiguration"]
+- !private ["PSs23CustomStringConvertible", "hashValue"]
+- !private ["PSs23CustomStringConvertible", "timeoutIntervalForRequest"]
+- !private ["PSs23CustomStringConvertible", "timeoutIntervalForResource"]
+- !private ["Sd", "deinit"]
+- !private ["PSs9Equatable", "BadParams"]
+- !private ["PSs9Equatable", "Distance"]
+- !private ["PSs9Equatable", "IntegerLiteralType"]
+- ["PSs9Equatable", "RawValue"]
+- !private ["PSs9Equatable", "TimeOut"]
+- !private ["PSs9Equatable", "Unknown"]
+- !private ["PSs9Equatable", "_getBuiltinLogicValue"]
+- !private ["PSs9Equatable", "code"]
+- !private ["PSs9Equatable", "defaultSessionConfiguration"]
+- ["PSs9Equatable", "hashValue"]
+- ["PSs9Equatable", "init"]
+- ["PSs9Equatable", "rawValue"]
+- !private ["PSs9Equatable", "timeoutIntervalForRequest"]
+- !private ["PSs9Equatable", "timeoutIntervalForResource"]
+- ["PSs9Equatable", ""]
+- !private ["PSs9ErrorType", "code"]
+- !private ["PSs16ForwardIndexType", "Distance"]
+- !private ["PSs16ForwardIndexType", "IntegerLiteralType"]
+- !private ["PSs16ForwardIndexType", "hashValue"]
+- !private ["PSs8Hashable", "BadParams"]
+- !private ["PSs8Hashable", "Distance"]
+- !private ["PSs8Hashable", "IntegerLiteralType"]
+- ["PSs8Hashable", "RawValue"]
+- !private ["PSs8Hashable", "TimeOut"]
+- !private ["PSs8Hashable", "Unknown"]
+- !private ["PSs8Hashable", "_getBuiltinLogicValue"]
+- !private ["PSs8Hashable", "code"]
+- !private ["PSs8Hashable", "defaultSessionConfiguration"]
+- ["PSs8Hashable", "hashValue"]
+- ["PSs8Hashable", "init"]
+- ["PSs8Hashable", "rawValue"]
+- !private ["PSs8Hashable", "timeoutIntervalForRequest"]
+- !private ["PSs8Hashable", "timeoutIntervalForResource"]
+- ["PSs8Hashable", ""]
+- !private ["Si", "Distance"]
+- !private ["Si", "IntegerLiteralType"]
+- !private ["Si", "deinit"]
+- !private ["Si", "hashValue"]
+- !private ["PSs21IntegerArithmeticType", "Distance"]
+- !private ["PSs21IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["PSs21IntegerArithmeticType", "hashValue"]
+- !private ["PSs25IntegerLiteralConvertible", "Distance"]
+- !private ["PSs25IntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["PSs25IntegerLiteralConvertible", "hashValue"]
+- !private ["PSs11IntegerType", "Distance"]
+- !private ["PSs11IntegerType", "IntegerLiteralType"]
+- !private ["PSs11IntegerType", "hashValue"]
+- !private ["PSs14MirrorPathType", "Distance"]
+- !private ["PSs14MirrorPathType", "IntegerLiteralType"]
+- !private ["PSs14MirrorPathType", "hashValue"]
+- !private ["PSo8NSCoding", "code"]
+- !private ["PSo9NSCopying", "code"]
+- !private ["PSo9NSCopying", "defaultSessionConfiguration"]
+- !private ["PSo9NSCopying", "timeoutIntervalForRequest"]
+- !private ["PSo9NSCopying", "timeoutIntervalForResource"]
+- !private ["CSo7NSError", "code"]
+- !private ["CSo8NSNumber", "deinit"]
+- !private ["CSo8NSObject", "code"]
+- !private ["CSo8NSObject", "defaultSessionConfiguration"]
+- !private ["CSo8NSObject", "deinit"]
+- !private ["CSo8NSObject", "timeoutIntervalForRequest"]
+- !private ["CSo8NSObject", "timeoutIntervalForResource"]
+- !private ["PSo16NSObjectProtocol", "code"]
+- !private ["PSo16NSObjectProtocol", "defaultSessionConfiguration"]
+- !private ["PSo16NSObjectProtocol", "timeoutIntervalForRequest"]
+- !private ["PSo16NSObjectProtocol", "timeoutIntervalForResource"]
+- !private ["PSo14NSSecureCoding", "code"]
+- !private ["CSo8NSString", "deinit"]
+- !private ["CSo25NSURLSessionConfiguration", "defaultSessionConfiguration"]
+- !private ["CSo25NSURLSessionConfiguration", "timeoutIntervalForRequest"]
+- !private ["CSo25NSURLSessionConfiguration", "timeoutIntervalForResource"]
+- !private ["CSo7NSValue", "deinit"]
+- !private ["PSs21RandomAccessIndexType", "Distance"]
+- !private ["PSs21RandomAccessIndexType", "IntegerLiteralType"]
+- !private ["PSs21RandomAccessIndexType", "hashValue"]
+- !private ["VSs5Range", "deinit"]
+- !private ["PSs16RawRepresentable", "BadParams"]
+- ["PSs16RawRepresentable", "RawValue"]
+- !private ["PSs16RawRepresentable", "TimeOut"]
+- !private ["PSs16RawRepresentable", "Unknown"]
+- ["PSs16RawRepresentable", "hashValue"]
+- ["PSs16RawRepresentable", "init"]
+- ["PSs16RawRepresentable", "rawValue"]
+- ["PSs16RawRepresentable", ""]
+- ["P17UINProjectBaseSet26ResponseObjectSerializable", "AnyObject"]
+- ["P17UINProjectBaseSet26ResponseObjectSerializable", "NSHTTPURLResponse"]
+- ["P17UINProjectBaseSet26ResponseObjectSerializable", "init"]
+- !private ["PSs17SignedIntegerType", "Distance"]
+- !private ["PSs17SignedIntegerType", "IntegerLiteralType"]
+- !private ["PSs17SignedIntegerType", "hashValue"]
+- !private ["PSs16SignedNumberType", "Distance"]
+- !private ["PSs16SignedNumberType", "IntegerLiteralType"]
+- !private ["PSs16SignedNumberType", "hashValue"]
+- !private ["PSs10Strideable", "Distance"]
+- !private ["PSs10Strideable", "IntegerLiteralType"]
+- !private ["PSs10Strideable", "hashValue"]
+- ["SS", "deinit"]
+- !private ["PSs33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs33_BuiltinIntegerLiteralConvertible", "Distance"]
+- !private ["PSs33_BuiltinIntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["PSs33_BuiltinIntegerLiteralConvertible", "hashValue"]
+- !private ["PSs14_Incrementable", "Distance"]
+- !private ["PSs14_Incrementable", "IntegerLiteralType"]
+- !private ["PSs14_Incrementable", "hashValue"]
+- !private ["PSs22_IntegerArithmeticType", "Distance"]
+- !private ["PSs22_IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["PSs22_IntegerArithmeticType", "hashValue"]
+- !private ["PSs12_IntegerType", "Distance"]
+- !private ["PSs12_IntegerType", "IntegerLiteralType"]
+- !private ["PSs12_IntegerType", "hashValue"]
+- !private ["PSs21_ObjectiveCBridgeable", "Distance"]
+- !private ["PSs21_ObjectiveCBridgeable", "IntegerLiteralType"]
+- !private ["PSs21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["PSs21_ObjectiveCBridgeable", "hashValue"]
+- !private ["VSs26_OptionalNilComparisonType", "deinit"]
+- !private ["PSs22_RandomAccessAmbiguity", "Distance"]
+- !private ["PSs22_RandomAccessAmbiguity", "IntegerLiteralType"]
+- !private ["PSs22_RandomAccessAmbiguity", "hashValue"]
+- !private ["PSs12_Reflectable", "Distance"]
+- !private ["PSs12_Reflectable", "IntegerLiteralType"]
+- !private ["PSs12_Reflectable", "_getBuiltinLogicValue"]
+- !private ["PSs12_Reflectable", "hashValue"]
+- !private ["PSs18_SignedIntegerType", "Distance"]
+- !private ["PSs18_SignedIntegerType", "IntegerLiteralType"]
+- !private ["PSs18_SignedIntegerType", "hashValue"]
+- !private ["PSs11_Strideable", "Distance"]
+- !private ["PSs11_Strideable", "IntegerLiteralType"]
+- !private ["PSs11_Strideable", "hashValue"]
+depends-nominal:
+- "PSs9AnyObject"
+- "C17UINProjectBaseSet9ApiClient"
+- "OC17UINProjectBaseSet9ApiClient8ApiError"
+- !private "PSs22BidirectionalIndexType"
+- !private "PSs21BitwiseOperationsType"
+- !private "Sb"
+- !private "PSs25BooleanLiteralConvertible"
+- !private "PSs11BooleanType"
+- !private "PSs11CVarArgType"
+- !private "PSs10Comparable"
+- !private "PSs23CustomStringConvertible"
+- !private "Sd"
+- "PSs9Equatable"
+- !private "PSs9ErrorType"
+- !private "PSs16ForwardIndexType"
+- "PSs8Hashable"
+- !private "Si"
+- !private "PSs21IntegerArithmeticType"
+- !private "PSs25IntegerLiteralConvertible"
+- !private "PSs11IntegerType"
+- !private "PSs14MirrorPathType"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "CSo7NSError"
+- !private "CSo8NSNumber"
+- !private "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "CSo25NSURLSessionConfiguration"
+- !private "CSo7NSValue"
+- !private "PSs21RandomAccessIndexType"
+- !private "VSs5Range"
+- "PSs16RawRepresentable"
+- "P17UINProjectBaseSet26ResponseObjectSerializable"
+- !private "PSs17SignedIntegerType"
+- !private "PSs16SignedNumberType"
+- !private "PSs10Strideable"
+- "SS"
+- !private "PSs33_BuiltinBooleanLiteralConvertible"
+- !private "PSs33_BuiltinIntegerLiteralConvertible"
+- !private "PSs14_Incrementable"
+- !private "PSs22_IntegerArithmeticType"
+- !private "PSs12_IntegerType"
+- !private "PSs21_ObjectiveCBridgeable"
+- !private "VSs26_OptionalNilComparisonType"
+- !private "PSs22_RandomAccessAmbiguity"
+- !private "PSs12_Reflectable"
+- !private "PSs18_SignedIntegerType"
+- !private "PSs11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreAudio.swiftmodule"
+interface-hash: "4e2dc457cdb1dcb32c08a601e586c3db"

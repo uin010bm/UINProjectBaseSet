@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>OHHTTPStubs.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-UINProjectBaseSet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,37 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>30B822EED098B66454B9BC6EEB9335BD</key>
+		<key>585C0613B7603054276EA6A89760B460</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>59A29B538FEADBA5E4A58AD5D939AD10</key>
+		<key>61876DD23A8F009C9B5A1FD4E2615E0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F3DC33CFCB4C562C463641A8A3460B6</key>
+		<key>63077DDE76F565756A74E3E8C3328493</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A6199D44A37DA4B48A1D4F37A0FE6224</key>
+		<key>6E1078A7627EA5A9928A3F2AAE76CC6C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CD8924ACE5ED851AC97FBD4F65C66F3C</key>
+		<key>7625B84FF7EEA7A38234B2469284082F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E069A3FF0F5114C0EAB28D2B635EB36D</key>
+		<key>79BEE456F4CAA73946515FFDDA428BDB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F0CFD2189ADD11C4A17BCDD6B2B49AF7</key>
+		<key>9D7A7FA4FD3DEC900DFC351E11370015</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CD99E5AB21E6B63A249F996F91D8BDAD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

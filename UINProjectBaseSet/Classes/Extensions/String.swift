@@ -9,29 +9,29 @@
 import Foundation
 import UIKit
 
+
+/// Stringを拡張するためのExtension
 public extension String {
     
+    
     // MARK: - static functions
-    /**
-    Check string to use password.
     
-    :param: password set password
-    
-    :returns: if string can use to password, return true
-    */
+    ///  パスワードに設定可能か判定する
+    ///
+    ///  - parameter password: パスワード文字列を指定
+    ///
+    ///  - returns: 判定結果を返却
     public static func checkValidPassword(password: String?) -> Bool {
         let PasswordValidLength = 6
         return (password != nil && (password!).characters.count >= PasswordValidLength) ? true:false
     }
     
     
-    /**
-    Check string to use email address.
-    
-    :param: email set email address
-    
-    :returns: if string can use to password, return true
-    */
+    /// emailアドレスとして利用可能か判定する
+    ///
+    ///  - parameter email: emailアドレスを指定
+    ///
+    ///  - returns: 判定結果を返却
     public static func checkValidEmail(email:String) -> Bool {
         let PBRegEXPattern = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$"
         let regEx = try! NSRegularExpression(pattern:PBRegEXPattern,
@@ -45,33 +45,28 @@ public extension String {
     
     
     // MARK: - public functions
-    /**
-    Get encoded string for url.
     
-    :returns: encoded url string
-    */
+    ///  URLをエンコードする
+    ///
+    ///  - returns: エンコード済みURL
     public func convertUrlEncoded() -> String {
         return self.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLUserAllowedCharacterSet())!
     }
     
     
-    /**
-    Get decoded string for url.
-    
-    :returns: decoded url string
-    */
+    ///  URLをデコードする
+    ///
+    ///  - returns: デコード済みURL
     public func convertUrlDecoded() -> String {
         return self.stringByRemovingPercentEncoding!
     }
     
     
-    /**
-    Get beginning string with index.
-    
-    :param: endIndex set target index to get beginning string.
-    
-    :returns: beginning string.
-    */
+    ///  文字列の冒頭を取得する
+    ///
+    ///  - parameter endIndex: 最後尾文字列のindexを指定
+    ///
+    ///  - returns: 生成した文字列を返却
     public func getSubstringToIndex(endIndex:Int) -> String {
         if self.characters.count < endIndex {
             return self
@@ -80,16 +75,14 @@ public extension String {
     }
     
     
-    /**
-    Get rect size adjusted with font and attributes.
-    
-    :param: font          set UIFont
-    :param: lineBreakMode set NSLineBreakMode
-    :param: lineHeight    set line height num
-    :param: size          set CGSize (should set witdh or height to max)
-    
-    :returns: adjusted rect size
-    */
+    ///  文字列を指定条件に当て込んだ際の高さを取得する
+    ///
+    ///  - parameter font:          フォント情報を指定
+    ///  - parameter lineBreakMode: 折り返しを指定
+    ///  - parameter lineHeight:    lineHeight値を指定
+    ///  - parameter size:          想定するRectを指定
+    ///
+    ///  - returns: 計算結果を返却
     public func getSize(font:UIFont, lineBreakMode:NSLineBreakMode, lineHeight:CGFloat = 1.0, constrainedToSize size:CGSize) -> CGSize {
         let style = NSMutableParagraphStyle()
         style.lineBreakMode = lineBreakMode
@@ -105,13 +98,11 @@ public extension String {
     }
     
     
-    /**
-    Convert string end to ellipsis.
-    
-    :param: count set show string count
-    
-    :returns: string with ellipsis
-    */
+    ///  文字列の末尾をEllipsisに変更する
+    ///
+    ///  - parameter count: 表示する文字数を指定
+    ///
+    ///  - returns: 変換後の文字列を返却
     public func getConvertEndToEllipsisAtCount(count: Int) -> String {
         if self.characters.count > count {
             return self.getSubstringToIndex(count) + "..."
@@ -120,14 +111,13 @@ public extension String {
     }
     
     
-    /**
-    Get string appended string for file path.
-    
-    :param: path set path string
-    
-    :returns: file path string
-    */
+    ///  DirectoryPathを想定した文字列に、DirectoryPathをStringで追加する
+    ///
+    ///  - parameter path: 追加したいDirectory文字列
+    ///
+    ///  - returns: 結合後のDirectoryPath文字列を返却
     public func getPathAppendedComponentWithPath(path: String) -> String {
         return (self as NSString).stringByAppendingPathComponent(path)
     }
+    
 }

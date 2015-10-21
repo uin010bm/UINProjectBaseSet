@@ -9,12 +9,20 @@
 import UIKit
 
 
+/// UIColorを拡張するためのExtension
 public extension UIColor {
     
+    
     // MARK: - public enum
-    /**
-    Enumulation to application color type.
-    */
+    
+    ///  定常的に利用するColorのenum type
+    ///
+    ///  - Navigation: Navigationの背景色
+    ///  - Black:      アプリ用の黒
+    ///  - White:      アプリ用の白
+    ///  - LightGray:  薄い灰色
+    ///  - Caution:    警告色
+    ///  - Border:     ボーダー用の色
     public enum ColorType: String {
         case Navigation = "#050505"
         case Black = "#000000"
@@ -26,22 +34,23 @@ public extension UIColor {
     
     
     
-    // MARK: - convenience init
-    /**
-    Init with application colorType.
+    // MARK: - initializer
     
-    :param: colorType set colorType enum
-    */
+    ///  ColorTypeからUIColorを生成するためのイニシャライザ
+    ///
+    ///  - parameter colorType: ColorType enumを指定
+    ///
+    ///  - returns: instance
     public convenience init(colorType: ColorType) {
         self.init(rgba: colorType.rawValue)
     }
     
     
-    /**
-    Init with rgba string.
-    
-    :param: rgba set rgba string with # on begining
-    */
+    ///  rgba指定でUIColorを生成するためのイニシャライザ
+    ///
+    ///  - parameter rgba: rgbaを文字列で指定 (ex: #000000)
+    ///
+    ///  - returns: instance
     public convenience init(rgba: String) {
         var red:   CGFloat = 0.0
         var green: CGFloat = 0.0
@@ -88,23 +97,20 @@ public extension UIColor {
     
     
     // MARK: - public functions
-    /**
-    Get colord context image.
     
-    :returns: empty image.
-    */
+    ///  Colorを反映させたUIImageを取得する
+    ///
+    ///  - returns: UIImage instance
     public func getColoredImage() -> UIImage {
         return self.getColoredImageWithSize(CGSizeMake(1, 1))
     }
     
     
-    /**
-    Get colored context image.
-    
-    :param: size set images CGSize
-    
-    :returns: colored context image
-    */
+    ///  Colorを反映させたUIImageをサイズ指定で取得する
+    ///
+    ///  - parameter size: 色付きUIImageのサイズを指定
+    ///
+    ///  - returns: UIImage instance
     public func getColoredImageWithSize(size:CGSize) -> UIImage {
         let rect = CGRectMake(0, 0, size.width, size.height)
         UIGraphicsBeginImageContext(rect.size)
@@ -119,23 +125,19 @@ public extension UIColor {
     }
     
     
-    /**
-    Get more dark color.
-    
-    :returns: darken UIColor
-    */
+    ///  40%暗くしたColorを取得する
+    ///
+    ///  - returns: UIColor instance
     public func getDarkenColor() -> UIColor {
         return self.getDarkenColorWithRatio(0.6)
     }
     
     
-    /**
-    Get more dark color with ratio.
-    
-    :param: ratio set ratio num by CGFloat
-    
-    :returns: darken UIColor
-    */
+    ///  比率分暗くしたColorを取得する
+    ///
+    ///  - parameter ratio: 暗くしたい現状からの比率を指定
+    ///
+    ///  - returns: UIColor instance
     public func getDarkenColorWithRatio(ratio:CGFloat) -> UIColor {
         var hue:CGFloat  = 0
         var saturation:CGFloat = 0

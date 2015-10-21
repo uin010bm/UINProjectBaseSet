@@ -8,8 +8,12 @@
 
 import UIKit
 
+
+/// App内で利用する基底のControllerクラス
 class PBSBaseViewController: UIViewController {
     
+    
+    // MARK: - viewController delegate
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

@@ -10,25 +10,22 @@ import Foundation
 import UIKit
 
 
-// MARK: global functions
-/**
-Get device ios version.
+// MARK: - global functions
 
-:returns: version numver
-*/
+/// デバイスのiosVersionを取得する
+///
+///  - returns: version number
 public func getiOSVersion() -> Double {
     return (UIDevice.currentDevice().systemVersion as NSString).doubleValue
 }
 
 
-/**
-Print log when build scheme is debug.
-
-:param: message  log message
-:param: function arrived function
-:param: file     arrived file
-:param: line     line number
-*/
+/// ビルドスキームに応じてLogを振り分ける
+///
+///  - parameter message:  ログメッセージ
+///  - parameter function: 呼び出し元function (option)
+///  - parameter file:     呼び出し元file (option)
+///  - parameter line:     呼び出し元line (option)
 public func Log(message: String,
     function: String = __FUNCTION__,
     file: String = __FILE__,
@@ -40,12 +37,10 @@ public func Log(message: String,
 }
 
 
-/**
-Pop Alert View.
-
-:param: title set title string
-:param: body  set body message
-*/
+///  アラートViewを表示する
+///
+///  - parameter title: アラートタイトルを設定
+///  - parameter body:  アラートメッセージを設定
 public func ALERT(title title:String, body: String) {
     #if DEBUG || STG
         UIAlertView(title: title, message: body, delegate: nil, cancelButtonTitle: "Close").show()
@@ -53,11 +48,9 @@ public func ALERT(title title:String, body: String) {
 }
 
 
-/**
-Start closure in background queue.
-
-:param: closure set block
-*/
+///  blockをバックグラウンドキューで実行
+///
+///  - parameter closure: block構文
 public func run_on_background_queue(closure: (() -> ())) {
     if !NSThread.isMainThread() {
         closure()
@@ -69,11 +62,9 @@ public func run_on_background_queue(closure: (() -> ())) {
 }
 
 
-/**
-Start closure in main queue.
-
-:param: closure set block
-*/
+///  blockをメインキューで実行
+///
+///  - parameter closure: block構文
 public func run_on_main_queue(closure:()->()) {
     if NSThread.isMainThread() {
         closure()
@@ -83,12 +74,10 @@ public func run_on_main_queue(closure:()->()) {
 }
 
 
-/**
-Start closure after ended timer.
-
-:param: delay   set delay time
-:param: closure set block
-*/
+///  blockを遅延実行
+///
+///  - parameter delay:   遅延時間をDoubleで指定
+///  - parameter closure: block構文
 public func delay(delay:Double, closure:()->()) {
     dispatch_after(
         dispatch_time(

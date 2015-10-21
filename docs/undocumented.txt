@@ -1,0 +1,88 @@
+SampleCustomView.swift
+	@IBOutlet weak var button: UIButton!
+	@IBAction func buttonTapped(sender: AnyObject)
+	@IBAction func pushButtonTapped(sender: AnyObject)
+FirstViewController.swift
+	@IBOutlet weak var customView: SampleCustomView!
+	private var scrollView: UIScrollView!
+	required init?(coder aDecoder: NSCoder)
+	deinit
+	override func viewDidLoad()
+	override func didReceiveMemoryWarning()
+	override func viewDidAppear(animated: Bool)
+ApiClient.swift
+	init?(response: NSHTTPURLResponse, representation: AnyObject)
+	case TimeOut = "ErrorApiTimeOut"
+	case BadParams = "ErrorApiBadParams"
+	case Unknown = "ErrorApiUnknown"
+	public class var sharedInstance : ApiClient
+	struct Static
+	static let instance : ApiClient = ApiClient()
+SecondViewController.swift
+	@IBOutlet var customView: SampleCustomView!
+	private var scrollView: UIScrollView!
+	required init?(coder aDecoder: NSCoder)
+	deinit
+	override func viewDidLoad()
+	override func didReceiveMemoryWarning()
+	override func viewDidAppear(animated: Bool)
+ApplicationManager.swift
+	public class var sharedInstance : ApplicationManager
+	struct Static
+	static let instance : ApplicationManager = ApplicationManager()
+PBSBaseViewController.swift
+	override func viewDidLoad()
+	override func didReceiveMemoryWarning()
+AppDelegate.swift
+	class AppDelegate: UIResponder, UIApplicationDelegate
+	var window: UIWindow?
+	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+	func applicationWillResignActive(application: UIApplication)
+	func applicationDidEnterBackground(application: UIApplication)
+	func applicationWillEnterForeground(application: UIApplication)
+	func applicationDidBecomeActive(application: UIApplication)
+	func applicationWillTerminate(application: UIApplication)
+UIColor.swift
+	case Navigation = "#050505"
+	case Black = "#000000"
+	case White = "#FFFFFF"
+	case LightGray = "#F6F6F6"
+	case Caution = "#e40b26"
+	case Border = "#898989"
+UIView.swift
+	case Circle, RoundedCorner
+	case Circle, RoundedCorner
+	case DarkEdgeVirtical = 1
+	case BlurredVirtical  = 2
+	case Rect, Circle, Dynamic
+	case Rect, Circle, Dynamic
+	case Rect, Circle, Dynamic
+	init(_ value: UInt) { self.value = value }
+	init(nilLiteral: ()) { self.value = 0 }
+	public init(rawValue value: UInt) { self.value = value }
+	static var allZeros: BorderPositions { return self.init(0) }
+	static var Top: BorderPositions   { return self.init(1 << 0) }
+	static var Left: BorderPositions  { return self.init(1 << 1) }
+	static var Bottom: BorderPositions   { return self.init(1 << 2) }
+	static var Right: BorderPositions   { return self.init(1 << 3) }
+	private var value: UInt = 0
+	public var rawValue: UInt { return self.value }
+	static func fromMask(raw: UInt) -> BorderPositions { return self.init(raw) }
+UIImage.swift
+	case Top, Bottom, Right, Left, TopLeft, TopRight, BottomLeft, BottomRight
+	case Top, Bottom, Right, Left, TopLeft, TopRight, BottomLeft, BottomRight
+	case Top, Bottom, Right, Left, TopLeft, TopRight, BottomLeft, BottomRight
+	case Top, Bottom, Right, Left, TopLeft, TopRight, BottomLeft, BottomRight
+	case Top, Bottom, Right, Left, TopLeft, TopRight, BottomLeft, BottomRight
+	case Top, Bottom, Right, Left, TopLeft, TopRight, BottomLeft, BottomRight
+	case Top, Bottom, Right, Left, TopLeft, TopRight, BottomLeft, BottomRight
+	case Top, Bottom, Right, Left, TopLeft, TopRight, BottomLeft, BottomRight
+	case Center
+	case ScaleToFill
+	case AspectFit
+	case AspectFill
+PBSBaseXibView.swift
+	private var view: UIView!
+	override init(frame: CGRect)
+	required init?(coder aDecoder: NSCoder)
+	deinit

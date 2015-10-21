@@ -11,17 +11,40 @@ import CoreGraphics
 import UIImage_BlurredFrame
 
 
+/// UIImageを拡張するためのExtension
+/// UIImage_BlurredFrame をimport
 public extension UIImage {
     
     // MARK: - public enum
+    
+    ///  グラデーションの開始位置を指定するためのenum type
+    ///
+    ///  - Top:         上部
+    ///  - Bottom:      下部
+    ///  - Right:       右
+    ///  - Left:        左
+    ///  - TopLeft:     左上
+    ///  - TopRight:    右上
+    ///  - BottomLeft:  左下
+    ///  - BottomRight: 右下
     public enum GradationStart {
         case Top, Bottom, Right, Left, TopLeft, TopRight, BottomLeft, BottomRight
     }
     
+    
+    ///  リサイズする際の基準点を指定するためのenum type
+    ///
+    ///  - Center: 中央
     public enum ImageResizePosition {
         case Center
     }
     
+    
+    ///  ImageのAspectFit形式を指定するためのenum type
+    ///
+    ///  - ScaleToFill: 形状に併せて変化
+    ///  - AspectFit:   最小値に基準を併せて変化
+    ///  - AspectFill:  最大値に基準を併せて変化
     public enum ImageResizeAspect {
         case ScaleToFill
         case AspectFit
@@ -30,17 +53,16 @@ public extension UIImage {
     
     
     // MARK: - public class functions
-    /**
-    Get gradient context image.
     
-    :param: size           set image size
-    :param: startPoint     set gradient start point
-    :param: endPoint       set gradient end point
-    :param: colors         set gradient colors by Array
-    :param: givenLocations set gradient location ratio by CGFloat
-    
-    :returns: gradiate context UIIamge
-    */
+    ///  グラデーション色を適用したImageを取得
+    ///
+    ///  - parameter size:           imageのサイズを指定
+    ///  - parameter startPoint:     グラデーションの開始位置を指定
+    ///  - parameter endPoint:       グラデーションの終了位置を指定
+    ///  - parameter colors:         グラデーションする色配列を指定
+    ///  - parameter givenLocations: 色変化の位置を指定
+    ///
+    ///  - returns: UIImage instance
     public class func getGradationImageWith(size size:CGSize, startPoint:CGPoint, endPoint:CGPoint, colors:[UIColor], locations givenLocations:[CGFloat]? = nil) -> UIImage {
         UIGraphicsBeginImageContext(size);
         
@@ -87,16 +109,14 @@ public extension UIImage {
     }
     
     
-    /**
-    Get gradient image with start enum.
-    
-    :param: size      set image size
-    :param: startFrom set GradationStart enum
-    :param: colors    set colors by Array
-    :param: locations locations
-    
-    :returns: gradiation context UIImage
-    */
+    ///  グラデーション色をenum type から指定して、適用したUIIamgeを取得する
+    ///
+    ///  - parameter size:      サイズ指定
+    ///  - parameter startFrom: グラデーションのスタート位置をenum指定
+    ///  - parameter colors:    グラデーションする色の配列を指定
+    ///  - parameter locations: 色変化の位置を指定
+    ///
+    ///  - returns: UIImage instance
     public class func getGradationImageWith(size size:CGSize, startFrom:GradationStart, colors:[UIColor], locations:[CGFloat]? = nil) -> UIImage {
         var startPoint:CGPoint
         var endPoint:CGPoint
@@ -139,28 +159,24 @@ public extension UIImage {
     }
     
     
-    /**
-    Get dark mask gradient context image.
-    
-    :param: size      set image size
-    :param: startFrom set GradationStart enum
-    
-    :returns: masked UIImage
-    */
+    ///  黒ベースのマスクグラデーションを適用したImageを取得する
+    ///
+    ///  - parameter size:      サイズを指定
+    ///  - parameter startFrom: マスクグラデーションの開始位置をenum指定
+    ///
+    ///  - returns: UIImage instace
     public class func getGradationMaskedImageWith(size size:CGSize, startFrom:GradationStart) -> UIImage {
         let colors = [UIColor.blackColor(), UIColor.clearColor()]
         return self.getGradationImageWith(size: size, startFrom: startFrom, colors: colors)
     }
     
     
-    /**
-    Get image context included text.
-    
-    :param: text set insert text
-    :param: size set text rect
-    
-    :returns: incleded text UIImage
-    */
+    ///  文字列を含んだImageコンテキストを取得する
+    ///
+    ///  - parameter text: 文字列を指定
+    ///  - parameter size: imageのサイズを指定
+    ///
+    ///  - returns: UIImage instance
     public class func getImageWithText(text:NSString, size:CGSize) -> UIImage {
         let fontSize:CGFloat = 18.0
         UIGraphicsBeginImageContext(size)
@@ -182,14 +198,12 @@ public extension UIImage {
     }
     
     
-    /**
-    Get image context from view.
-    
-    :param: view set base UIView
-    :param: opaque set opaque Bool
-    
-    :returns: UIImage based view
-    */
+    ///  ViewをベースにUIImageを取得する
+    ///
+    ///  - parameter view:   ベースとなるviewを指定
+    ///  - parameter opaque: alphaを含めるか指定
+    ///
+    ///  - returns: UIIamge instance
     public class func getImageFromView(view:UIView, opaque:Bool = true) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(view.frame.size, opaque, 0)
         
@@ -206,13 +220,12 @@ public extension UIImage {
     
     
     // MARK: - private functions
-    /**
-    Get center rect for resizing.
     
-    :param: size set resize rect
-    
-    :returns: center CGRect
-    */
+    ///  中央を基準点にサイズを縮小したRectを取得
+    ///
+    ///  - parameter size: サイズ指定
+    ///
+    ///  - returns: CGRect instance
     private func getCenterRectForResize(size:CGSize) -> CGRect {
         let selfCenter = CGPointMake(self.size.width * 0.5, self.size.height * 0.5)
         let resizedCenter = CGPointMake(size.width * 0.5, size.height * 0.5)
@@ -222,15 +235,14 @@ public extension UIImage {
     
     
     // MARK: - public functions
-    /**
-    Get resized Image.
     
-    :param: size   set convert size
-    :param: opaque set opaque enable
-    :param: aspect set ImageResizeAspect enum
-    
-    :returns: resized UIImage
-    */
+    ///  リサイズしたimageを取得する
+    ///
+    ///  - parameter size:   サイズを指定
+    ///  - parameter opaque: alphaを含めるか指定
+    ///  - parameter aspect: AsoectFitの形式を指定
+    ///
+    ///  - returns: UIImage instance
     public func getResizedImageWith(size size:CGSize, opaque:Bool = true, aspect:ImageResizeAspect = .AspectFill) -> UIImage {
         // resize
         let scaledSize:CGSize
@@ -262,14 +274,12 @@ public extension UIImage {
     }
     
     
-    /**
-    Get cropped Image.
-    
-    :param: size     set cropping size
-    :param: position set ImageResizePosition enum
-    
-    :returns: cropped UIImage
-    */
+    ///  Croppしたimageを取得する
+    ///
+    ///  - parameter size:     サイズ指定
+    ///  - parameter position: 縮小の基準点をenum指定
+    ///
+    ///  - returns: UIImage instance
     public func getCroppedImageWith(size size:CGSize, position:ImageResizePosition = .Center) -> UIImage {
         let scale:CGFloat = UIScreen.mainScreen().scale
         let cropRect = self.getCenterRectForResize(CGSizeMake(size.width, size.height))
@@ -280,14 +290,12 @@ public extension UIImage {
     }
     
 
-    /**
-    Get scale from max size and self size.
-    
-    :param: maxSize set scaling max size
-    :param: aspect  set ImageResizeAspect enum.
-    
-    :returns: scale num by CGFloat
-    */
+    ///  指定サイズとの比率を取得する
+    ///
+    ///  - parameter maxSize: 比較するサイズを指定
+    ///  - parameter aspect:  AspectFit形式をenum指定
+    ///
+    ///  - returns: 結果として得られた比率
     public func getScaleWith(maxSize:CGSize, aspect:ImageResizeAspect = .AspectFit) -> CGFloat {
         switch aspect {
         case .ScaleToFill: fallthrough
@@ -299,21 +307,17 @@ public extension UIImage {
     }
     
     
-    /**
-    Get blured image.
-    
-    :returns: blured UIImage
-    */
+    ///  ブラーをかけたimageを取得する
+    ///
+    ///  - returns: UIImage instance
     public func getBlurredImage() -> UIImage {
         return self.applyTintEffectWithColor(UIColor(white: 0.5, alpha: 1.0), atFrame: CGRectMake(0, 0, self.size.width, self.size.height))
     }
     
     
-    /**
-    Get blured image gradient vertical.
-    
-    :returns: blured UIImage
-    */
+    ///  縦方向にブラーをかけたimageを取得する
+    ///
+    ///  - returns: UIIamge instance
     public func getBlurredImageVircialSide() -> UIImage {
         let topMask:UIImage = UIImage.getGradationMaskedImageWith(size: CGSizeMake(50, 50), startFrom: GradationStart.Top)
         var image = self
@@ -326,13 +330,11 @@ public extension UIImage {
     }
     
     
-    /**
-    Get blured image gradient vertical with height size.
-    
-    :param: size set height size to set vertical blur
-    
-    :returns: blured UIImage
-    */
+    ///  縦方向にブラーをかけたimageをサイズ指定で取得する
+    ///
+    ///  - parameter size: サイズを指定
+    ///
+    ///  - returns: UIImage instance
     public func getVerticalBlurredImageWithSize(size size:CGSize) -> UIImage {
         let topMask:UIImage = UIImage.getGradationMaskedImageWith(size: size, startFrom: GradationStart.Top)
         var image = self
@@ -345,11 +347,9 @@ public extension UIImage {
     }
 
     
-    /**
-    Get resizable image.
-    
-    :returns: resizable UIImage
-    */
+    ///  imageを縮小し、周りに50%の余暇を作成する
+    ///
+    ///  - returns: UIIamge instance
     public func getResizableImage() -> UIImage {
         let v = self.size.height * 0.5
         let p = self.size.width * 0.5

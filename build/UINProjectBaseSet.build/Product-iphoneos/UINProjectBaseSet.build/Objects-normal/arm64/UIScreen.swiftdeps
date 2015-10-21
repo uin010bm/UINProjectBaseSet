@@ -1,0 +1,129 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["CSo12UIScrollView", ""]
+- ["CSo12UIScrollView", "handleScrollRectToVisible"]
+provides-dynamic-lookup:
+- "handleScrollRectToVisible"
+depends-top-level:
+- !private "/"
+- "Void"
+- !private "NSTimer"
+- "CGRect"
+- "Bool"
+- "UIScrollView"
+- !private "Double"
+depends-member:
+- !private ["PSs9AnyObject", "NSTimer"]
+- !private ["PSs9AnyObject", "bk_scheduledTimerWithTimeInterval"]
+- ["PSs9AnyObject", "handleScrollRectToVisible"]
+- !private ["PSs9AnyObject", "scrollRectToVisible"]
+- !private ["PSs11CVarArgType", "NSTimer"]
+- !private ["PSs11CVarArgType", "bk_scheduledTimerWithTimeInterval"]
+- ["PSs11CVarArgType", "handleScrollRectToVisible"]
+- !private ["PSs11CVarArgType", "scrollRectToVisible"]
+- !private ["PSs23CustomStringConvertible", "NSTimer"]
+- !private ["PSs23CustomStringConvertible", "bk_scheduledTimerWithTimeInterval"]
+- ["PSs23CustomStringConvertible", "handleScrollRectToVisible"]
+- !private ["PSs23CustomStringConvertible", "scrollRectToVisible"]
+- !private ["PSs9Equatable", "NSTimer"]
+- !private ["PSs9Equatable", "bk_scheduledTimerWithTimeInterval"]
+- ["PSs9Equatable", "handleScrollRectToVisible"]
+- !private ["PSs9Equatable", "scrollRectToVisible"]
+- !private ["PSs8Hashable", "NSTimer"]
+- !private ["PSs8Hashable", "bk_scheduledTimerWithTimeInterval"]
+- ["PSs8Hashable", "handleScrollRectToVisible"]
+- !private ["PSs8Hashable", "scrollRectToVisible"]
+- !private ["PSo8NSCoding", "NSTimer"]
+- ["PSo8NSCoding", "handleScrollRectToVisible"]
+- !private ["PSo8NSCoding", "scrollRectToVisible"]
+- ["CSo8NSObject", "Bool"]
+- ["CSo8NSObject", "CGRect"]
+- !private ["CSo8NSObject", "Double"]
+- !private ["CSo8NSObject", "NSTimer"]
+- ["CSo8NSObject", "Void"]
+- !private ["CSo8NSObject", "bk_scheduledTimerWithTimeInterval"]
+- ["CSo8NSObject", "handleScrollRectToVisible"]
+- !private ["CSo8NSObject", "scrollRectToVisible"]
+- !private ["PSo16NSObjectProtocol", "NSTimer"]
+- !private ["PSo16NSObjectProtocol", "bk_scheduledTimerWithTimeInterval"]
+- ["PSo16NSObjectProtocol", "handleScrollRectToVisible"]
+- !private ["PSo16NSObjectProtocol", "scrollRectToVisible"]
+- !private ["CSo7NSTimer", "bk_scheduledTimerWithTimeInterval"]
+- !private ["PSo29UIAccessibilityIdentification", "NSTimer"]
+- ["PSo29UIAccessibilityIdentification", "handleScrollRectToVisible"]
+- !private ["PSo29UIAccessibilityIdentification", "scrollRectToVisible"]
+- !private ["PSo12UIAppearance", "NSTimer"]
+- ["PSo12UIAppearance", "handleScrollRectToVisible"]
+- !private ["PSo12UIAppearance", "scrollRectToVisible"]
+- !private ["PSo21UIAppearanceContainer", "NSTimer"]
+- ["PSo21UIAppearanceContainer", "handleScrollRectToVisible"]
+- !private ["PSo21UIAppearanceContainer", "scrollRectToVisible"]
+- !private ["PSo17UICoordinateSpace", "NSTimer"]
+- ["PSo17UICoordinateSpace", "handleScrollRectToVisible"]
+- !private ["PSo17UICoordinateSpace", "scrollRectToVisible"]
+- !private ["PSo13UIDynamicItem", "NSTimer"]
+- ["PSo13UIDynamicItem", "handleScrollRectToVisible"]
+- !private ["PSo13UIDynamicItem", "scrollRectToVisible"]
+- ["CSo11UIResponder", "Bool"]
+- ["CSo11UIResponder", "CGRect"]
+- !private ["CSo11UIResponder", "Double"]
+- !private ["CSo11UIResponder", "NSTimer"]
+- ["CSo11UIResponder", "Void"]
+- ["CSo11UIResponder", "handleScrollRectToVisible"]
+- !private ["CSo11UIResponder", "scrollRectToVisible"]
+- ["CSo12UIScrollView", "Bool"]
+- ["CSo12UIScrollView", "CGRect"]
+- !private ["CSo12UIScrollView", "Double"]
+- !private ["CSo12UIScrollView", "NSTimer"]
+- ["CSo12UIScrollView", "Void"]
+- ["CSo12UIScrollView", "handleScrollRectToVisible"]
+- !private ["CSo12UIScrollView", "scrollRectToVisible"]
+- !private ["PSo18UITraitEnvironment", "NSTimer"]
+- ["PSo18UITraitEnvironment", "handleScrollRectToVisible"]
+- !private ["PSo18UITraitEnvironment", "scrollRectToVisible"]
+- ["CSo6UIView", "Bool"]
+- ["CSo6UIView", "CGRect"]
+- !private ["CSo6UIView", "Double"]
+- !private ["CSo6UIView", "NSTimer"]
+- ["CSo6UIView", "Void"]
+- ["CSo6UIView", "handleScrollRectToVisible"]
+- !private ["CSo6UIView", "scrollRectToVisible"]
+- !private ["PSs12_Reflectable", "NSTimer"]
+- ["PSs12_Reflectable", "handleScrollRectToVisible"]
+- !private ["PSs12_Reflectable", "scrollRectToVisible"]
+depends-nominal:
+- "PSs9AnyObject"
+- "PSs11CVarArgType"
+- "PSs23CustomStringConvertible"
+- "PSs9Equatable"
+- "PSs8Hashable"
+- "PSo8NSCoding"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "CSo7NSTimer"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- "PSo17UICoordinateSpace"
+- "PSo13UIDynamicItem"
+- "CSo11UIResponder"
+- "CSo12UIScrollView"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- "PSs12_Reflectable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreAudio.swiftmodule"
+interface-hash: "8275914a3fc8bbdf84b9b85dec0ffbda"

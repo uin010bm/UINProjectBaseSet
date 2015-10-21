@@ -11,10 +11,11 @@ import SystemConfiguration
 import AVFoundation
 
 
-public class ApplicationManager : NSObject {
+/// For Management about Application setting
+public class ApplicationManager: NSObject {
     
-    // MARK: singletone
-    /// singletone
+    // MARK: - singletone
+    
     public class var sharedInstance : ApplicationManager {
         struct Static {
             static let instance : ApplicationManager = ApplicationManager()
@@ -25,21 +26,18 @@ public class ApplicationManager : NSObject {
     
     
     // MARK: - private propertys
-    /**
-    Check mic permission.
     
-    :returns: permission status.
-    */
+    /// デバイスのマイク許可状態を取得
+    ///
+    ///  - returns: permission status.
     private func getMicrophonePermission() -> AVAuthorizationStatus {
         return AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeAudio)
     }
     
     
-    /**
-    Check camera permission.
-    
-    :returns: permission status.
-    */
+    /// デバイスのカメラ許可状態を取得
+    ///
+    /// - returns: permission status.
     private func getCameraPermission() -> AVAuthorizationStatus {
         return AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
     }
@@ -47,15 +45,19 @@ public class ApplicationManager : NSObject {
     
     
     // MARK: - public propertys
-    /// if device orrientation is landscape, return true.
+    
+    /// アプリ向きがランドスケープであれば true を返す
     public var isLandscape: Bool { return UIApplication.sharedApplication().statusBarOrientation.isLandscape }
-    /// if device orrientation is portrait, return true.
+    
+    /// アプリ向きがポートレートであれば true を返す
     public var isPortrait: Bool { return UIApplication.sharedApplication().statusBarOrientation.isPortrait }
-    /// if device can receive push, return true.
+    
+    /// デバイスがPushNotificationをつかえれば true を返す
     public var isEnablePush: Bool {
         return (UIApplication.sharedApplication().currentUserNotificationSettings()!.types.intersect(UIUserNotificationType.Alert)) != []
     }
-    /// if device can connect network, return true.
+    
+    /// デバイスがネットワークにコネクトできれば true を返す
     public var isConnectedToNetwork: Bool {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
@@ -71,7 +73,8 @@ public class ApplicationManager : NSObject {
         let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
         return (isReachable && !needsConnection)
     }
-    /// if device can access mic, return true.
+    
+    /// デバイスがネットワークにコネクトできれば true を返す
     public var isEnableMicrophone: Bool {
         let status = self.getMicrophonePermission()
         
@@ -91,7 +94,8 @@ public class ApplicationManager : NSObject {
         
         return false
     }
-    /// if device can receive notification, return true.
+    
+    /// デバイスがNotificationを利用可能であれば true を返す
     public var isEnableNotification: Bool {
         if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1) {
             let remoteNotificationType = UIApplication.sharedApplication().currentUserNotificationSettings()
@@ -102,7 +106,8 @@ public class ApplicationManager : NSObject {
         
         return UIApplication.sharedApplication().isRegisteredForRemoteNotifications()
     }
-    /// if device can access camera, return true.
+    
+    /// デバイスがカメラを利用可能であれば true を返す
     public var isEnableCamera: Bool {
         let status = self.getCameraPermission()
         
@@ -126,11 +131,10 @@ public class ApplicationManager : NSObject {
     
     
     // MARK: public functions
-    /**
-    Show dialog about device's mic setting.
     
-    :param: completion set block. if mic setting is enabled, return true param.
-    */
+    /// デバイスのマイク設定ダイアログを要求する
+    ///
+    ///  - parameter completion: 完了時ブロック構文。引数に許可状態の bool値 を渡す
     public func requestMicrophonePermission(completion: (granted: Bool) -> Void) {
         AVCaptureDevice.requestAccessForMediaType(AVMediaTypeAudio, completionHandler: { (granted) -> Void in
             completion(granted: granted)
@@ -138,11 +142,9 @@ public class ApplicationManager : NSObject {
     }
     
     
-    /**
-    Show dialog about device's camera setting.
-    
-    :param: completion set block. if camera setting is enabled, return true param.
-    */
+    /// デバイスのカメラ設定ダイアログを要求する
+    ///
+    ///  - parameter completion: 完了時ブロック構文。引数に許可状態の bool値 を渡す
     public func requestCameraPermission(completion: (granted: Bool) -> Void) {
         AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo, completionHandler: { (granted) -> Void in
             completion(granted: granted)
@@ -150,9 +152,7 @@ public class ApplicationManager : NSObject {
     }
     
     
-    /**
-    Open itunes install page.
-    */
+    /// アプリストアを開く
     public func openAppStore() {
         if let appStoreURL = NSURL(string: "") {
             if UIApplication.sharedApplication().canOpenURL(appStoreURL) {
@@ -162,15 +162,16 @@ public class ApplicationManager : NSObject {
     }
     
     
-    /**
-    Set app orientation to landscapeLeft
-    */
+    /// アプリ向きを指定の向きに変更する
+    ///
+    ///  - parameter orientation: アプリ向きを指定
     public func setApplicationToOrientation(orientation: UIInterfaceOrientation) {
         let value = orientation.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
     }
     
     
+    /// PushNotificationに必要な初期設定を実行
     public func setPushNotification() {
         let application = UIApplication.sharedApplication()
         let settings: UIUserNotificationSettings = UIUserNotificationSettings( forTypes: [.Alert, .Badge, .Sound], categories: nil )

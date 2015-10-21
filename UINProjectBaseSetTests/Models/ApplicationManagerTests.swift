@@ -29,31 +29,29 @@ class ApplicationManagerTests: XCTestCase {
     
     func testApplicationManagerIsLandscape() {
         
-        let isLandscape = ApplicationManager.sharedInstance.isLandscape
+        let expectation = self.expectationWithDescription("Test wait")
+        
         ApplicationManager.sharedInstance.setApplicationToOrientation(.LandscapeLeft)
-        delay(0.5, closure: {
+        delay(1.0, closure: {
+            let isLandscape = ApplicationManager.sharedInstance.isLandscape
+            let isPortrait = ApplicationManager.sharedInstance.isPortrait
             XCTAssertTrue(isLandscape, "Application is not Portrate")
+            XCTAssertFalse(isPortrait, "Application is not Portrate")
+            expectation.fulfill()
         })
         
         ApplicationManager.sharedInstance.setApplicationToOrientation(.Portrait)
-        delay(0.5, closure: {
+        delay(3.0, closure: {
+            let isLandscape = ApplicationManager.sharedInstance.isLandscape
+            let isPortrait = ApplicationManager.sharedInstance.isPortrait
             XCTAssertFalse(isLandscape, "Application is Landscape")
+            XCTAssertTrue(isPortrait, "Application is Landscape")
+            expectation.fulfill()
         })
+        
+        self.waitForExpectationsWithTimeout(20.0, handler: nil)
     }
     
-    func testIsPortrait() {
-        
-        let isPortrait = ApplicationManager.sharedInstance.isPortrait
-        ApplicationManager.sharedInstance.setApplicationToOrientation(.LandscapeLeft)
-        delay(0.5, closure: {
-            XCTAssertFalse(isPortrait, "Application is Portrate")
-        })
-        
-        ApplicationManager.sharedInstance.setApplicationToOrientation(.Portrait)
-        delay(0.5, closure: {
-            XCTAssertTrue(isPortrait, "Application is not Portrate")
-        })
-    }
     
     func testIsEnablePush() {
         // Alertのuser許可を切り替えてテスト
@@ -99,18 +97,28 @@ class ApplicationManagerTests: XCTestCase {
     
     func testRequestMicrophonePermission() {
         
+        let expectation = self.expectationWithDescription("Test wait")
+        
         ApplicationManager.sharedInstance.requestMicrophonePermission({ (granted: Bool) in
             XCTAssertFalse(ApplicationManager.sharedInstance.isEnableMicrophone, "Microphone is not enabled")
             //XCTAssertTrue(ApplicationManager.sharedInstance.isEnableMicrophone, "Microphone is not enabled")
+            expectation.fulfill()
         })
+        
+        self.waitForExpectationsWithTimeout(5.0, handler: nil)
     }
     
     func testRequestCameraPermission() {
         
+        let expectation = self.expectationWithDescription("Test wait")
+        
         ApplicationManager.sharedInstance.requestCameraPermission({ (granted: Bool) in
-            XCTAssertFalse(granted, "Microphone is not enabled")
-            //XCTAssertTrue(granted, "Camera is not enabled")
+//            XCTAssertFalse(granted, "Microphone is not enabled")
+            XCTAssertTrue(granted, "Camera is not enabled")
+            expectation.fulfill()
         })
+        
+        self.waitForExpectationsWithTimeout(5.0, handler: nil)
     }
     
     func testOpenAppStore() {

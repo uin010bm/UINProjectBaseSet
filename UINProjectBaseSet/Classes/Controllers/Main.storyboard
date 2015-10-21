@@ -21,10 +21,11 @@
             </objects>
             <point key="canvasLocation" x="-475" y="519"/>
         </scene>
-        <!--View Controller-->
+        <!--First View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UINProjectBaseSet" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="UINProjectBaseSet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -36,11 +37,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="tVo-XB-qG7"/>
                     <connections>
-                        <outlet property="customView" destination="8bC-Xf-vdC" id="gRA-EL-dYb"/>
+                        <outlet property="customView" destination="8bC-Xf-vdC" id="zMP-R1-LYp"/>
                         <segue destination="g1Z-ci-NtK" kind="push" identifier="pushToSecond" id="lZT-R4-KJl"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
         <!--Second View Controller-->

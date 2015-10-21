@@ -22,12 +22,12 @@ class UIFontTests: XCTestCase {
     }
     
     func testHiraKakuProNW3() {
-        let font = UIFont.hiraKakuProNW3(10)
+        let font = UIFont.getHiraKakuProNW3(10)
         XCTAssertNotNil(font, "HiraKakuPro font is not availed")
     }
     
     func testHiraKakuProNW6() {
-        let font = UIFont.hiraKakuProNW6(10)
+        let font = UIFont.getHiraKakuProNW6(10)
         XCTAssertNotNil(font, "HiraKakuPro font is not availed")
     }
 }

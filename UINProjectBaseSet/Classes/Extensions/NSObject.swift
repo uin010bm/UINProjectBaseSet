@@ -8,10 +8,15 @@
 
 import Foundation
 
+
+/// NSObjectを拡張するためのExtension
 public extension NSObject {
     
     // MARK: - public class functions
-    /// Get class name from classObject.
+    
+    /// ClassNameをClassから取得する
+    ///
+    ///  - returns: Class名String
     public class func getClassNameWithoutNamespace() -> String {
         let fullClassName = NSStringFromClass(self)
         if let range = fullClassName.rangeOfString(".") {
@@ -23,11 +28,10 @@ public extension NSObject {
     
     
     // MARK: - public functions
-    /**
-    Get class name from instance.
     
-    :returns: class name string
-    */
+    /// ClassNameをインスタンスから取得する
+    ///
+    ///  - returns: Class名String
     public func getClassNameWithoutNamespace() -> String {
         let fullClassName = NSStringFromClass(self.classForCoder)
         if let range = fullClassName.rangeOfString(".") {

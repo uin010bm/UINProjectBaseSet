@@ -8,41 +8,51 @@
 
 import Foundation
 
+
+/// NSDateを拡張するExtension
 public extension NSDate {
     
     // MARK: - private propertys
-    /// Property to get date Int.
+    
+    /// 各日付データを格納するためのcomponent
     private var components: NSDateComponents {
         return NSCalendar.currentCalendar().components([.Year, .Month, .Day, .Weekday, .Hour, .Minute, .Second], fromDate: self)
     }
     
     
     // MARK: - public propertys
-    /// Get yer
+    
+    /// componentから年を取得
     public var year: Int {
         return components.year
     }
-    /// Get month
+    
+    /// componentから月を取得
     public var month: Int {
         return components.month
     }
-    /// Get day
+    
+    /// componentから日付を取得
     public var day: Int {
         return components.day
     }
-    /// Get weekday
+    
+    /// componentから曜日のIntを取得
     public var weekday: Int {
         return components.weekday
     }
-    /// Get hour
+    
+    /// componentから時間を取得
     public var hour: Int {
         return components.hour
     }
-    /// Get minute
+    
+    /// componentから分を取得
     public var minute: Int {
         return components.minute
     }
-    /// Get second
+    
+    /// componentから秒を取得
     public var second: Int {
         return components.second
     }
@@ -50,13 +60,21 @@ public extension NSDate {
     
     
     // MARK: - public class functions
-    /// Get NSDate object with milli seconds.
+    
+    ///  UNIXミリ秒からNSDateを取得する
+    ///
+    ///  - parameter milliSec: UNIXミリ秒を指定
+    ///
+    ///  - returns: 生成されたNSDateを返却
     public class func getDateWithMilliSeconds(milliSec:Int64) -> NSDate {
         let ti = NSTimeInterval(milliSec / 1000)
         return NSDate(timeIntervalSince1970:ti)
     }
     
-    /// Get Now Int.
+    
+    /// 現在のUNIXミリ秒を取得
+    ///
+    ///  - returns: UNIXミリ秒を返却
     public class func getNowIntTime() -> Int64 {
         let time:Int64 = Int64(NSDate().timeIntervalSince1970) * 1000
         return time
@@ -65,13 +83,12 @@ public extension NSDate {
     
     
     // MARK: - public functions
-    /**
-    Get formatted date string with format string.
     
-    :param: string set date format by string
-    
-    :returns: formatted string
-    */
+    ///  NSDateを指定フォーマットに変換する
+    ///
+    ///  - parameter string: 時間表示フォーマットをString指定
+    ///
+    ///  - returns: フォーマット変換済みのString
     public func getStringWithFormatString(string:String) -> String {
         let formatter:NSDateFormatter = NSDateFormatter()
         formatter.dateFormat = string
@@ -79,24 +96,20 @@ public extension NSDate {
     }
     
     
-    /**
-    Get diff time from now.
-    
-    :returns: diff time interval.
-    */
+    ///  現在時間との差分をNSTimeIntervalで取得
+    ///
+    ///  - returns: 時間差 (NSTimeInterval)
     public func getDiffTimeIntervalFromNow() -> NSTimeInterval {
         let now = NSDate()
         return now.timeIntervalSinceDate(self)
     }
     
     
-    /**
-    Get NSDate converted with timezone.
-    
-    :param: timezone set NSTimeZone
-    
-    :returns: converted NSDate
-    */
+    ///  NSDateを指定TimeZoneに適応する
+    ///
+    ///  - parameter timezone: TimeZoneのkeyを指定
+    ///
+    ///  - returns: 適応後のNSDateを返却
     public func getConvertedDateWithTimezone(timezone:NSTimeZone) -> NSDate {
         let cal = NSCalendar.currentCalendar()
         let c = cal.components([NSCalendarUnit.Year, NSCalendarUnit.TimeZone, NSCalendarUnit.Day, NSCalendarUnit.Month], fromDate: self)
