@@ -22,7 +22,8 @@ class FunctionTest: XCTestCase {
     }
     
     func testGetiOSVersion() {
-        XCTAssertTrue(getiOSVersion() > 0, "Unknown number arrived :: testGetiOSVersion")
+        let iosVersion = getiOSVersion()
+        XCTAssertTrue(iosVersion > 0, "Unknown number arrived :: testGetiOSVersion")
         return
     }
     
@@ -40,40 +41,24 @@ class FunctionTest: XCTestCase {
         
         let expectation = self.expectationWithDescription("Test wait")
         
-        dispatch_async(dispatch_get_main_queue(), {
-            run_on_background_queue({
-                XCTAssertFalse(NSThread.isMainThread(), "Main thread working :: testRun_on_background_queue")
-                expectation.fulfill()
-            })
-        })
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            run_on_background_queue({
-                XCTAssertFalse(NSThread.isMainThread(), "Main thread working :: testRun_on_background_queue")
-                expectation.fulfill()
-            })
+        run_on_background_queue({
+            XCTAssertFalse(NSThread.isMainThread(), "Main thread working :: testRun_on_background_queue")
+            expectation.fulfill()
         })
         
-        self.waitForExpectationsWithTimeout(5.0, handler: nil)
+        self.waitForExpectationsWithTimeout(10.0, handler: nil)
     }
     
     func testRun_on_main_queue() {
         
         let expectation = self.expectationWithDescription("Test wait")
         
-        dispatch_async(dispatch_get_main_queue(), {
-            run_on_main_queue({
-                XCTAssertTrue(NSThread.isMainThread(), "Main thread not working :: testRun_on_main_queue")
-                expectation.fulfill()
-            })
-        })
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            run_on_main_queue({
-                XCTAssertTrue(NSThread.isMainThread(), "Main thread not working :: testRun_on_main_queue")
-                expectation.fulfill()
-            })
+        run_on_main_queue({
+            XCTAssertTrue(NSThread.isMainThread(), "Main thread not working :: testRun_on_main_queue")
+            expectation.fulfill()
         })
         
-        self.waitForExpectationsWithTimeout(5.0, handler: nil)
+        self.waitForExpectationsWithTimeout(10.0, handler: nil)
     }
     
     func testDelay() {

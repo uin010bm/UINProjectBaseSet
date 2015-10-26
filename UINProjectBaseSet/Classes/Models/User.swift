@@ -11,7 +11,6 @@ import SwiftyJSON
 import Alamofire
 
 
-
 /// ユーザ情報を格納するためのstructオブジェクト
 public struct User: ResponseObjectSerializable {
     
@@ -67,6 +66,11 @@ public class UserService {
             "name" : name
         ]
         
+        #if DEBUG
+            let stubFile = "StubUserApi.json"
+            ApiClient.setStub(200, url: url, file: stubFile, forClass: self)
+        #endif
+        
         ApiClient.sharedInstance.alamoFireManager?.request(.GET, url, parameters: param, encoding: .URLEncodedInURL, headers: nil).responseObject({ (response: Response<User, NSError>) in
             completion(response)
         })
@@ -91,10 +95,10 @@ public class UserListModel {
     ///
     ///  - parameter response:   JSONジェネリクスのResponseオブジェクト
     ///  - parameter completion: 完了時ブロック構文。引数にUserArray または errorを渡す。
-    private func setupUserListFromJSON(response: Response<JSON, NSError>, completion: ([User]?, NSError?) -> Void) {
+    private func setupUserListFromJSON(response: Response<JSON, NSError>, completion: ([User]?, Response<JSON, NSError>) -> Void) {
         
         if response.result.isFailure {
-            completion(nil, response.result.error)
+            completion(nil, response)
         } else {
             
             for value in response.result.value!.array! {
@@ -103,7 +107,7 @@ public class UserListModel {
                 self.list.append(user!)
                 
             }
-            completion(self.list, nil)
+            completion(self.list, response)
         }
     }
     
@@ -114,14 +118,18 @@ public class UserListModel {
     ///  Apiからユーザリストを取得する
     ///
     ///  - parameter completion: 完了時ブロック構文。引数にUserArray または errorを渡す。
-    public func getUserListFromApi(completion: ([User]?, NSError?) -> Void) {
+    public func getUserListFromApi(completion: ([User]?, Response<JSON, NSError>) -> Void) {
         
-        let url = ""
-        let param:[String: AnyObject] = [:]
+        let url = ApiClient.sharedInstance.apiHostString + "/userList"
         
-        ApiClient.sharedInstance.alamoFireManager?.request(.GET, url, parameters: param, encoding: .JSON, headers: nil).responseObject({ [weak self] (response: Response<JSON, NSError>) in
-            self?.setupUserListFromJSON(response, completion: { (list: [User]?, error: NSError?) in
-                completion(list, error)
+        #if DEBUG
+            let stubFile = "StubUserListApi.json"
+            ApiClient.setStub(200, url: url, file: stubFile, forClass: self.dynamicType)
+        #endif
+        
+        ApiClient.sharedInstance.alamoFireManager?.request(.GET, url, parameters: nil, encoding: .URLEncodedInURL, headers: nil).responseObject({ [weak self] (response: Response<JSON, NSError>) in
+            self?.setupUserListFromJSON(response, completion: { (users: [User]?, response: Response<JSON, NSError>) in
+                completion(users, response)
             })
         })
     }

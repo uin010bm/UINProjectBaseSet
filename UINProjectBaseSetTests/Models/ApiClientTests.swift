@@ -8,6 +8,8 @@
 
 import XCTest
 import Alamofire
+import SwiftyJSON
+import OHHTTPStubs
 
 @testable import UINProjectBaseSet
 
@@ -34,6 +36,22 @@ class ApiClientTests: XCTestCase {
     
     func testHandleError() {
         // Test delegate to User
+        
+        let expectation = self.expectationWithDescription("Test wail")
+        
+        stub(isHost("debug-api")) { _ in
+            return OHHTTPStubsResponse(data: NSData(), statusCode: 403, headers: nil)
+        }
+        
+        let model = UserListModel()
+        model.getUserListFromApi({ (users: [User]?, response: Response<JSON, NSError>) in
+            let errorType = ApiClient.sharedInstance.handleError(response.response!.statusCode)
+            XCTAssertEqual(errorType.rawValue, "ErrorApiBadParams", "ErrorType is not 403")
+            expectation.fulfill()
+        })
+        
+        self.waitForExpectationsWithTimeout(10.0, handler: nil)
+        
     }
     
     

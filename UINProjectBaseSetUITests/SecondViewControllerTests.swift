@@ -12,6 +12,10 @@ import XCTest
 class SecondViewControllerTests: XCTestCase {
         
     override func setUp() {
+        if kTargetController.rawValue != "\(self.dynamicType)" {
+            return
+        }
+        
         super.setUp()
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -23,23 +27,30 @@ class SecondViewControllerTests: XCTestCase {
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
         
-        let app = XCUIApplication()
-        let element = app.otherElements.containingType(.NavigationBar, identifier:"UINProjectBaseSet.FirstView").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1)
-        let button = element.childrenMatchingType(.Button).matchingIdentifier("Button").elementBoundByIndex(1)
-        button.tap()
     }
     
     override func tearDown() {
+        if kTargetController.rawValue != "\(self.dynamicType)" {
+            return
+        }
+        
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
     func testExample() {
+        if kTargetController.rawValue != "\(self.dynamicType)" {
+            return
+        }
+        
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
-        
         let app = XCUIApplication()
+        let element = app.otherElements.containingType(.NavigationBar, identifier:"UINProjectBaseSet.FirstView").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1)
+        let button = element.childrenMatchingType(.Button).matchingIdentifier("Button").elementBoundByIndex(1)
+        button.tap()
+        
         let image = app.scrollViews.childrenMatchingType(.Image).elementBoundByIndex(0)
         image.swipeUp()
         image.swipeDown()

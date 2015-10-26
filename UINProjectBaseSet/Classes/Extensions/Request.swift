@@ -19,7 +19,7 @@ extension Request {
     ///  - parameter completionHandler: 完了時ブロック構文。引数にGenericsの型に変換されたResponseオブジェクトを含む
     ///
     ///  - returns: self
-    public func responseObject<T: ResponseObjectSerializable>(completionHandler: Response<T, NSError> -> Void) -> Self {
+    public func responseObject<T: ResponseObjectSerializable>(completionHandler: (Response<T, NSError>) -> Void) -> Self {
         let responseSerializer = ResponseSerializer<T, NSError> { request, response, data, error in
             guard error == nil else { return .Failure(error!) }
             

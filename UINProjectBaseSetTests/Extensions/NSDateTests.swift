@@ -27,8 +27,8 @@ class NSDateTests: XCTestCase {
         
         XCTAssertEqual(date.year, 2015, "Year is wrong :: testComponents")
         XCTAssertEqual(date.month, 10, "Month is wrong :: testComponents")
-        XCTAssertEqual(date.day, 20, "Day is wrong :: testComponents")
-        XCTAssertEqual(date.weekday, 3, "Day is wrong :: testComponents")
+        XCTAssertEqual(date.day, 26, "Day is wrong :: testComponents")
+        XCTAssertEqual(date.weekday, 2, "Day is wrong :: testComponents")
 //        XCTAssertEqual(date.hour, 10, "Hour is wrong :: testComponents")
 //        XCTAssertEqual(date.minute, 53, "Minute is wrong :: testComponents")
 //        XCTAssertEqual(date.second, 15, "Second is wrong :: testComponents")

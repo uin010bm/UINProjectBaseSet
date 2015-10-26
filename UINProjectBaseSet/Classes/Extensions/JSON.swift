@@ -22,6 +22,6 @@ extension JSON: ResponseObjectSerializable {
     ///
     ///  - returns: instance
     public init?(response: NSHTTPURLResponse, representation: AnyObject) {
-        self.init(representation as! Dictionary)
+        self.init(representation)
     }
 }

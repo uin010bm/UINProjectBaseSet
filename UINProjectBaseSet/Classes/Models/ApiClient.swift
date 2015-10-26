@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
-
+import OHHTTPStubs
 
 
 /// AlamofireのレスポンスをGenericsの型に変換するためのprotocol
@@ -31,10 +31,40 @@ public class ApiClient {
     ///  - BadParams: BadParamエラー
     ///  - Unknown:   不明なエラー
     public enum ApiError: String {
-        case TimeOut = "ErrorApiTimeOut"
+        case None = "ErrorNone"
         case BadParams = "ErrorApiBadParams"
         case Unknown = "ErrorApiUnknown"
     }
+    
+    
+    public enum HeaderSet {
+        case Stub
+        
+        func getHeaders() -> [NSObject : AnyObject]? {
+            switch self {
+            case .Stub:
+                return ["Content-Type":"application/json"]
+            }
+        }
+    }
+    
+    
+    
+    // MARK: - public class functions
+    ///  Stubテスト用のレスポンスを設定するメソッド
+    ///
+    ///  - parameter statusCode:   返却されるstatusCodeを指定
+    ///  - parameter url:          該当するUrlを指定
+    ///  - parameter file:         返却されるfile名を指定
+    ///  - parameter forClass:     スコープとなるclass名を設定
+    ///  - parameter requestTime:  requestにかかる仮定時間を設定
+    ///  - parameter responseTime: responseにかかる仮定時間を設定
+    public class func setStub(statusCode: Int32 = 200, url: String = "", file: String = "", forClass: AnyClass, requestTime: NSTimeInterval = 1.0, responseTime: NSTimeInterval = 2.0) {
+        OHHTTPStubs.stubRequestsPassingTest({ $0.URL! == url }) { request in
+            return OHHTTPStubsResponse(fileAtPath: OHPathForFile(file, forClass)!, statusCode: statusCode, headers: HeaderSet.Stub.getHeaders()).requestTime(requestTime, responseTime: responseTime)
+        }
+    }
+    
     
     
     // MARK: - singleton
@@ -81,11 +111,11 @@ public class ApiClient {
     ///  - parameter error: NSError
     ///
     ///  - returns: ApiError enum
-    public func handleError(error: NSError) -> ApiError {
+    public func handleError(statusCode: Int) -> ApiError {
         
-        switch error.code {
-        case 1011:
-            return ApiError.TimeOut
+        switch statusCode {
+        case 200:
+            return ApiError.None
         case 403:
             return ApiError.BadParams
         default:
