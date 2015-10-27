@@ -9,18 +9,18 @@ provides-member:
 - ["P17UINProjectBaseSet24SampleCustomViewDelegate", ""]
 - ["C17UINProjectBaseSet16SampleCustomView", ""]
 provides-dynamic-lookup:
-- "pushButtonTapped"
 - "button"
 - "buttonTapped"
 - "tappedPushButton"
 - "delegate"
 - "tappedButton"
+- "pushButtonTapped"
 depends-top-level:
-- "AnyObject"
 - "UIButton"
 - "SampleCustomViewDelegate"
 - "PBSBaseXibView"
 - "SampleCustomView"
+- "AnyObject"
 depends-member:
 - ["PSs9AnyObject", "button"]
 - ["PSs9AnyObject", "buttonTapped"]

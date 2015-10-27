@@ -85,6 +85,7 @@ UIImage.swift
 	case AspectFill
 PBSBaseXibView.swift
 	private var view: UIView!
+	weak var xibViewDelegate: PBSBaseXibViewDelegate?
 	override init(frame: CGRect)
 	required init?(coder aDecoder: NSCoder)
 	deinit
