@@ -42,13 +42,52 @@ JSON型の追加
 通信状態の取得  
 #####  ・OHHTTPStubs - OHHTTPStubs/Swift'  
 `https://github.com/AliSoftware/OHHTTPStubs`  
-stubリクエスト&レスポンス
-  
-  
+stubリクエスト&レスポンス  
+　  
+　
 -----------------------------
-### ■ 汎用Function & extention & client
+### ■ 汎用Function & extension & client
   
-下記docsを参照  
+詳細は下記docsを参照  
 https://uin010bm.github.io/UINProjectBaseSet/docs/index.html  
+　  
+#### ・Function.swift
+**Log** - DEBUGスキーマ時のみprintを実行  
+**ALERT** - Alert表示  
+**run_on_background_queue** - バックグラウンドスレッドでblockを実行  
+**run_on_main_queue** - メインスレッドでblockを実行  
+**delay** - blockの遅延実行  
+　
   
+#### ・Extension
+`/Extension`内に各クラスの拡張メソッドを格納しています。  
+　
   
+#### ・ApplicationManager.swift
+カメラ設定や向き・Notification設定など、デバイスに関わる部分を管理しているクラスです。  
+　
+  
+#### ・Network関連
+**`ApiClient.swift`**  
+stubの設定やAlamofireのconfig設定、errorハンドリングなどのサンプルを記載しています。  
+スキーマ間の apiHost の管理もこちらで。  
+　
+
+**`User.swift`**  
+データ管理のサンプルです。  
+ここではUserというデータを扱う場合のサンプルを記載しています。  
+DEBUGスキーマ時にはstubによる仮想コネクトを実施しています。  
+返却される値は `/Stub` 内にファイルとして格納しております。  
+　
+  
+#### ・カスタムview
+**`PBSBaseXibView.swift`**  
+xibの読み込み処理を追記したUIViewのサブクラスです。  
+　
+
+**`SampleCustomView.swift`**  
+PBSBaseXibViewを利用するサンプルです。  
+`SampleCustomView.xib` とひも付けて利用します。  
+　  
+
+
