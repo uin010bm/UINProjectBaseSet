@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Structs  Reference</title>
+    <title>Enums  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,7 +9,7 @@
     <script src="js/jazzy.js" defer></script>
   </head>
   <body>
-    <a title="Structs  Reference"></a>
+    <a title="Enums  Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="index.html"> Docs</a> (65% documented)</p>
@@ -19,7 +19,7 @@
       <p id="breadcrumbs">
         <a href="index.html"> Reference</a>
         <img id="carat" src="img/carat.png" />
-        Structs  Reference
+        Enums  Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -162,19 +162,26 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Structs</h1>
-            <p>The following structs are available globally.</p>
+            <h1>Enums</h1>
+            <p>The following enums are available globally.</p>
 
           </section>
           <section class="section task-group-section">
             <div class="task-group">
+                <div class="task-name-container">
+                  <a name="/global%20enum"></a>
+                  <a name="//apple_ref/swift/Section/global enum" class="dashAnchor"></a>
+                  <a href="#/global%20enum">
+                    <h3 class="section-name">global enum</h3>
+                  </a>
+                </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V17UINProjectBaseSet4User"></a>
-                    <a name="//apple_ref/swift/Struct/User" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V17UINProjectBaseSet4User">User</a>
+                    <a name="/s:O17UINProjectBaseSet12ApiErrorType"></a>
+                    <a name="//apple_ref/swift/Enum/ApiErrorType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:O17UINProjectBaseSet12ApiErrorType">ApiErrorType</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -182,15 +189,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>ユーザ情報を格納するためのstructオブジェクト</p>
+                        <p>Apiエラーハンドリングのためのenum type</p>
 
-                        <a href="Structs/User.html" class="slightly-smaller">See more</a>
+<ul>
+<li><p>TimeOut:   サーバタイムアウトエラー</p></li>
+<li><p>Unknown:   不明なエラー</p></li>
+</ul>
+
+                        <a href="Enums/ApiErrorType.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">User</span><span class="p">:</span> <span class="kt">ResponseObjectSerializable</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ApiErrorType</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>

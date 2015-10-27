@@ -12,9 +12,11 @@ FirstViewController.swift
 	override func viewDidAppear(animated: Bool)
 ApiClient.swift
 	init?(response: NSHTTPURLResponse, representation: AnyObject)
-	case TimeOut = "ErrorApiTimeOut"
-	case BadParams = "ErrorApiBadParams"
-	case Unknown = "ErrorApiUnknown"
+	case None = 200
+	case BadParams = 403
+	case Unknown = 500
+	case Stub
+	func getHeaders() -> [NSObject : AnyObject]?
 	public class var sharedInstance : ApiClient
 	struct Static
 	static let instance : ApiClient = ApiClient()
@@ -86,3 +88,5 @@ PBSBaseXibView.swift
 	override init(frame: CGRect)
 	required init?(coder aDecoder: NSCoder)
 	deinit
+User.swift
+	public var name: String
