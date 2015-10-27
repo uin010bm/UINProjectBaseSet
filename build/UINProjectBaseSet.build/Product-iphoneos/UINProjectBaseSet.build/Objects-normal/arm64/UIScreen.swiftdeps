@@ -7,13 +7,13 @@ provides-member:
 provides-dynamic-lookup:
 - "handleScrollRectToVisible"
 depends-top-level:
-- "Void"
-- !private "NSTimer"
-- "UIScrollView"
 - "CGRect"
-- !private "Double"
+- "UIScrollView"
+- "Void"
 - !private "/"
 - "Bool"
+- !private "NSTimer"
+- !private "Double"
 depends-member:
 - !private ["PSs9AnyObject", "NSTimer"]
 - !private ["PSs9AnyObject", "bk_scheduledTimerWithTimeInterval"]

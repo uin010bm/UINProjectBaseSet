@@ -6,29 +6,29 @@ provides-nominal:
 provides-member:
 - ["C17UINProjectBaseSet20SecondViewController", ""]
 provides-dynamic-lookup:
+- "tappedPushButton"
+- "tappedButton"
 - "didReceiveMemoryWarning"
 - "customView"
 - "viewDidLoad"
 - "viewDidAppear"
-- "tappedButton"
-- "tappedPushButton"
 depends-top-level:
-- !private "Log"
-- !private "StringLiteralType"
-- "SampleCustomViewDelegate"
-- "SecondViewController"
-- !private "UIImage"
-- !private "Array"
-- "SampleCustomView"
+- "UIScrollView"
 - !private "BooleanLiteralType"
+- "NSCoder"
+- "SecondViewController"
+- "UIViewController"
 - !private "CGRectMake"
 - !private "UIColor"
-- "Bool"
-- !private "UIImageView"
-- "NSCoder"
 - !private "CGSizeMake"
-- "UIViewController"
-- "UIScrollView"
+- "SampleCustomView"
+- !private "UIImage"
+- !private "UIImageView"
+- !private "Log"
+- "SampleCustomViewDelegate"
+- "Bool"
+- !private "StringLiteralType"
+- !private "Array"
 depends-member:
 - !private ["PSs9AnyObject", "CGRectMake"]
 - !private ["PSs9AnyObject", "CGSizeMake"]

@@ -142,6 +142,9 @@
           <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Protocols/PBSBaseXibViewDelegate.html">PBSBaseXibViewDelegate</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/ResponseObjectSerializable.html">ResponseObjectSerializable</a>
               </li>
               <li class="nav-group-task">
@@ -212,7 +215,53 @@ JSON型の追加  </p>
 <a href='#ohhttpstubs_ohhttpstubs_swift_39' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h5 id='ohhttpstubs_ohhttpstubs_swift_39'>・OHHTTPStubs - OHHTTPStubs/Swift&rsquo;</h5>
 
 <p><code>https://github.com/AliSoftware/OHHTTPStubs</code><br>
-stubリクエスト&amp;レスポンス</p>
+stubリクエスト&amp;レスポンス<br>
+　  </p>
+<a href='#' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id=''>　</h2>
+<a href='#function_amp_extension_amp_client' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='function_amp_extension_amp_client'>■ 汎用Function &amp; extension &amp; client</h3>
+
+<p>詳細は下記docsを参照<br>
+<a href="https://uin010bm.github.io/UINProjectBaseSet/docs/index.html">https://uin010bm.github.io/UINProjectBaseSet/docs/index.html</a><br>
+　  </p>
+<a href='#function_swift' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='function_swift'>・Function.swift</h4>
+
+<p><strong>Log</strong> - DEBUGスキーマ時のみprintを実行<br>
+<strong>ALERT</strong> - Alert表示<br>
+<strong>run_on_background_queue</strong> - バックグラウンドスレッドでblockを実行<br>
+<strong>run_on_main_queue</strong> - メインスレッドでblockを実行<br>
+<strong>delay</strong> - blockの遅延実行<br>
+　</p>
+<a href='#extension' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='extension'>・Extension</h4>
+
+<p><code>/Extension</code>内に各クラスの拡張メソッドを格納しています。<br>
+　</p>
+<a href='#applicationmanager_swift' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='applicationmanager_swift'>・ApplicationManager.swift</h4>
+
+<p>カメラ設定や向き・Notification設定など、デバイスに関わる部分を管理しているクラスです。<br>
+　</p>
+<a href='#network' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='network'>・Network関連</h4>
+
+<p><strong><code>ApiClient.swift</code></strong><br>
+stubの設定やAlamofireのconfig設定、errorハンドリングなどのサンプルを記載しています。<br>
+スキーマ間の apiHost の管理もこちらで。<br>
+　</p>
+
+<p><strong><code>User.swift</code></strong><br>
+データ管理のサンプルです。<br>
+ここではUserというデータを扱う場合のサンプルを記載しています。<br>
+DEBUGスキーマ時にはstubによる仮想コネクトを実施しています。<br>
+返却される値は <code>/Stub</code> 内にファイルとして格納しております。<br>
+　</p>
+<a href='#view' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='view'>・カスタムview</h4>
+
+<p><strong><code>PBSBaseXibView.swift</code></strong><br>
+xibの読み込み処理を追記したUIViewのサブクラスです。<br>
+　</p>
+
+<p><strong><code>SampleCustomView.swift</code></strong><br>
+PBSBaseXibViewを利用するサンプルです。<br>
+<code>SampleCustomView.xib</code> とひも付けて利用します。<br>
+　  </p>
 
           </section>
         </section>

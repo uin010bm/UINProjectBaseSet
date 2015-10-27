@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SecondViewController Extension Reference</title>
+    <title>PBSBaseXibViewDelegate Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Extension/SecondViewController" class="dashAnchor"></a>
-    <a title="SecondViewController Extension Reference"></a>
+    <a name="//apple_ref/swift/Protocol/PBSBaseXibViewDelegate" class="dashAnchor"></a>
+    <a title="PBSBaseXibViewDelegate Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (65% documented)</p>
@@ -20,7 +20,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        SecondViewController Extension Reference
+        PBSBaseXibViewDelegate Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -166,14 +166,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>SecondViewController</h1>
+            <h1>PBSBaseXibViewDelegate</h1>
               <div class="declaration">
                 <div class="Swift">
-                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">SecondViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">protocol</span> <span class="kt">PBSBaseXibViewDelegate</span></code></pre>
 
                 </div>
               </div>
-            <p>2つめに表示されるViewController</p>
+            <p>PBSBaseXibView Protocol</p>
 
           </section>
           <section class="section task-group-section">
@@ -182,9 +182,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17UINProjectBaseSet20SecondViewController12tappedButtonFS0_FCS_16SampleCustomViewT_"></a>
-                    <a name="//apple_ref/swift/Method/tappedButton(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17UINProjectBaseSet20SecondViewController12tappedButtonFS0_FCS_16SampleCustomViewT_">tappedButton(_:)</a>
+                    <a name="/s:FP17UINProjectBaseSet22PBSBaseXibViewDelegate12didSetupViewuRq_S0__Fq_FCS_14PBSBaseXibViewT_"></a>
+                    <a name="//apple_ref/swift/Method/didSetupView(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP17UINProjectBaseSet22PBSBaseXibViewDelegate12didSetupViewuRq_S0__Fq_FCS_14PBSBaseXibViewT_">didSetupView(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -192,17 +192,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>SampleCustomViewからボタンのタップを受け付ける</p>
-
-<pre class="highlight plaintext"><code>  - parameter view: 移譲元
-</code></pre>
+                        <p>ViewのSetup完了をキャッチする</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">func</span> <span class="nf">tappedButton</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">SampleCustomView</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">didSetupView</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">PBSBaseXibView</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -218,57 +215,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>移譲元</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC17UINProjectBaseSet20SecondViewController16tappedPushButtonFS0_FCS_16SampleCustomViewT_"></a>
-                    <a name="//apple_ref/swift/Method/tappedPushButton(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17UINProjectBaseSet20SecondViewController16tappedPushButtonFS0_FCS_16SampleCustomViewT_">tappedPushButton(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>SampleCustomViewからPush遷移を受け付ける</p>
-
-<pre class="highlight plaintext"><code> - parameter view: 移譲元
-</code></pre>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">func</span> <span class="nf">tappedPushButton</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">SampleCustomView</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>view</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>移譲元</p>
+                                  <p>PBSBaseXibView</p>
 
                                 </div>
                               </td>
