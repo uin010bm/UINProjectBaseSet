@@ -6,45 +6,59 @@ provides-nominal:
 provides-member:
 - ["C17UINProjectBaseSet18ApplicationManager", ""]
 provides-dynamic-lookup:
+- "isPortrait"
+- "isEnableNotification"
+- "isConnectedToNetwork"
+- "sharedInstance"
+- "isEnablePush"
+- "requestMicrophonePermission"
+- "openAppStore"
+- "requestCameraPermission"
+- "isLandscape"
+- "isEnableMicrophone"
+- "isEnableCamera"
+- "setApplicationToOrientation"
+- "setPushNotification"
 depends-top-level:
-- !private "AVCaptureDevice"
-- !private "&&"
-- "Bool"
 - !private "UIApplication"
-- !private "UInt8"
-- !private "AVMediaTypeVideo"
-- !private "sizeofValue"
-- !private "NSFoundationVersionNumber_iOS_7_1"
-- !private "NSURL"
-- !private "withUnsafePointer"
-- !private "SCNetworkReachabilityGetFlags"
-- !private "AF_INET"
 - !private "AVMediaTypeAudio"
-- !private "BooleanLiteralType"
-- !private "UIUserNotificationType"
-- !private "NSFoundationVersionNumber"
-- !private "<="
-- !private "!"
-- !private "Array"
-- !private "kSCNetworkFlagsReachable"
-- "UIInterfaceOrientation"
-- !private "SCNetworkReachabilityCreateWithAddress"
 - "ApplicationManager"
-- !private "UInt32"
-- "Void"
-- !private "sockaddr_in"
-- !private "sa_family_t"
-- !private "&"
-- !private "SCNetworkReachabilityFlags"
-- !private "UnsafePointer"
-- !private "=="
-- !private "kSCNetworkFlagsConnectionRequired"
-- !private "AVAuthorizationStatus"
-- !private "StringLiteralType"
+- !private "sizeofValue"
+- !private "UInt8"
+- !private "BooleanLiteralType"
+- !private "withUnsafePointer"
+- !private "NSFoundationVersionNumber"
+- "UIInterfaceOrientation"
 - !private "UIUserNotificationSettings"
+- !private "<="
 - !private "UIDevice"
+- !private "AVMediaTypeVideo"
+- "Bool"
+- !private "AVCaptureDevice"
+- !private "UIUserNotificationType"
+- !private "SCNetworkReachabilityCreateWithAddress"
+- !private "SCNetworkReachabilityFlags"
+- !private "&&"
 - !private "floor"
+- !private "sockaddr_in"
+- !private "Array"
+- !private "UnsafePointer"
+- !private "AVAuthorizationStatus"
+- !private "kSCNetworkFlagsConnectionRequired"
+- !private "sa_family_t"
+- !private "!"
+- !private "UInt32"
+- !private "AF_INET"
 - !private "!="
+- !private "&"
+- "NSObject"
+- !private "SCNetworkReachabilityGetFlags"
+- !private "kSCNetworkFlagsReachable"
+- !private "=="
+- !private "NSFoundationVersionNumber_iOS_7_1"
+- "Void"
+- !private "StringLiteralType"
+- !private "NSURL"
 depends-member:
 - !private ["OSC21AVAuthorizationStatus", "Authorized"]
 - !private ["OSC21AVAuthorizationStatus", "Denied"]
@@ -78,19 +92,32 @@ depends-member:
 - !private ["PSs9AnyObject", "currentDevice"]
 - !private ["PSs9AnyObject", "currentUserNotificationSettings"]
 - !private ["PSs9AnyObject", "floor"]
-- !private ["PSs9AnyObject", "getCameraPermission"]
-- !private ["PSs9AnyObject", "getMicrophonePermission"]
-- !private ["PSs9AnyObject", "init"]
+- ["PSs9AnyObject", "getCameraPermission"]
+- ["PSs9AnyObject", "getMicrophonePermission"]
+- ["PSs9AnyObject", "init"]
+- ["PSs9AnyObject", "isConnectedToNetwork"]
+- ["PSs9AnyObject", "isEnableCamera"]
+- ["PSs9AnyObject", "isEnableMicrophone"]
+- ["PSs9AnyObject", "isEnableNotification"]
+- ["PSs9AnyObject", "isEnablePush"]
+- ["PSs9AnyObject", "isLandscape"]
+- ["PSs9AnyObject", "isPortrait"]
 - !private ["PSs9AnyObject", "isRegisteredForRemoteNotifications"]
 - !private ["PSs9AnyObject", "kSCNetworkFlagsConnectionRequired"]
 - !private ["PSs9AnyObject", "kSCNetworkFlagsReachable"]
+- ["PSs9AnyObject", "openAppStore"]
 - !private ["PSs9AnyObject", "openURL"]
 - !private ["PSs9AnyObject", "registerForRemoteNotifications"]
 - !private ["PSs9AnyObject", "registerUserNotificationSettings"]
 - !private ["PSs9AnyObject", "requestAccessForMediaType"]
+- ["PSs9AnyObject", "requestCameraPermission"]
+- ["PSs9AnyObject", "requestMicrophonePermission"]
 - !private ["PSs9AnyObject", "sa_family_t"]
+- ["PSs9AnyObject", "setApplicationToOrientation"]
+- ["PSs9AnyObject", "setPushNotification"]
 - !private ["PSs9AnyObject", "setValue"]
 - !private ["PSs9AnyObject", "sharedApplication"]
+- ["PSs9AnyObject", "sharedInstance"]
 - !private ["PSs9AnyObject", "sizeofValue"]
 - !private ["PSs9AnyObject", "sockaddr_in"]
 - !private ["PSs9AnyObject", "statusBarOrientation"]
@@ -157,94 +184,258 @@ depends-member:
 - !private ["Sb", "_getBuiltinLogicValue"]
 - !private ["PSs25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
 - !private ["PSs11BooleanType", "_getBuiltinLogicValue"]
+- !private ["PSs11CVarArgType", "AF_INET"]
+- !private ["PSs11CVarArgType", "AVAuthorizationStatus"]
+- !private ["PSs11CVarArgType", "AVCaptureDevice"]
+- !private ["PSs11CVarArgType", "AVMediaTypeAudio"]
+- !private ["PSs11CVarArgType", "AVMediaTypeVideo"]
+- !private ["PSs11CVarArgType", "ApplicationManager"]
+- !private ["PSs11CVarArgType", "NSFoundationVersionNumber"]
+- !private ["PSs11CVarArgType", "NSFoundationVersionNumber_iOS_7_1"]
+- !private ["PSs11CVarArgType", "NSURL"]
+- !private ["PSs11CVarArgType", "SCNetworkReachabilityCreateWithAddress"]
+- !private ["PSs11CVarArgType", "SCNetworkReachabilityFlags"]
+- !private ["PSs11CVarArgType", "SCNetworkReachabilityGetFlags"]
+- !private ["PSs11CVarArgType", "UIApplication"]
+- !private ["PSs11CVarArgType", "UIDevice"]
+- !private ["PSs11CVarArgType", "UIUserNotificationSettings"]
+- !private ["PSs11CVarArgType", "UIUserNotificationType"]
+- !private ["PSs11CVarArgType", "UInt32"]
+- !private ["PSs11CVarArgType", "UInt8"]
+- !private ["PSs11CVarArgType", "UnsafePointer"]
 - !private ["PSs11CVarArgType", "authorizationStatusForMediaType"]
 - !private ["PSs11CVarArgType", "canOpenURL"]
 - !private ["PSs11CVarArgType", "currentDevice"]
 - !private ["PSs11CVarArgType", "currentUserNotificationSettings"]
-- !private ["PSs11CVarArgType", "init"]
+- !private ["PSs11CVarArgType", "floor"]
+- ["PSs11CVarArgType", "getCameraPermission"]
+- ["PSs11CVarArgType", "getMicrophonePermission"]
+- ["PSs11CVarArgType", "init"]
+- ["PSs11CVarArgType", "isConnectedToNetwork"]
+- ["PSs11CVarArgType", "isEnableCamera"]
+- ["PSs11CVarArgType", "isEnableMicrophone"]
+- ["PSs11CVarArgType", "isEnableNotification"]
+- ["PSs11CVarArgType", "isEnablePush"]
+- ["PSs11CVarArgType", "isLandscape"]
+- ["PSs11CVarArgType", "isPortrait"]
 - !private ["PSs11CVarArgType", "isRegisteredForRemoteNotifications"]
+- !private ["PSs11CVarArgType", "kSCNetworkFlagsConnectionRequired"]
+- !private ["PSs11CVarArgType", "kSCNetworkFlagsReachable"]
+- ["PSs11CVarArgType", "openAppStore"]
 - !private ["PSs11CVarArgType", "openURL"]
 - !private ["PSs11CVarArgType", "registerForRemoteNotifications"]
 - !private ["PSs11CVarArgType", "registerUserNotificationSettings"]
 - !private ["PSs11CVarArgType", "requestAccessForMediaType"]
+- ["PSs11CVarArgType", "requestCameraPermission"]
+- ["PSs11CVarArgType", "requestMicrophonePermission"]
+- !private ["PSs11CVarArgType", "sa_family_t"]
+- ["PSs11CVarArgType", "setApplicationToOrientation"]
+- ["PSs11CVarArgType", "setPushNotification"]
 - !private ["PSs11CVarArgType", "setValue"]
 - !private ["PSs11CVarArgType", "sharedApplication"]
+- ["PSs11CVarArgType", "sharedInstance"]
+- !private ["PSs11CVarArgType", "sizeofValue"]
+- !private ["PSs11CVarArgType", "sockaddr_in"]
 - !private ["PSs11CVarArgType", "statusBarOrientation"]
 - !private ["PSs11CVarArgType", "types"]
+- !private ["PSs11CVarArgType", "withUnsafePointer"]
+- ["PSs11CVarArgType", ""]
 - !private ["PSs14CollectionType", "Element"]
 - !private ["PSs10Comparable", "init"]
 - !private ["PSs28CustomDebugStringConvertible", "Element"]
 - !private ["PSs28CustomDebugStringConvertible", "None"]
 - ["PSs28CustomDebugStringConvertible", "Some"]
 - !private ["PSs28CustomDebugStringConvertible", "init"]
+- !private ["PSs23CustomStringConvertible", "AF_INET"]
+- !private ["PSs23CustomStringConvertible", "AVAuthorizationStatus"]
+- !private ["PSs23CustomStringConvertible", "AVCaptureDevice"]
+- !private ["PSs23CustomStringConvertible", "AVMediaTypeAudio"]
+- !private ["PSs23CustomStringConvertible", "AVMediaTypeVideo"]
+- !private ["PSs23CustomStringConvertible", "ApplicationManager"]
 - !private ["PSs23CustomStringConvertible", "Element"]
+- !private ["PSs23CustomStringConvertible", "NSFoundationVersionNumber"]
+- !private ["PSs23CustomStringConvertible", "NSFoundationVersionNumber_iOS_7_1"]
+- !private ["PSs23CustomStringConvertible", "NSURL"]
+- !private ["PSs23CustomStringConvertible", "SCNetworkReachabilityCreateWithAddress"]
+- !private ["PSs23CustomStringConvertible", "SCNetworkReachabilityFlags"]
+- !private ["PSs23CustomStringConvertible", "SCNetworkReachabilityGetFlags"]
+- !private ["PSs23CustomStringConvertible", "UIApplication"]
+- !private ["PSs23CustomStringConvertible", "UIDevice"]
+- !private ["PSs23CustomStringConvertible", "UIUserNotificationSettings"]
+- !private ["PSs23CustomStringConvertible", "UIUserNotificationType"]
+- !private ["PSs23CustomStringConvertible", "UInt32"]
+- !private ["PSs23CustomStringConvertible", "UInt8"]
+- !private ["PSs23CustomStringConvertible", "UnsafePointer"]
 - !private ["PSs23CustomStringConvertible", "_getBuiltinLogicValue"]
 - !private ["PSs23CustomStringConvertible", "authorizationStatusForMediaType"]
 - !private ["PSs23CustomStringConvertible", "canOpenURL"]
 - !private ["PSs23CustomStringConvertible", "currentDevice"]
 - !private ["PSs23CustomStringConvertible", "currentUserNotificationSettings"]
-- !private ["PSs23CustomStringConvertible", "init"]
+- !private ["PSs23CustomStringConvertible", "floor"]
+- ["PSs23CustomStringConvertible", "getCameraPermission"]
+- ["PSs23CustomStringConvertible", "getMicrophonePermission"]
+- ["PSs23CustomStringConvertible", "init"]
+- ["PSs23CustomStringConvertible", "isConnectedToNetwork"]
+- ["PSs23CustomStringConvertible", "isEnableCamera"]
+- ["PSs23CustomStringConvertible", "isEnableMicrophone"]
+- ["PSs23CustomStringConvertible", "isEnableNotification"]
+- ["PSs23CustomStringConvertible", "isEnablePush"]
+- ["PSs23CustomStringConvertible", "isLandscape"]
+- ["PSs23CustomStringConvertible", "isPortrait"]
 - !private ["PSs23CustomStringConvertible", "isRegisteredForRemoteNotifications"]
+- !private ["PSs23CustomStringConvertible", "kSCNetworkFlagsConnectionRequired"]
+- !private ["PSs23CustomStringConvertible", "kSCNetworkFlagsReachable"]
+- ["PSs23CustomStringConvertible", "openAppStore"]
 - !private ["PSs23CustomStringConvertible", "openURL"]
 - !private ["PSs23CustomStringConvertible", "registerForRemoteNotifications"]
 - !private ["PSs23CustomStringConvertible", "registerUserNotificationSettings"]
 - !private ["PSs23CustomStringConvertible", "requestAccessForMediaType"]
+- ["PSs23CustomStringConvertible", "requestCameraPermission"]
+- ["PSs23CustomStringConvertible", "requestMicrophonePermission"]
+- !private ["PSs23CustomStringConvertible", "sa_family_t"]
+- ["PSs23CustomStringConvertible", "setApplicationToOrientation"]
+- ["PSs23CustomStringConvertible", "setPushNotification"]
 - !private ["PSs23CustomStringConvertible", "setValue"]
 - !private ["PSs23CustomStringConvertible", "sharedApplication"]
+- ["PSs23CustomStringConvertible", "sharedInstance"]
+- !private ["PSs23CustomStringConvertible", "sizeofValue"]
+- !private ["PSs23CustomStringConvertible", "sockaddr_in"]
 - !private ["PSs23CustomStringConvertible", "statusBarOrientation"]
 - !private ["PSs23CustomStringConvertible", "types"]
+- !private ["PSs23CustomStringConvertible", "withUnsafePointer"]
+- ["PSs23CustomStringConvertible", ""]
+- !private ["PSs9Equatable", "AF_INET"]
+- !private ["PSs9Equatable", "AVAuthorizationStatus"]
+- !private ["PSs9Equatable", "AVCaptureDevice"]
+- !private ["PSs9Equatable", "AVMediaTypeAudio"]
+- !private ["PSs9Equatable", "AVMediaTypeVideo"]
 - !private ["PSs9Equatable", "Alert"]
+- !private ["PSs9Equatable", "ApplicationManager"]
 - !private ["PSs9Equatable", "Authorized"]
 - !private ["PSs9Equatable", "Badge"]
 - !private ["PSs9Equatable", "Denied"]
 - !private ["PSs9Equatable", "Element"]
+- !private ["PSs9Equatable", "NSFoundationVersionNumber"]
+- !private ["PSs9Equatable", "NSFoundationVersionNumber_iOS_7_1"]
+- !private ["PSs9Equatable", "NSURL"]
 - !private ["PSs9Equatable", "NotDetermined"]
 - !private ["PSs9Equatable", "RawValue"]
 - !private ["PSs9Equatable", "Restricted"]
+- !private ["PSs9Equatable", "SCNetworkReachabilityCreateWithAddress"]
+- !private ["PSs9Equatable", "SCNetworkReachabilityFlags"]
+- !private ["PSs9Equatable", "SCNetworkReachabilityGetFlags"]
 - !private ["PSs9Equatable", "Sound"]
+- !private ["PSs9Equatable", "UIApplication"]
+- !private ["PSs9Equatable", "UIDevice"]
+- !private ["PSs9Equatable", "UIUserNotificationSettings"]
+- !private ["PSs9Equatable", "UIUserNotificationType"]
+- !private ["PSs9Equatable", "UInt32"]
+- !private ["PSs9Equatable", "UInt8"]
+- !private ["PSs9Equatable", "UnsafePointer"]
 - !private ["PSs9Equatable", "_getBuiltinLogicValue"]
 - !private ["PSs9Equatable", "authorizationStatusForMediaType"]
 - !private ["PSs9Equatable", "canOpenURL"]
 - !private ["PSs9Equatable", "currentDevice"]
 - !private ["PSs9Equatable", "currentUserNotificationSettings"]
-- !private ["PSs9Equatable", "init"]
+- !private ["PSs9Equatable", "floor"]
+- ["PSs9Equatable", "getCameraPermission"]
+- ["PSs9Equatable", "getMicrophonePermission"]
+- ["PSs9Equatable", "init"]
 - !private ["PSs9Equatable", "intersect"]
-- !private ["PSs9Equatable", "isLandscape"]
-- !private ["PSs9Equatable", "isPortrait"]
+- ["PSs9Equatable", "isConnectedToNetwork"]
+- ["PSs9Equatable", "isEnableCamera"]
+- ["PSs9Equatable", "isEnableMicrophone"]
+- ["PSs9Equatable", "isEnableNotification"]
+- ["PSs9Equatable", "isEnablePush"]
+- ["PSs9Equatable", "isLandscape"]
+- ["PSs9Equatable", "isPortrait"]
 - !private ["PSs9Equatable", "isRegisteredForRemoteNotifications"]
+- !private ["PSs9Equatable", "kSCNetworkFlagsConnectionRequired"]
+- !private ["PSs9Equatable", "kSCNetworkFlagsReachable"]
+- ["PSs9Equatable", "openAppStore"]
 - !private ["PSs9Equatable", "openURL"]
 - !private ["PSs9Equatable", "rawValue"]
 - !private ["PSs9Equatable", "registerForRemoteNotifications"]
 - !private ["PSs9Equatable", "registerUserNotificationSettings"]
 - !private ["PSs9Equatable", "requestAccessForMediaType"]
+- ["PSs9Equatable", "requestCameraPermission"]
+- ["PSs9Equatable", "requestMicrophonePermission"]
+- !private ["PSs9Equatable", "sa_family_t"]
+- ["PSs9Equatable", "setApplicationToOrientation"]
+- ["PSs9Equatable", "setPushNotification"]
 - !private ["PSs9Equatable", "setValue"]
 - !private ["PSs9Equatable", "sharedApplication"]
+- ["PSs9Equatable", "sharedInstance"]
+- !private ["PSs9Equatable", "sizeofValue"]
+- !private ["PSs9Equatable", "sockaddr_in"]
 - !private ["PSs9Equatable", "statusBarOrientation"]
 - !private ["PSs9Equatable", "types"]
+- !private ["PSs9Equatable", "withUnsafePointer"]
+- ["PSs9Equatable", ""]
 - !private ["PSs16ForwardIndexType", "init"]
+- !private ["PSs8Hashable", "AF_INET"]
+- !private ["PSs8Hashable", "AVAuthorizationStatus"]
+- !private ["PSs8Hashable", "AVCaptureDevice"]
+- !private ["PSs8Hashable", "AVMediaTypeAudio"]
+- !private ["PSs8Hashable", "AVMediaTypeVideo"]
+- !private ["PSs8Hashable", "ApplicationManager"]
 - !private ["PSs8Hashable", "Authorized"]
 - !private ["PSs8Hashable", "Denied"]
+- !private ["PSs8Hashable", "NSFoundationVersionNumber"]
+- !private ["PSs8Hashable", "NSFoundationVersionNumber_iOS_7_1"]
+- !private ["PSs8Hashable", "NSURL"]
 - !private ["PSs8Hashable", "NotDetermined"]
 - !private ["PSs8Hashable", "RawValue"]
 - !private ["PSs8Hashable", "Restricted"]
+- !private ["PSs8Hashable", "SCNetworkReachabilityCreateWithAddress"]
+- !private ["PSs8Hashable", "SCNetworkReachabilityFlags"]
+- !private ["PSs8Hashable", "SCNetworkReachabilityGetFlags"]
+- !private ["PSs8Hashable", "UIApplication"]
+- !private ["PSs8Hashable", "UIDevice"]
+- !private ["PSs8Hashable", "UIUserNotificationSettings"]
+- !private ["PSs8Hashable", "UIUserNotificationType"]
+- !private ["PSs8Hashable", "UInt32"]
+- !private ["PSs8Hashable", "UInt8"]
+- !private ["PSs8Hashable", "UnsafePointer"]
 - !private ["PSs8Hashable", "_getBuiltinLogicValue"]
 - !private ["PSs8Hashable", "authorizationStatusForMediaType"]
 - !private ["PSs8Hashable", "canOpenURL"]
 - !private ["PSs8Hashable", "currentDevice"]
 - !private ["PSs8Hashable", "currentUserNotificationSettings"]
-- !private ["PSs8Hashable", "init"]
-- !private ["PSs8Hashable", "isLandscape"]
-- !private ["PSs8Hashable", "isPortrait"]
+- !private ["PSs8Hashable", "floor"]
+- ["PSs8Hashable", "getCameraPermission"]
+- ["PSs8Hashable", "getMicrophonePermission"]
+- ["PSs8Hashable", "init"]
+- ["PSs8Hashable", "isConnectedToNetwork"]
+- ["PSs8Hashable", "isEnableCamera"]
+- ["PSs8Hashable", "isEnableMicrophone"]
+- ["PSs8Hashable", "isEnableNotification"]
+- ["PSs8Hashable", "isEnablePush"]
+- ["PSs8Hashable", "isLandscape"]
+- ["PSs8Hashable", "isPortrait"]
 - !private ["PSs8Hashable", "isRegisteredForRemoteNotifications"]
+- !private ["PSs8Hashable", "kSCNetworkFlagsConnectionRequired"]
+- !private ["PSs8Hashable", "kSCNetworkFlagsReachable"]
+- ["PSs8Hashable", "openAppStore"]
 - !private ["PSs8Hashable", "openURL"]
 - !private ["PSs8Hashable", "rawValue"]
 - !private ["PSs8Hashable", "registerForRemoteNotifications"]
 - !private ["PSs8Hashable", "registerUserNotificationSettings"]
 - !private ["PSs8Hashable", "requestAccessForMediaType"]
+- ["PSs8Hashable", "requestCameraPermission"]
+- ["PSs8Hashable", "requestMicrophonePermission"]
+- !private ["PSs8Hashable", "sa_family_t"]
+- ["PSs8Hashable", "setApplicationToOrientation"]
+- ["PSs8Hashable", "setPushNotification"]
 - !private ["PSs8Hashable", "setValue"]
 - !private ["PSs8Hashable", "sharedApplication"]
+- ["PSs8Hashable", "sharedInstance"]
+- !private ["PSs8Hashable", "sizeofValue"]
+- !private ["PSs8Hashable", "sockaddr_in"]
 - !private ["PSs8Hashable", "statusBarOrientation"]
 - !private ["PSs8Hashable", "types"]
+- !private ["PSs8Hashable", "withUnsafePointer"]
+- ["PSs8Hashable", ""]
 - !private ["PSs9Indexable", "Element"]
 - !private ["Si", "deinit"]
 - !private ["PSs21IntegerArithmeticType", "init"]
@@ -255,34 +446,121 @@ depends-member:
 - !private ["PSs16MutableSliceable", "Element"]
 - !private ["PSo8NSCoding", "init"]
 - !private ["PSo9NSCopying", "init"]
+- !private ["CSo8NSObject", "AF_INET"]
+- !private ["CSo8NSObject", "AVAuthorizationStatus"]
+- !private ["CSo8NSObject", "AVCaptureDevice"]
+- !private ["CSo8NSObject", "AVMediaTypeAudio"]
+- !private ["CSo8NSObject", "AVMediaTypeVideo"]
+- ["CSo8NSObject", "ApplicationManager"]
+- ["CSo8NSObject", "Bool"]
+- !private ["CSo8NSObject", "NSFoundationVersionNumber"]
+- !private ["CSo8NSObject", "NSFoundationVersionNumber_iOS_7_1"]
+- !private ["CSo8NSObject", "NSURL"]
+- !private ["CSo8NSObject", "SCNetworkReachabilityCreateWithAddress"]
+- !private ["CSo8NSObject", "SCNetworkReachabilityFlags"]
+- !private ["CSo8NSObject", "SCNetworkReachabilityGetFlags"]
+- !private ["CSo8NSObject", "UIApplication"]
+- !private ["CSo8NSObject", "UIDevice"]
+- ["CSo8NSObject", "UIInterfaceOrientation"]
+- !private ["CSo8NSObject", "UIUserNotificationSettings"]
+- !private ["CSo8NSObject", "UIUserNotificationType"]
+- !private ["CSo8NSObject", "UInt32"]
+- !private ["CSo8NSObject", "UInt8"]
+- !private ["CSo8NSObject", "UnsafePointer"]
+- ["CSo8NSObject", "Void"]
 - !private ["CSo8NSObject", "authorizationStatusForMediaType"]
 - !private ["CSo8NSObject", "canOpenURL"]
 - !private ["CSo8NSObject", "currentDevice"]
 - !private ["CSo8NSObject", "currentUserNotificationSettings"]
-- !private ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "floor"]
+- ["CSo8NSObject", "getCameraPermission"]
+- ["CSo8NSObject", "getMicrophonePermission"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "isConnectedToNetwork"]
+- ["CSo8NSObject", "isEnableCamera"]
+- ["CSo8NSObject", "isEnableMicrophone"]
+- ["CSo8NSObject", "isEnableNotification"]
+- ["CSo8NSObject", "isEnablePush"]
+- ["CSo8NSObject", "isLandscape"]
+- ["CSo8NSObject", "isPortrait"]
 - !private ["CSo8NSObject", "isRegisteredForRemoteNotifications"]
+- !private ["CSo8NSObject", "kSCNetworkFlagsConnectionRequired"]
+- !private ["CSo8NSObject", "kSCNetworkFlagsReachable"]
+- ["CSo8NSObject", "openAppStore"]
 - !private ["CSo8NSObject", "openURL"]
 - !private ["CSo8NSObject", "registerForRemoteNotifications"]
 - !private ["CSo8NSObject", "registerUserNotificationSettings"]
 - !private ["CSo8NSObject", "requestAccessForMediaType"]
+- ["CSo8NSObject", "requestCameraPermission"]
+- ["CSo8NSObject", "requestMicrophonePermission"]
+- !private ["CSo8NSObject", "sa_family_t"]
+- ["CSo8NSObject", "setApplicationToOrientation"]
+- ["CSo8NSObject", "setPushNotification"]
 - !private ["CSo8NSObject", "setValue"]
 - !private ["CSo8NSObject", "sharedApplication"]
+- ["CSo8NSObject", "sharedInstance"]
+- !private ["CSo8NSObject", "sizeofValue"]
+- !private ["CSo8NSObject", "sockaddr_in"]
 - !private ["CSo8NSObject", "statusBarOrientation"]
 - !private ["CSo8NSObject", "types"]
+- !private ["CSo8NSObject", "withUnsafePointer"]
+- ["CSo8NSObject", ""]
+- !private ["PSo16NSObjectProtocol", "AF_INET"]
+- !private ["PSo16NSObjectProtocol", "AVAuthorizationStatus"]
+- !private ["PSo16NSObjectProtocol", "AVCaptureDevice"]
+- !private ["PSo16NSObjectProtocol", "AVMediaTypeAudio"]
+- !private ["PSo16NSObjectProtocol", "AVMediaTypeVideo"]
+- !private ["PSo16NSObjectProtocol", "ApplicationManager"]
+- !private ["PSo16NSObjectProtocol", "NSFoundationVersionNumber"]
+- !private ["PSo16NSObjectProtocol", "NSFoundationVersionNumber_iOS_7_1"]
+- !private ["PSo16NSObjectProtocol", "NSURL"]
+- !private ["PSo16NSObjectProtocol", "SCNetworkReachabilityCreateWithAddress"]
+- !private ["PSo16NSObjectProtocol", "SCNetworkReachabilityFlags"]
+- !private ["PSo16NSObjectProtocol", "SCNetworkReachabilityGetFlags"]
+- !private ["PSo16NSObjectProtocol", "UIApplication"]
+- !private ["PSo16NSObjectProtocol", "UIDevice"]
+- !private ["PSo16NSObjectProtocol", "UIUserNotificationSettings"]
+- !private ["PSo16NSObjectProtocol", "UIUserNotificationType"]
+- !private ["PSo16NSObjectProtocol", "UInt32"]
+- !private ["PSo16NSObjectProtocol", "UInt8"]
+- !private ["PSo16NSObjectProtocol", "UnsafePointer"]
 - !private ["PSo16NSObjectProtocol", "authorizationStatusForMediaType"]
 - !private ["PSo16NSObjectProtocol", "canOpenURL"]
 - !private ["PSo16NSObjectProtocol", "currentDevice"]
 - !private ["PSo16NSObjectProtocol", "currentUserNotificationSettings"]
-- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "floor"]
+- ["PSo16NSObjectProtocol", "getCameraPermission"]
+- ["PSo16NSObjectProtocol", "getMicrophonePermission"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "isConnectedToNetwork"]
+- ["PSo16NSObjectProtocol", "isEnableCamera"]
+- ["PSo16NSObjectProtocol", "isEnableMicrophone"]
+- ["PSo16NSObjectProtocol", "isEnableNotification"]
+- ["PSo16NSObjectProtocol", "isEnablePush"]
+- ["PSo16NSObjectProtocol", "isLandscape"]
+- ["PSo16NSObjectProtocol", "isPortrait"]
 - !private ["PSo16NSObjectProtocol", "isRegisteredForRemoteNotifications"]
+- !private ["PSo16NSObjectProtocol", "kSCNetworkFlagsConnectionRequired"]
+- !private ["PSo16NSObjectProtocol", "kSCNetworkFlagsReachable"]
+- ["PSo16NSObjectProtocol", "openAppStore"]
 - !private ["PSo16NSObjectProtocol", "openURL"]
 - !private ["PSo16NSObjectProtocol", "registerForRemoteNotifications"]
 - !private ["PSo16NSObjectProtocol", "registerUserNotificationSettings"]
 - !private ["PSo16NSObjectProtocol", "requestAccessForMediaType"]
+- ["PSo16NSObjectProtocol", "requestCameraPermission"]
+- ["PSo16NSObjectProtocol", "requestMicrophonePermission"]
+- !private ["PSo16NSObjectProtocol", "sa_family_t"]
+- ["PSo16NSObjectProtocol", "setApplicationToOrientation"]
+- ["PSo16NSObjectProtocol", "setPushNotification"]
 - !private ["PSo16NSObjectProtocol", "setValue"]
 - !private ["PSo16NSObjectProtocol", "sharedApplication"]
+- ["PSo16NSObjectProtocol", "sharedInstance"]
+- !private ["PSo16NSObjectProtocol", "sizeofValue"]
+- !private ["PSo16NSObjectProtocol", "sockaddr_in"]
 - !private ["PSo16NSObjectProtocol", "statusBarOrientation"]
 - !private ["PSo16NSObjectProtocol", "types"]
+- !private ["PSo16NSObjectProtocol", "withUnsafePointer"]
+- ["PSo16NSObjectProtocol", ""]
 - !private ["PSo14NSSecureCoding", "init"]
 - !private ["CSo5NSURL", "init"]
 - !private ["PSs21NilLiteralConvertible", "None"]
@@ -398,14 +676,14 @@ depends-nominal:
 - !private "Sb"
 - !private "PSs25BooleanLiteralConvertible"
 - !private "PSs11BooleanType"
-- !private "PSs11CVarArgType"
+- "PSs11CVarArgType"
 - !private "PSs14CollectionType"
 - !private "PSs10Comparable"
 - "PSs28CustomDebugStringConvertible"
-- !private "PSs23CustomStringConvertible"
-- !private "PSs9Equatable"
+- "PSs23CustomStringConvertible"
+- "PSs9Equatable"
 - !private "PSs16ForwardIndexType"
-- !private "PSs8Hashable"
+- "PSs8Hashable"
 - !private "PSs9Indexable"
 - !private "Si"
 - !private "PSs21IntegerArithmeticType"
@@ -416,8 +694,8 @@ depends-nominal:
 - !private "PSs16MutableSliceable"
 - !private "PSo8NSCoding"
 - !private "PSo9NSCopying"
-- !private "CSo8NSObject"
-- !private "PSo16NSObjectProtocol"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
 - !private "PSo14NSSecureCoding"
 - !private "CSo5NSURL"
 - "PSs21NilLiteralConvertible"
@@ -469,4 +747,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/AVFoundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreMedia.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreAudio.swiftmodule"
-interface-hash: "84a470dd9e9354c74491dd61a47db784"
+interface-hash: "4108ccb146052dc474e1466d3933ce4b"

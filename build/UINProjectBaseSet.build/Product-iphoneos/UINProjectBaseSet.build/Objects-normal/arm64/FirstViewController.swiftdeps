@@ -6,29 +6,29 @@ provides-nominal:
 provides-member:
 - ["C17UINProjectBaseSet19FirstViewController", ""]
 provides-dynamic-lookup:
+- "viewDidLoad"
 - "didReceiveMemoryWarning"
+- "tappedButton"
 - "viewDidAppear"
 - "customView"
-- "viewDidLoad"
 - "tappedPushButton"
-- "tappedButton"
 depends-top-level:
-- !private "CGSizeMake"
-- "PBSBaseViewController"
-- !private "Array"
-- !private "UIImage"
-- !private "StringLiteralType"
-- !private "CGRectMake"
 - "SampleCustomViewDelegate"
-- "Bool"
-- !private "Log"
-- "UIScrollView"
-- !private "BooleanLiteralType"
-- !private "UIColor"
 - "NSCoder"
 - !private "UIImageView"
+- !private "BooleanLiteralType"
 - "FirstViewController"
+- !private "CGSizeMake"
+- "PBSBaseViewController"
 - "SampleCustomView"
+- !private "UIColor"
+- !private "StringLiteralType"
+- !private "CGRectMake"
+- !private "Array"
+- "UIScrollView"
+- !private "UIImage"
+- "Bool"
+- !private "Log"
 depends-member:
 - !private ["PSs9AnyObject", "CGRectMake"]
 - !private ["PSs9AnyObject", "CGSizeMake"]

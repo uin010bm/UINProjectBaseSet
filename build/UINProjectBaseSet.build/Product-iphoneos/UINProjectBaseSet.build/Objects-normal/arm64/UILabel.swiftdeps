@@ -6,25 +6,25 @@ provides-member:
 - ["CSo7UILabel", "setAttributedTextWithLabelStyle"]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "NSForegroundColorAttributeName"
-- "String"
-- !private "NSBaselineOffsetAttributeName"
-- !private "Dictionary"
-- "UIFont"
-- !private "AnyObject"
-- "NSLineBreakMode"
-- "UILabel"
-- "UIColor"
-- "NSTextAlignment"
-- !private "??"
-- !private "NSParagraphStyleAttributeName"
-- !private "NSKernAttributeName"
 - !private "NSFontAttributeName"
 - !private "NSAttributedString"
 - "CGFloat"
 - !private "NSMutableParagraphStyle"
+- "String"
+- !private "Dictionary"
+- !private "NSForegroundColorAttributeName"
+- !private "NSBaselineOffsetAttributeName"
+- !private "AnyObject"
+- "NSTextAlignment"
 - !private "NSParagraphStyle"
+- "UIFont"
+- "UILabel"
+- "UIColor"
 - !private "StringLiteralType"
+- !private "??"
+- "NSLineBreakMode"
+- !private "NSKernAttributeName"
+- !private "NSParagraphStyleAttributeName"
 depends-member:
 - !private ["PSs9AnyObject", "Key"]
 - !private ["PSs9AnyObject", "NSAttributedString"]
