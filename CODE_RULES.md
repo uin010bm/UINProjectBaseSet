@@ -34,7 +34,7 @@ enum
 struct  
 global property  
 class  
-　　enum
+　　enum  
 　　struct  
 　　singleton  
 　　static property  
