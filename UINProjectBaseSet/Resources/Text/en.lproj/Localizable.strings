@@ -7,6 +7,9 @@
 */
 
 
-"UIMain.start.button" = "Start";
-"UIMain.end.button" = "End";
-"UIMain.error.message" = "Network error has occurred. \nPlease reconnect later.";
+"UI.start.button" = "Start！";
+"UI.end.button" = "$nd！";
+"UI.error.message" = "Network error.\nPlease wait";
+
+"UISampleView.scrollButton" = "Scroll";
+"UISampleView.nextButton" = "Next";

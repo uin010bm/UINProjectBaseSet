@@ -119,5 +119,6 @@ public extension String {
     public func getPathAppendedComponentWithPath(path: String) -> String {
         return (self as NSString).stringByAppendingPathComponent(path)
     }
+
     
 }

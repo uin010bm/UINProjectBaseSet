@@ -84,3 +84,15 @@ public func delay(delay:Double, closure:()->()) {
         ),
         dispatch_get_main_queue(), closure)
 }
+
+
+///  StringをkeyにLocalizationStringを取得する
+///
+///  - parameter key: LocalizationのkeyString
+///
+///  - returns: Localized string
+public func Localize(key: String) -> String {
+    let str = NSLocalizedString(key, comment: "")
+    Log("Text : \(str)")
+    return str
+}

@@ -7,6 +7,9 @@
 */
 
 
-"UIMain.start.button" = "始め！";
-"UIMain.end.button" = "終わり！";
-"UIMain.error.message" = "ネットワークエラーが発生しました\nしばらくしてから再度お試しください";
+"UI.start.button" = "始め！";
+"UI.end.button" = "終わり！";
+"UI.error.message" = "ネットワークエラーが発生しました\nしばらくしてから再度お試しください";
+
+"UISampleView.scrollButton" = "スクロール";
+"UISampleView.nextButton" = "次へ";

@@ -7,7 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SampleCustomView" customModule="UINProjectBaseSet" customModuleProvider="target">
             <connections>
-                <outlet property="button" destination="Txv-WQ-a5y" id="mhH-Hw-Xph"/>
+                <outlet property="nextButton" destination="zOA-ej-G5O" id="jjf-4D-ioB"/>
+                <outlet property="scrollButton" destination="Txv-WQ-a5y" id="OTp-Ni-qRu"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

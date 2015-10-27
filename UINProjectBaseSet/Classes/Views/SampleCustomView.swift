@@ -28,8 +28,15 @@ import UIKit
     
     /// SampleCuntomViewの移譲先を格納
     weak var delegate: SampleCustomViewDelegate?
-
-    @IBOutlet weak var button: UIButton!
+    
+    @IBOutlet weak var scrollButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    
+    /// textをセットする
+    internal func setupLocalization() {
+        self.scrollButton.setTitle(Localize("UISampleView.scrollButton"), forState: .Normal)
+        self.nextButton.setTitle(Localize("UISampleView.nextButton"), forState: .Normal)
+    }
     
     @IBAction func buttonTapped(sender: AnyObject) {
         self.delegate?.tappedButton?(self)
