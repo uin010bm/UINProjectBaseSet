@@ -1,6 +1,0 @@
-framework module Pods_UINProjectBaseSetTests {
-  umbrella header "Pods-UINProjectBaseSetTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
