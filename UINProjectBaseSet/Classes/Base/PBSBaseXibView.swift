@@ -9,6 +9,17 @@
 import UIKit
 
 
+// MARK: - protocol
+///  PBSBaseXibView Protocol
+@objc protocol PBSBaseXibViewDelegate {
+    
+    ///  ViewのSetup完了をキャッチする
+    ///
+    ///  - parameter view: PBSBaseXibView
+    optional func didSetupView(view: PBSBaseXibView)
+}
+
+
 /// Xibを利用したViewの基底クラス
 class PBSBaseXibView: UIView {
     
@@ -17,6 +28,7 @@ class PBSBaseXibView: UIView {
     
     // Our custom view from the XIB file
     private var view: UIView!
+    weak var xibViewDelegate: PBSBaseXibViewDelegate?
     
     
     // MARK: - initializer
@@ -53,6 +65,15 @@ class PBSBaseXibView: UIView {
         
         // Adding custom subview on top of our view (over any custom drawing > see note below)
         self.addSubview(view)
+    }
+    
+    
+    ///  setupXib実行時にdelegateをセットするconvenience function
+    ///
+    ///  - parameter delegate: PBSBaseXibViewDelegateProtocol を満たしているクラス
+    private func setupXib(delegate: PBSBaseXibViewDelegate) {
+        self.xibViewDelegate = delegate
+        self.setupXib()
     }
     
     
