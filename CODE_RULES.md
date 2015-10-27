@@ -20,11 +20,11 @@ ex: `// MARK: - public functions`
 
 VVDocumenterを利用してドキュメントを追加する。
 ```
-/**
-説明
-:param: 引数名   説明
-:returns: 説明
-*/
+///  関数説明
+///
+///  - parameter 引数名:  説明
+///  - parameter 引数名:  説明
+///  - returns: 説明
 ```
 　
 -----------------------
@@ -35,11 +35,16 @@ struct
 global property  
 class  
 　　enum  
+　　struct  
+　　singleton  
 　　static property  
 　　private property  
 　　public property  
 　　static func  
 　　class func  
+　　initializer  
+　　deinitializer  
+　　viewdelegate  
 　　private func  
 　　public func  
 extension
