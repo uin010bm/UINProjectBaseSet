@@ -10,7 +10,7 @@ version 7.0.1
 ##### Swift:
 version 2.0
 ##### PackageManager:
-Alcatraz
+Alcatraz  
 ```
 $ curl -fsSL https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh | sh
 ```
@@ -89,5 +89,10 @@ xibの読み込み処理を追記したUIViewのサブクラスです。
 PBSBaseXibViewを利用するサンプルです。  
 `SampleCustomView.xib` とひも付けて利用します。  
 　  
+　  
 
-
+-----------------------------
+### ■ scripts  
+commit前に下記を実行し、リソースの並びを整理する  
+`$ ./scripts/sort-Xcode-project-file UINProjectBaseSet.xcodeproj`  
+　
