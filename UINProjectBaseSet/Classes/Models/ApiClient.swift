@@ -68,6 +68,7 @@ public class ApiClient {
     
     
     // MARK: - public class functions
+    
     ///  Stubテスト用のレスポンスを設定するメソッド
     ///
     ///  - parameter statusCode:   返却されるstatusCodeを指定
