@@ -93,6 +93,12 @@ PBSBaseXibViewを利用するサンプルです。
 
 -----------------------------
 ### ■ scripts  
-commit前に下記を実行し、リソースの並びを整理する  
+commit前に下記を実行し、リソースの並びを整理しましょう。  
 `$ ./scripts/sort-Xcode-project-file UINProjectBaseSet.xcodeproj`  
-　
+　  
+　  
+-----------------------------
+### ■ Localize  
+Project Info にて English / Japanese を定義しています。
+`Resources/` 内に各言語のfileを格納しています。
+`SampleCustomView.swift` にてLocalizeのサンプルを実行しています。
