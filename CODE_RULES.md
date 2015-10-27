@@ -36,17 +36,17 @@ global property
 class  
 　　enum
 　　struct  
-　　singleton
+　　singleton  
 　　static property  
 　　private property  
-　　public property 
-　　static func
-　　class func
-　　initializer
-　　deinitializer
-　　viewdelegate
-　　private func
-　　public func 
+　　public property  
+　　static func  
+　　class func  
+　　initializer  
+　　deinitializer  
+　　viewdelegate  
+　　private func  
+　　public func  
 extension
 　
 　
