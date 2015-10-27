@@ -35,12 +35,10 @@ class UserTests: XCTestCase {
             return fixture(stubPath!, headers: ["Content-Type":"application/json"])
         }
         
-        UserService.getUserFromApi("Testちゃん", completion: { response in
-            XCTAssertEqual(response.request!.URL, NSURL(string: "https://debug-api/user?name=Test%E3%81%A1%E3%82%83%E3%82%93"), "Request url create is failed.")
-            XCTAssertEqual(response.result.value!.name, "Testちゃん", "Api response is wrong. \(response.result.value!.name)")
+        UserService.getUserFromApi("Testちゃん", completion: { (user: User?, errorType: ApiErrorType) in
+            XCTAssertEqual(user!.name, "Testちゃん", "Api response is wrong. \(user!.name)")
             
-            let json = JSON(data: response.data!)
-            let nUser = User(json: json)
+            let nUser = User(json: user!.json)
             XCTAssertEqual(nUser!.name, "Testちゃん", "Api response is wrong. \(nUser!.name)")
             
             expectation.fulfill()
@@ -59,10 +57,9 @@ class UserTests: XCTestCase {
         }
         
         let model = UserListModel()
-        model.getUserListFromApi({ (users: [User]?, response: Response<JSON, NSError>) in
+        model.getUserListFromApi({ (users: [User]?, errorType: ApiErrorType) in
             XCTAssertEqual(users![0].name, "TestList1ちゃん", "Api response is wrong. \(users![0].name)")
-            let errorType = ApiClient.sharedInstance.handleError(response.response!.statusCode)
-            XCTAssertEqual(errorType.rawValue, "ErrorNone", "ErrorType is not None")
+            XCTAssertEqual(errorType.rawValue, 200, "ErrorType is not None")
             expectation.fulfill()
         })
         
@@ -74,13 +71,12 @@ class UserTests: XCTestCase {
         let expectation = self.expectationWithDescription("Test wail")
         
         stub(isHost("debug-api")) { _ in
-            return OHHTTPStubsResponse(data: NSData(), statusCode: 404, headers: nil)
+            return OHHTTPStubsResponse(data: NSData(), statusCode: 500, headers: nil)
         }
         
         let model = UserListModel()
-        model.getUserListFromApi({ (users:[User]?, response: Response<JSON, NSError>) in
-            let errorType = ApiClient.sharedInstance.handleError(response.response!.statusCode)
-            XCTAssertEqual(errorType.rawValue, "ErrorApiUnknown", "ErrorType is not unknown")
+        model.getUserListFromApi({ (users:[User]?, errorType: ApiErrorType) in
+            XCTAssertEqual(errorType.rawValue, 500, "ErrorType is not unknown")
             XCTAssertNil(users, "Api response is not error.")
             expectation.fulfill()
         })

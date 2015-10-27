@@ -12,11 +12,26 @@ import SwiftyJSON
 import OHHTTPStubs
 
 
+// MARK: - protocol
+
 /// AlamofireのレスポンスをGenericsの型に変換するためのprotocol
 public protocol ResponseObjectSerializable {
     init?(response: NSHTTPURLResponse, representation: AnyObject)
 }
 
+
+// MARK: - global enum
+
+/// Apiエラーハンドリングのためのenum type
+///
+///  - TimeOut:   サーバタイムアウトエラー
+///  - BadParams: BadParamエラー
+///  - Unknown:   不明なエラー
+public enum ApiErrorType: Int {
+    case None = 200
+    case BadParams = 403
+    case Unknown = 500
+}
 
 
 /// Apiとのコネクトを統括するためのクラス
@@ -25,18 +40,9 @@ public class ApiClient {
     
     // MARK: - public enum
     
-    /// Apiエラーハンドリングのためのenum type
+    ///  Stubのresponseに格納するパラメータ群を格納するenum
     ///
-    ///  - TimeOut:   サーバタイムアウトエラー
-    ///  - BadParams: BadParamエラー
-    ///  - Unknown:   不明なエラー
-    public enum ApiError: String {
-        case None = "ErrorNone"
-        case BadParams = "ErrorApiBadParams"
-        case Unknown = "ErrorApiUnknown"
-    }
-    
-    
+    ///  - Stub: stubであることを明示するtype
     public enum HeaderSet {
         case Stub
         
@@ -46,6 +52,17 @@ public class ApiClient {
                 return ["Content-Type":"application/json"]
             }
         }
+    }
+    
+    
+    
+    // MARK: - singleton
+    
+    public class var sharedInstance : ApiClient {
+        struct Static {
+            static let instance : ApiClient = ApiClient()
+        }
+        return Static.instance
     }
     
     
@@ -66,13 +83,21 @@ public class ApiClient {
     }
     
     
-    
-    // MARK: - singleton
-    public class var sharedInstance : ApiClient {
-        struct Static {
-            static let instance : ApiClient = ApiClient()
+    /// NSErrorからApiErrorのtypeを判別する関数
+    ///
+    ///  - parameter error: NSError
+    ///
+    ///  - returns: ApiError enum
+    public class func getApiErrorType(statusCode: Int) -> ApiErrorType {
+        
+        switch statusCode {
+        case 200:
+            return .None
+        case 403:
+            return .BadParams
+        default:
+            return .Unknown
         }
-        return Static.instance
     }
     
     
@@ -104,23 +129,6 @@ public class ApiClient {
     
     
     
-    // MARK: - public functions
-    
-    /// NSErrorからApiErrorのtypeを判別する関数
-    ///
-    ///  - parameter error: NSError
-    ///
-    ///  - returns: ApiError enum
-    public func handleError(statusCode: Int) -> ApiError {
-        
-        switch statusCode {
-        case 200:
-            return ApiError.None
-        case 403:
-            return ApiError.BadParams
-        default:
-            return ApiError.Unknown
-        }
-    }
+
     
 }

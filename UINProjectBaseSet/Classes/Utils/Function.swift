@@ -42,9 +42,7 @@ public func Log(message: String,
 ///  - parameter title: アラートタイトルを設定
 ///  - parameter body:  アラートメッセージを設定
 public func ALERT(title title:String, body: String) {
-    #if DEBUG || STG
-        UIAlertView(title: title, message: body, delegate: nil, cancelButtonTitle: "Close").show()
-    #endif
+    UIAlertView(title: title, message: body, delegate: nil, cancelButtonTitle: "Close").show()
 }
 
 

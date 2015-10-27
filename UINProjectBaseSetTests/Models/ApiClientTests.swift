@@ -44,9 +44,8 @@ class ApiClientTests: XCTestCase {
         }
         
         let model = UserListModel()
-        model.getUserListFromApi({ (users: [User]?, response: Response<JSON, NSError>) in
-            let errorType = ApiClient.sharedInstance.handleError(response.response!.statusCode)
-            XCTAssertEqual(errorType.rawValue, "ErrorApiBadParams", "ErrorType is not 403")
+        model.getUserListFromApi({ (users: [User]?, errorType: ApiErrorType) in
+            XCTAssertEqual(errorType.rawValue, 403, "ErrorType is not 403")
             expectation.fulfill()
         })
         

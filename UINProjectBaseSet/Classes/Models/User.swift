@@ -59,7 +59,7 @@ public class UserService {
     ///
     ///  - parameter name:       ターゲットとなるユーザ名
     ///  - parameter completion: 完了時ブロック構文。引数にUserジェネリクスのResponseを渡す。
-    public class func getUserFromApi(name: String, completion: (Response<User, NSError>) -> Void) {
+    public class func getUserFromApi(name: String, completion: (User?, ApiErrorType) -> Void) {
         
         let url = ApiClient.sharedInstance.apiHostString + "/user"
         let param:[String: AnyObject] = [
@@ -72,7 +72,8 @@ public class UserService {
         #endif
         
         ApiClient.sharedInstance.alamoFireManager?.request(.GET, url, parameters: param, encoding: .URLEncodedInURL, headers: nil).responseObject({ (response: Response<User, NSError>) in
-            completion(response)
+            let type = ApiClient.getApiErrorType(response.response!.statusCode)
+            completion(response.result.value, type)
         })
     }
 }
@@ -118,7 +119,7 @@ public class UserListModel {
     ///  Apiからユーザリストを取得する
     ///
     ///  - parameter completion: 完了時ブロック構文。引数にUserArray または errorを渡す。
-    public func getUserListFromApi(completion: ([User]?, Response<JSON, NSError>) -> Void) {
+    public func getUserListFromApi(completion: ([User]?, ApiErrorType) -> Void) {
         
         let url = ApiClient.sharedInstance.apiHostString + "/userList"
         
@@ -129,7 +130,8 @@ public class UserListModel {
         
         ApiClient.sharedInstance.alamoFireManager?.request(.GET, url, parameters: nil, encoding: .URLEncodedInURL, headers: nil).responseObject({ [weak self] (response: Response<JSON, NSError>) in
             self?.setupUserListFromJSON(response, completion: { (users: [User]?, response: Response<JSON, NSError>) in
-                completion(users, response)
+                let type = ApiClient.getApiErrorType(response.response!.statusCode)
+                completion(users, type)
             })
         })
     }
