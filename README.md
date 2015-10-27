@@ -45,3 +45,10 @@ JSON型の追加
 stubリクエスト&レスポンス
   
   
+-----------------------------
+### ■ 汎用Function & extention & client
+  
+下記docsを参照  
+https://uin010bm.github.io/UINProjectBaseSet/docs/index.html  
+  
+  
